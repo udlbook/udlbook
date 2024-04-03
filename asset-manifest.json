@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/udlbook/static/css/main.e52d581a.chunk.css",
-    "main.js": "/udlbook/static/js/main.3511cbda.chunk.js",
-    "main.js.map": "/udlbook/static/js/main.3511cbda.chunk.js.map",
-    "runtime-main.js": "/udlbook/static/js/runtime-main.2b958dff.js",
-    "runtime-main.js.map": "/udlbook/static/js/runtime-main.2b958dff.js.map",
-    "static/js/2.e26c66d2.chunk.js": "/udlbook/static/js/2.e26c66d2.chunk.js",
-    "static/js/2.e26c66d2.chunk.js.map": "/udlbook/static/js/2.e26c66d2.chunk.js.map",
-    "index.html": "/udlbook/index.html",
-    "static/css/main.e52d581a.chunk.css.map": "/udlbook/static/css/main.e52d581a.chunk.css.map",
-    "static/js/2.e26c66d2.chunk.js.LICENSE.txt": "/udlbook/static/js/2.e26c66d2.chunk.js.LICENSE.txt",
-    "static/media/F23.prince.learning.turquoise.af513a4e.jpg": "/udlbook/static/media/F23.prince.learning.turquoise.af513a4e.jpg",
-    "static/media/coding.e33bff69.svg": "/udlbook/static/media/coding.e33bff69.svg",
-    "static/media/instructor.956f72a0.svg": "/udlbook/static/media/instructor.956f72a0.svg",
-    "static/media/media.9f345230.svg": "/udlbook/static/media/media.9f345230.svg",
-    "static/media/more.306a6229.svg": "/udlbook/static/media/more.306a6229.svg",
-    "static/media/square-x-twitter.a2a6cc67.svg": "/udlbook/static/media/square-x-twitter.a2a6cc67.svg"
+    "main.css": "/static/css/main.e52d581a.chunk.css",
+    "main.js": "/static/js/main.3511cbda.chunk.js",
+    "main.js.map": "/static/js/main.3511cbda.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.73639550.js",
+    "runtime-main.js.map": "/static/js/runtime-main.73639550.js.map",
+    "static/js/2.1f3a5023.chunk.js": "/static/js/2.1f3a5023.chunk.js",
+    "static/js/2.1f3a5023.chunk.js.map": "/static/js/2.1f3a5023.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.e52d581a.chunk.css.map": "/static/css/main.e52d581a.chunk.css.map",
+    "static/js/2.1f3a5023.chunk.js.LICENSE.txt": "/static/js/2.1f3a5023.chunk.js.LICENSE.txt",
+    "static/media/F23.prince.learning.turquoise.af513a4e.jpg": "/static/media/F23.prince.learning.turquoise.af513a4e.jpg",
+    "static/media/coding.e33bff69.svg": "/static/media/coding.e33bff69.svg",
+    "static/media/instructor.956f72a0.svg": "/static/media/instructor.956f72a0.svg",
+    "static/media/media.9f345230.svg": "/static/media/media.9f345230.svg",
+    "static/media/more.306a6229.svg": "/static/media/more.306a6229.svg",
+    "static/media/square-x-twitter.a2a6cc67.svg": "/static/media/square-x-twitter.a2a6cc67.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.2b958dff.js",
-    "static/js/2.e26c66d2.chunk.js",
+    "static/js/runtime-main.73639550.js",
+    "static/js/2.1f3a5023.chunk.js",
     "static/css/main.e52d581a.chunk.css",
     "static/js/main.3511cbda.chunk.js"
   ]
