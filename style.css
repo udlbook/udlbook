@@ -1,0 +1,23 @@
+body {
+    font-size: 17px;
+    margin: 2% 10%;
+}
+
+#head {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#cover {
+    justify-content: center;
+    display: flex;
+    width: 30%;
+}
+
+#cover img {
+    width: 100%;
+    height: min-content;
+}
