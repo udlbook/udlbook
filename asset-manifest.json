@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/udlbook/static/css/main.e52d581a.chunk.css",
-    "main.js": "/udlbook/static/js/main.5710441f.chunk.js",
-    "main.js.map": "/udlbook/static/js/main.5710441f.chunk.js.map",
+    "main.js": "/udlbook/static/js/main.0f77400a.chunk.js",
+    "main.js.map": "/udlbook/static/js/main.0f77400a.chunk.js.map",
     "runtime-main.js": "/udlbook/static/js/runtime-main.2b958dff.js",
     "runtime-main.js.map": "/udlbook/static/js/runtime-main.2b958dff.js.map",
     "static/js/2.e26c66d2.chunk.js": "/udlbook/static/js/2.e26c66d2.chunk.js",
@@ -21,6 +21,6 @@
     "static/js/runtime-main.2b958dff.js",
     "static/js/2.e26c66d2.chunk.js",
     "static/css/main.e52d581a.chunk.css",
-    "static/js/main.5710441f.chunk.js"
+    "static/js/main.0f77400a.chunk.js"
   ]
 }
