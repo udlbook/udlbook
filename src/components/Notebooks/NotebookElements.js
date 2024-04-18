@@ -34,16 +34,30 @@ export const NotebookRow = styled.div`
     }
 `
 
-export const Column1 = styled.div` 
+export const Column1 = styled.p` 
     margin-bottom: 15px;
     padding: 0 15px;
     grid-area: col1;
+    @media screen and (max-width: 1050px) {
+        font-size: 12px;
+    }
+
+    @media screen and (max-width: 768px) {
+        font-size: 10px;
+    }
 `
 
-export const Column2 = styled.div` 
+export const Column2 = styled.p` 
     margin-bottom: 15px;
     padding: 0 15px;
     grid-area: col2;
+    @media screen and (max-width: 1050px) {
+        font-size: 12px;
+    }
+
+    @media screen and (max-width: 768px) {
+        font-size: 10px;
+    }
 `
 
 export const TextWrapper = styled.div`
@@ -83,7 +97,6 @@ export const Subtitle = styled.p`
     font-size: 18px;
     line-height: 24px;
     color: ${({darkText})=> (darkText ? '#010606' : '#fff')};
-
 `
 
 export const BtnWrap = styled.div`
@@ -103,3 +116,32 @@ export const Img = styled.img`
   margin-left: 10px;
   padding-right: 0;
 `;
+
+
+export const NBLink = styled.a`
+    text-decoration: none;
+    color: #57c6d1;;
+    font-weight: 300;
+    margin: 0 2px;
+    position: relative;
+
+    &:before{
+        position: absolute;
+        margin: 0 auto;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #57c6d1;;
+        content: '';
+        opacity: .3;
+        -webkit-transform: scaleX(1);
+        transition-property: opacity, -webkit-transform;
+        transition-duration: .3s;
+    }
+
+    &:hover:before {
+        opacity: 1;
+        -webkit-transform: scaleX(1.05);
+      }
+`

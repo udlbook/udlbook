@@ -84,32 +84,29 @@ export const HeroNewsItem = styled.div`
     margin-bottom: 16px;
     display: flex;  
     justify-content: start;
+
 `
 export const HeroNewsItemDate = styled.div`
     width: 20%;
-    font-size: 16px ; 
     margin-right: 20px ; 
-
     @media screen and (max-width: 768px) {
-        font-size: 24px;
+        font-size: 12px;
     }
-
     @media screen and (max-width: 480px) {
-        font-size: 18px;
+        font-size: 12px;
     }
 `
 
 export const HeroNewsItemContent = styled.div`
     width: 80%; 
     color: #000000;
-    font-size: 16px ; 
 
     @media screen and (max-width: 768px) {
-        font-size: 24px;
+        font-size: 12px;
     }
 
     @media screen and (max-width: 480px) {
-        font-size: 18px;
+        font-size: 12px;
     }
 `
 
@@ -167,19 +164,88 @@ export const HeroDownloadsImg = styled.img`
 export const HeroLink = styled.a`
   color: #fff;
   text-decoration: none;
-  padding: 0.1rem 0rem;
-  height: 100%;
+  padding: 0.6rem 0rem 0rem 0rem;
   cursor: pointer;
+  position:relative ; 
 
-  &:hover {
-    filter: brightness(0.85);
-  }
+  &:before{
+    position: absolute;
+    margin: 0 auto;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    content: '';
+    opacity: .3;
+    -webkit-transform: scaleX(1);
+    transition-property: opacity, -webkit-transform;
+    transition-duration: .3s;
+}
 
-  &.active {
-    color: #000
-    border-bottom: 3px solid #01bf71;
+    &:hover:before {
+    opacity: 1;
+    -webkit-transform: scaleX(1.05);
   }
 `;
+
+//   color: #fff;
+//   text-decoration: none;
+//   padding: 0.1rem 0rem;
+//   height: 100%;
+//   cursor: pointer;
+//   position:relative ; 
+
+//   &:before{
+//     position: absolute;
+//     margin: 0 auto;
+//     top: 100%;
+//     left: 0;
+//     width: 100%;
+//     height: 2px;
+//     background-color: #000;
+//     content: '';
+//     opacity: .3;
+//     -webkit-transform: scaleX(1);
+//     transition-property: opacity, -webkit-transform;
+//     transition-duration: .3s;
+// }
+
+//     &:hover:before {
+//     opacity: 1;
+//     -webkit-transform: scaleX(1.05);
+//   }
+// `;
+
+export const UDLLink = styled.a`
+    text-decoration: none;
+    color: #000;
+    font-weight: 300;
+    margin: 0 2px;
+    position: relative;
+
+    &:before{
+        position: absolute;
+        margin: 0 auto;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #000;
+        content: '';
+        opacity: .3;
+        -webkit-transform: scaleX(1);
+        transition-property: opacity, -webkit-transform;
+        transition-duration: .3s;
+    }
+
+    &:hover:before {
+        opacity: 1;
+        -webkit-transform: scaleX(1.05);
+      }
+`
+
+
 
 
 export const HeroNewsTitle = styled.div` 
@@ -233,10 +299,6 @@ export const HeroCitationBlock = styled.div`
 
 export const HeroFollowBlock = styled.div`
 @media screen and (max-width: 768px) {
-    font-size: 24px;
-}
-
-@media screen and (max-width: 480px) {
-    font-size: 18px;
+    font-size: 14px;
 }
 `

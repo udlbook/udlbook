@@ -135,10 +135,18 @@ export const MoreOuterList = styled.ul`
     // list-style:none;
     list-style-position: inside;
     margin:0;
+    @media screen and (max-width: 768px) {
+        font-size: 14px;
+    }
+
 `
 
 export const MoreInnerList = styled.ul`
     list-style-position: inside;
+    @media screen and (max-width: 768px) {
+        font-size: 12px;
+    }
+
 `
 
 export const MoreInnerP = styled.p`
@@ -149,19 +157,31 @@ export const MoreInnerP = styled.p`
     color: #fff
 `
 
+
 export const MoreLink = styled.a`
-  color: #fff;
-  text-decoration: none;
-  padding: 0.1rem 0rem;
-  height: 100%;
-  cursor: pointer;
+    text-decoration: none;
+    color: #555;
+    font-weight: 300;
+    margin: 0 2px;
+    position: relative;
 
-  &:hover {
-    filter: brightness(0.85);
-  }
+    &:before{
+        position: absolute;
+        margin: 0 auto;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #555;
+        content: '';
+        opacity: .3;
+        -webkit-transform: scaleX(1);
+        transition-property: opacity, -webkit-transform;
+        transition-duration: .3s;
+    }
 
-  &.active {
-    color: #000
-    border-bottom: 3px solid #01bf71;
-  }
-`;
+    &:hover:before {
+        opacity: 1;
+        -webkit-transform: scaleX(1.05);
+      }
+`

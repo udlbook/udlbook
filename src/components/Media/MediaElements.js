@@ -125,6 +125,10 @@ export const MediaContent = styled.div`
     flex-direction: column;
     align-items: left ; 
     list-style-position: inside;
+    @media screen and (max-width: 768px) {
+        font-size: 14px;
+    }
+
 `
 
 export const MediaRow2 = styled.div` 
@@ -136,4 +140,44 @@ export const MediaRow2 = styled.div`
     @media screen and (max-width: 768px){
         grid-template-areas: ${({imgStart}) => (imgStart ? `'col1' 'col2'` : `'col1 col1' 'col2 col2'`)};
     }
+`
+
+export const VideoFrame=styled.div`
+    width: 560px ; 
+    height: 315px ; 
+    @media screen and (max-width: 1050px) {
+        width: 280px ; 
+        height: 157px ; 
+    }
+
+
+`
+
+
+export const MediaLink = styled.a`
+    text-decoration: none;
+    color: #57c6d1;
+    font-weight: 300;
+    margin: 0 2px;
+    position: relative;
+
+    &:before{
+        position: absolute;
+        margin: 0 auto;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #57c6d1;;
+        content: '';
+        opacity: .3;
+        -webkit-transform: scaleX(1);
+        transition-property: opacity, -webkit-transform;
+        transition-duration: .3s;
+    }
+
+    &:hover:before {
+        opacity: 1;
+        -webkit-transform: scaleX(1.05);
+      }
 `

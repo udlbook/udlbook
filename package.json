@@ -2,7 +2,7 @@
   "name": "react-website-smooth-scroll",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://udlbook.github.io/udlbook/",
+  "homepage": "https://udlbook.github.io/udlbook",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@testing-library/jest-dom": "^5.15.1",

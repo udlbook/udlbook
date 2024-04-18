@@ -29,7 +29,7 @@ const Navbar = ( {toggle} ) => {
         <IconContext.Provider value={{color: '#fff'}}>
             <Nav scrollNav={scrollNav}>
                 <NavbarContainer>
-                    <NavLogo to="/" onClick={toggleHome}>
+                    <NavLogo to="/udlbook/" onClick={toggleHome}>
                         <h1> Understanding Deep Learning </h1>
                     </NavLogo>
                     <MobileIcon onClick={toggle}>

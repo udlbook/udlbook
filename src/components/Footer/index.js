@@ -16,7 +16,7 @@ const Footer = () => {
                 <FooterWrap>
                     <SocialMedia>
                         <SocialMediaWrap>
-                            <SocialLogo to='/' onClick={toggleHome}>
+                            <SocialLogo to='/udlbook/' onClick={toggleHome}>
                                 Understanding Deep Learning
                             </SocialLogo>
                             <WebsiteRights>©{new Date().getFullYear()} Simon J.D. Prince</WebsiteRights>

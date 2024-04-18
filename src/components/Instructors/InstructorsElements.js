@@ -127,4 +127,39 @@ export const InstructorsContent = styled.div`
     flex-direction: column;
     align-items: left ; 
     list-style-position: inside;
+    @media screen and (max-width: 1050px) {
+        font-size: 12px;
+    }
+
+    @media screen and (max-width: 768px) {
+        font-size: 10px;
+    }
+`
+
+export const InstructorsLink = styled.a`
+    text-decoration: none;
+    color: #555;
+    font-weight: 300;
+    margin: 0 2px;
+    position: relative;
+
+    &:before{
+        position: absolute;
+        margin: 0 auto;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #555;
+        content: '';
+        opacity: .3;
+        -webkit-transform: scaleX(1);
+        transition-property: opacity, -webkit-transform;
+        transition-duration: .3s;
+    }
+
+    &:hover:before {
+        opacity: 1;
+        -webkit-transform: scaleX(1.05);
+      }
 `
