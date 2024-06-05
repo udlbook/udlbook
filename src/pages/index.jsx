@@ -8,7 +8,7 @@ import Navbar from "../components/NavBar";
 import NotebookSection from "../components/Notebooks";
 import Sidebar from "../components/Sidebar";
 
-const Home = () => {
+export default function Home() {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => {
@@ -27,6 +27,4 @@ const Home = () => {
             <Footer />
         </>
     );
-};
-
-export default Home;
+}

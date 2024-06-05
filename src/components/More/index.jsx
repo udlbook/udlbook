@@ -18,7 +18,7 @@ import {
     TopLine,
 } from "./MoreElements";
 
-const MoreSection = () => {
+export default function MoreSection() {
     return (
         <>
             <MoreContainer lightBg={true} id="More">
@@ -1054,6 +1054,4 @@ const MoreSection = () => {
             </MoreContainer>
         </>
     );
-};
-
-export default MoreSection;
+}

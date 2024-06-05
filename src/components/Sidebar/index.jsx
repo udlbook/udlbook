@@ -7,7 +7,7 @@ import {
     SidebarWrapper,
 } from "./SidebarElements";
 
-const Sidebar = ({ isOpen, toggle }) => {
+export default function Sidebar({ isOpen, toggle }) {
     return (
         <>
             <SidebarContainer isOpen={isOpen} onClick={toggle}>
@@ -33,6 +33,4 @@ const Sidebar = ({ isOpen, toggle }) => {
             </SidebarContainer>
         </>
     );
-};
-
-export default Sidebar;
+}

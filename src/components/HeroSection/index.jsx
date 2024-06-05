@@ -21,7 +21,7 @@ import {
     UDLLink,
 } from "./HeroElements";
 
-const HeroSection = () => {
+export default function HeroSection() {
     const citation = `
     @book{prince2023understanding,
         author = "Simon J.D. Prince",
@@ -162,6 +162,4 @@ const HeroSection = () => {
             </HeroContent>
         </HeroContainer>
     );
-};
-
-export default HeroSection;
+}

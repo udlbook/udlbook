@@ -1,7 +1,7 @@
 import img from '../../images/coding.svg'
 import { Column1, Column2, Heading, Img, ImgWrap, NBLink, NotebookContainer, NotebookRow, NotebookWrapper, Subtitle, TextWrapper, TopLine } from './NotebookElements'
 
-const NotebookSection = () => {
+export default function NotebookSection() {
     return (
         <>
             <NotebookContainer lightBg={false} id='Notebooks'>
@@ -193,5 +193,3 @@ const NotebookSection = () => {
         </>
     )
 }
-
-export default NotebookSection

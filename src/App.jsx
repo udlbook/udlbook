@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages";
 import "./styles/App.css";
 
-function App() {
+export default function App() {
     return (
         <Router>
             <Routes>
@@ -11,5 +11,3 @@ function App() {
         </Router>
     );
 }
-
-export default App;

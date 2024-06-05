@@ -16,7 +16,7 @@ import {
     TopLine,
 } from "./InstructorsElements";
 
-const InstructorsSection = () => {
+export default function InstructorsSection() {
     return (
         <>
             <InstructorsContainer lightBg={true} id="Instructors">
@@ -497,6 +497,4 @@ const InstructorsSection = () => {
             </InstructorsContainer>
         </>
     );
-};
-
-export default InstructorsSection;
+}

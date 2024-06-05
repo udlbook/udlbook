@@ -12,7 +12,7 @@ import {
     NavMenu,
 } from "./NavbarElements";
 
-const Navbar = ({ toggle }) => {
+export default function NavBar({ toggle }) {
     const [scrollNav, setScrollNav] = useState(false);
 
     const changeNav = () => {
@@ -101,6 +101,4 @@ const Navbar = ({ toggle }) => {
             </IconContext.Provider>
         </>
     );
-};
-
-export default Navbar;
+}

@@ -13,7 +13,7 @@ import {
     WebsiteRights,
 } from "./FooterElements";
 
-const Footer = () => {
+export default function Footer() {
     const toggleHome = () => {
         scroll.scrollToTop();
     };
@@ -70,6 +70,4 @@ const Footer = () => {
             </FooterContainer>
         </>
     );
-};
-
-export default Footer;
+}

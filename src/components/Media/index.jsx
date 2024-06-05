@@ -17,7 +17,7 @@ import {
     VideoFrame,
 } from "./MediaElements";
 
-const MediaSection = () => {
+export default function MediaSection() {
     return (
         <>
             <MediaContainer lightBg={false} id="Media">
@@ -123,6 +123,4 @@ const MediaSection = () => {
             </MediaContainer>
         </>
     );
-};
-
-export default MediaSection;
+}
