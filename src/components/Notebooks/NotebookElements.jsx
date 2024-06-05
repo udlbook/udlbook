@@ -14,7 +14,7 @@ export const NotebookWrapper = styled.div`
     display: grid;
     z-index: 1;
     /* height: 1250px; */
-    width: 100% ;
+    width: 100%;
     max-width: 1100px;
     margin-right: auto;
     margin-left: auto;
@@ -62,7 +62,7 @@ export const Column2 = styled.p`
 `
 
 export const TextWrapper = styled.div`
-    max-width: 540px ;
+    max-width: 540px;
     padding-top: 0;
     padding-bottom: 0;
 `

@@ -15,16 +15,20 @@ import {
 export default function NavBar({ toggle }) {
     const [scrollNav, setScrollNav] = useState(false);
 
-    const changeNav = () => {
-        if (window.scrollY >= 80) {
-            setScrollNav(true);
-        } else {
-            setScrollNav(false);
-        }
-    };
-
     useEffect(() => {
+        const changeNav = () => {
+            if (window.scrollY >= 80) {
+                setScrollNav(true);
+            } else {
+                setScrollNav(false);
+            }
+        };
+
         window.addEventListener("scroll", changeNav);
+
+        return () => {
+            window.removeEventListener("scroll", changeNav);
+        };
     }, []);
 
     const toggleHome = () => {

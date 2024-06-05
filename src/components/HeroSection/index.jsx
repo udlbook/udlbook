@@ -1,4 +1,3 @@
-import React from "react";
 import img from "../../images/F23.prince.learning.turquoise.jpg";
 import {
     HeroCitationBlock,
@@ -124,7 +123,7 @@ export default function HeroSection() {
                         <HeroCitationBlock>
                             <pre>
                                 <code>
-                                    <React.Fragment>{citation}</React.Fragment>
+                                    <>{citation}</>
                                 </code>
                             </pre>
                         </HeroCitationBlock>
