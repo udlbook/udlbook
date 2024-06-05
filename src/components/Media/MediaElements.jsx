@@ -120,6 +120,7 @@ export const MediaContent = styled.div`
     flex-direction: column;
     align-items: left;
     list-style-position: inside;
+
     @media screen and (max-width: 768px) {
         font-size: 14px;
     }
@@ -140,6 +141,7 @@ export const MediaRow2 = styled.div`
 export const VideoFrame = styled.div`
     width: 560px;
     height: 315px;
+
     @media screen and (max-width: 1050px) {
         width: 280px;
         height: 157px;

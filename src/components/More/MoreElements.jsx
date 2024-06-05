@@ -13,7 +13,7 @@ export const MoreContainer = styled.div`
 export const MoreWrapper = styled.div`
     display: grid;
     z-index: 1;
-    // height: 1050px ;
+    /* height: 1050px; */
     width: 100%;
     max-width: 1100px;
     margin-right: auto;
@@ -127,9 +127,10 @@ export const MoreContent = styled.div`
 `;
 
 export const MoreOuterList = styled.ul`
-    // list-style:none;
+    /* list-style:none; */
     list-style-position: inside;
     margin: 0;
+
     @media screen and (max-width: 768px) {
         font-size: 14px;
     }
@@ -137,6 +138,7 @@ export const MoreOuterList = styled.ul`
 
 export const MoreInnerList = styled.ul`
     list-style-position: inside;
+
     @media screen and (max-width: 768px) {
         font-size: 12px;
     }

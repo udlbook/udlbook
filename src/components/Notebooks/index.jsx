@@ -1,27 +1,5 @@
-import React from 'react'
-import { NBLink, ImgWrap, Img, NotebookContainer, NotebookWrapper, NotebookRow, Column1, Column2, TextWrapper, TopLine, Heading, Subtitle} from './NotebookElements'
-
-// export const homeObjOne = {
-//     id: 'about',
-//     lightBg: false,
-//     lightText: true,
-//     lightTextDesc: true,
-//     topLine: 'Premium Bank',
-//     headline: 'Unlimited transactions with zero fees',
-//     description:
-//       'Get access to our exclusive app that allows you to send unlimited transactions without getting charged any fees',
-//     buttonLabel: 'Get Started',
-//     imgStart: false,
-//     img: require('../../images/svg-1.svg').default,
-//     alt: 'Car',
-//     dark: true,
-//     primary: true,
-//     darkText: false
-//   };
-
 import img from '../../images/coding.svg'
-
-
+import { Column1, Column2, Heading, Img, ImgWrap, NBLink, NotebookContainer, NotebookRow, NotebookWrapper, Subtitle, TextWrapper, TopLine } from './NotebookElements'
 
 const NotebookSection = () => {
     return (
@@ -210,7 +188,6 @@ const NotebookSection = () => {
                             </ul>
                         </Column2>
                     </NotebookRow>
-
                 </NotebookWrapper>
             </NotebookContainer>
         </>

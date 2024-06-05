@@ -23,12 +23,13 @@ import {
 
 const HeroSection = () => {
     const citation = `
-@book{prince2023understanding,
-    author = "Simon J.D. Prince",
-    title = "Understanding Deep Learning",
-    publisher = "The MIT Press",
-    year = 2023,
-    url = "http://udlbook.com"}
+    @book{prince2023understanding,
+        author = "Simon J.D. Prince",
+        title = "Understanding Deep Learning",
+        publisher = "The MIT Press",
+        year = 2023,
+        url = "http://udlbook.com"
+    }
     `;
 
     return (
@@ -38,7 +39,6 @@ const HeroSection = () => {
                     <HeroColumn1>
                         <HeroNewsBlock>
                             <HeroNewsTitle>RECENT NEWS:</HeroNewsTitle>
-
                             <HeroNewsItem>
                                 <HeroNewsItemDate>03/12/24</HeroNewsItemDate>
                                 <HeroNewsItemContent>
@@ -46,7 +46,6 @@ const HeroSection = () => {
                                     Book now available again.
                                 </HeroNewsItemContent>
                             </HeroNewsItem>
-
                             <HeroNewsItem>
                                 <HeroNewsItemDate>02/21/24</HeroNewsItemDate>
                                 <HeroNewsItemContent>
@@ -64,7 +63,6 @@ const HeroSection = () => {
                                     printing available mid-March.
                                 </HeroNewsItemContent>
                             </HeroNewsItem>
-
                             <HeroNewsItem>
                                 <HeroNewsItemDate>01/29/24</HeroNewsItemDate>
                                 <HeroNewsItemContent>
@@ -77,7 +75,6 @@ const HeroSection = () => {
                                     published.
                                 </HeroNewsItemContent>
                             </HeroNewsItem>
-
                             <HeroNewsItem>
                                 <HeroNewsItemDate>12/26/23</HeroNewsItemDate>
                                 <HeroNewsItemContent>
@@ -90,7 +87,6 @@ const HeroSection = () => {
                                     discussing book.
                                 </HeroNewsItemContent>
                             </HeroNewsItem>
-
                             <HeroNewsItem>
                                 <HeroNewsItemDate>12/19/23</HeroNewsItemDate>
                                 <HeroNewsItemContent>
@@ -101,7 +97,6 @@ const HeroSection = () => {
                                     discussing book.
                                 </HeroNewsItemContent>
                             </HeroNewsItem>
-
                             <HeroNewsItem>
                                 <HeroNewsItemDate>12/06/23</HeroNewsItemDate>
                                 <HeroNewsItemContent>
@@ -113,7 +108,6 @@ const HeroSection = () => {
                                     discussing the book with Borealis AI.
                                 </HeroNewsItemContent>
                             </HeroNewsItem>
-
                             <HeroNewsItem>
                                 <HeroNewsItemDate>12/05/23</HeroNewsItemDate>
                                 <HeroNewsItemContent>

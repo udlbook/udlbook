@@ -122,6 +122,7 @@ export const InstructorsContent = styled.div`
     flex-direction: column;
     align-items: left;
     list-style-position: inside;
+
     @media screen and (max-width: 1050px) {
         font-size: 12px;
     }

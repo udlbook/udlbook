@@ -8,7 +8,6 @@ export const HeroContainer = styled.div`
     padding: 0 0px;
     position: static;
     z-index: 1;
-    }
 `;
 
 export const HeroContent = styled.div`
@@ -22,6 +21,7 @@ export const HeroContent = styled.div`
     flex-direction: column;
     align-items: center;
 `;
+
 export const HeroH1 = styled.h1`
     color: #fff;
     font-size: 48px;
@@ -59,8 +59,8 @@ export const HeroBtnWrapper = styled.div`
     align-items: center;
 `;
 
-export const HeroRow = styled.div` 
-    display: grid; 
+export const HeroRow = styled.div`
+    display: grid;
     grid-auto-columns: minmax(auto, 1fr);
     align-items: top;
     grid-template-areas:  'col1 col2' };
@@ -74,17 +74,20 @@ export const HeroNewsItem = styled.div`
     margin-left: 4px;
     color: #000000;
     font-size: 16px;
-    // line-height: 16px;
+    /* line-height: 16px; */
     margin-bottom: 16px;
     display: flex;
     justify-content: start;
 `;
+
 export const HeroNewsItemDate = styled.div`
     width: 20%;
     margin-right: 20px;
+
     @media screen and (max-width: 768px) {
         font-size: 12px;
     }
+
     @media screen and (max-width: 480px) {
         font-size: 12px;
     }
@@ -130,6 +133,7 @@ export const TextWrapper = styled.div`
     padding-top: 0;
     padding-bottom: 0;
 `;
+
 export const HeroImgWrap = styled.div`
     max-width: 555px;
     height: 100%;
@@ -180,34 +184,6 @@ export const HeroLink = styled.a`
         -webkit-transform: scaleX(1.05);
     }
 `;
-
-//   color: #fff;
-//   text-decoration: none;
-//   padding: 0.1rem 0rem;
-//   height: 100%;
-//   cursor: pointer;
-//   position:relative ;
-
-//   &:before{
-//     position: absolute;
-//     margin: 0 auto;
-//     top: 100%;
-//     left: 0;
-//     width: 100%;
-//     height: 2px;
-//     background-color: #000;
-//     content: '';
-//     opacity: .3;
-//     -webkit-transform: scaleX(1);
-//     transition-property: opacity, -webkit-transform;
-//     transition-duration: .3s;
-// }
-
-//     &:hover:before {
-//     opacity: 1;
-//     -webkit-transform: scaleX(1.05);
-//   }
-// `;
 
 export const UDLLink = styled.a`
     text-decoration: none;
@@ -275,6 +251,7 @@ export const HeroCitationTitle = styled.div`
 `;
 
 export const HeroNewsBlock = styled.div``;
+
 export const HeroCitationBlock = styled.div`
     font-size: 14px;
     margin-bottom: 0px;

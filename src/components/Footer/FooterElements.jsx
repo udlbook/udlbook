@@ -26,6 +26,7 @@ export const FooterLinksContainer = styled.div`
 
 export const FooterLinksWrapper = styled.div`
     display: flex;
+
     @media screen and (max-width: 820px) {
         flex-direction: column;
     }
@@ -105,6 +106,7 @@ export const SocialLogo = styled(Link)`
     align-items: center;
     margin-bottom: 16px;
     font-weight: bold;
+
     @media screen and (max-width: 768px) {
         font-size: 20px;
     }

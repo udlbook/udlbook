@@ -58,8 +58,8 @@ const MoreSection = () => {
                                             <li> 2012 book published with CUP </li>
                                             <li> Focused on probabilistic models </li>
                                             <li> Pre-"deep learning" </li>
-                                            <li> Lots of ML content</li>
-                                            <li> Individual chapters available below</li>
+                                            <li> Lots of ML content </li>
+                                            <li> Individual chapters available below </li>
                                         </MoreInnerList>
                                     </MoreInnerP>
                                 </li>
@@ -77,12 +77,12 @@ const MoreSection = () => {
                                     </MoreLink>
                                     <MoreInnerP>
                                         <MoreInnerList>
-                                            <li> What is an LLM?</li>
-                                            <li> Pretraining</li>
-                                            <li> Instruction fine-tuning</li>
-                                            <li> Reinforcement learning from human feedback</li>
-                                            <li> Notable LLMs</li>
-                                            <li> LLMs without training from scratch</li>
+                                            <li> What is an LLM? </li>
+                                            <li> Pretraining </li>
+                                            <li> Instruction fine-tuning </li>
+                                            <li>Reinforcement learning from human feedback </li>
+                                            <li> Notable LLMs </li>
+                                            <li> LLMs without training from scratch </li>
                                         </MoreInnerList>
                                     </MoreInnerP>
                                 </li>

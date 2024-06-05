@@ -1,3 +1,4 @@
+import img from "../../images/media.svg";
 import {
     Column1,
     Column2,
@@ -15,26 +16,6 @@ import {
     TopLine,
     VideoFrame,
 } from "./MediaElements";
-
-// export const homeObjOne = {
-//     id: 'about',
-//     lightBg: false,
-//     lightText: true,
-//     lightTextDesc: true,
-//     topLine: 'Premium Bank',
-//     headline: 'Unlimited transactions with zero fees',
-//     description:
-//       'Get access to our exclusive app that allows you to send unlimited transactions without getting charged any fees',
-//     buttonLabel: 'Get Started',
-//     imgStart: false,
-//     img: require('../../images/svg-1.svg').default,
-//     alt: 'Car',
-//     dark: true,
-//     primary: true,
-//     darkText: false
-//   };
-
-import img from "../../images/media.svg";
 
 const MediaSection = () => {
     return (
@@ -69,7 +50,7 @@ const MediaSection = () => {
                                     height="100%"
                                     src="https://www.youtube.com/embed/sJXn4Cl4oww?si=Lm_hQPqj0RXy-75H&amp;controls=0"
                                     title="YouTube video player"
-                                    frameborder="2"
+                                    frameBorder="2"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                     allowfullscreen
                                 ></iframe>
@@ -83,7 +64,7 @@ const MediaSection = () => {
                                     height="100%"
                                     src="https://www.youtube.com/embed/nQf4o9TDSHI?si=uMk66zLD7uhuSnQ1&amp;controls=0"
                                     title="YouTube video player"
-                                    frameborder="2"
+                                    frameBorder="2"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                     allowfullscreen
                                 ></iframe>
