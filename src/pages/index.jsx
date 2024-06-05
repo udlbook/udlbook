@@ -1,34 +1,32 @@
-import React, {useState} from 'react'
-import Sidebar from '../components/Sidebar'
-import Navbar from '../components/NavBar'
-import HeroSection from '../components/HeroSection';
-import NotebookSection from '../components/Notebooks'
-import InstructorsSection from '../components/Instructors';
-import Footer from '../components/Footer';
-import MediaSection from '../components/Media';
-import MoreSection from '../components/More';
+import { useState } from "react";
+import Footer from "../components/Footer";
+import HeroSection from "../components/HeroSection";
+import InstructorsSection from "../components/Instructors";
+import MediaSection from "../components/Media";
+import MoreSection from "../components/More";
+import Navbar from "../components/NavBar";
+import NotebookSection from "../components/Notebooks";
+import Sidebar from "../components/Sidebar";
 
 const Home = () => {
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => {
-        setIsOpen(!isOpen)
+        setIsOpen(!isOpen);
     };
 
-    return ( 
+    return (
         <>
-            <Sidebar isOpen={isOpen} toggle={toggle}/>
-            <Navbar toggle={toggle}/>
+            <Sidebar isOpen={isOpen} toggle={toggle} />
+            <Navbar toggle={toggle} />
             <HeroSection />
-            <NotebookSection/>
-            <InstructorsSection/>
-            <MediaSection/>
-            <MoreSection/>
-            <Footer/>                
+            <NotebookSection />
+            <InstructorsSection />
+            <MediaSection />
+            <MoreSection />
+            <Footer />
         </>
-    )
+    );
 };
 
-export default Home
-
- 
+export default Home;

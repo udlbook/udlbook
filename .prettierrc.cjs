@@ -8,9 +8,7 @@ const prettierConfig = {
     bracketSpacing: true,
     printWidth: 100,
     endOfLine: "lf",
-    plugins: [
-        require.resolve("prettier-plugin-organize-imports"),
-    ],
+    plugins: [require.resolve("prettier-plugin-organize-imports")],
 };
 
 module.exports = prettierConfig;
