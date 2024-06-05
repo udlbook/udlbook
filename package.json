@@ -1,8 +1,17 @@
 {
-  "name": "react-website-smooth-scroll",
+  "name": "udlbook-website",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://udlbook.github.io/udlbook",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "clean": "rm -rf node_modules build"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "react": "^18.0.2",
@@ -12,14 +21,6 @@
     "react-scripts": "4.0.3",
     "react-scroll": "^1.8.4",
     "styled-components": "^5.3.3"
-  },
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "@vitejs/plugin-react-swc": "^3.5.0",
