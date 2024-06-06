@@ -23,18 +23,28 @@ const HeroSection = () => {
                             <HeroNewsTitle>RECENT NEWS:</HeroNewsTitle>
 
                             <HeroNewsItem>
-                                <HeroNewsItemDate>03/12/24</HeroNewsItemDate>
-                                <HeroNewsItemContent> Book now available again.</HeroNewsItemContent>
+                                <HeroNewsItemDate>05/22/24</HeroNewsItemDate>
+                                <HeroNewsItemContent> New <UDLLink href="https://www.borealisai.com/research-blogs/neural-tangent-kernel-applications/"> blog  </UDLLink> about the applications of the neural tangent kernel.</HeroNewsItemContent>
                             </HeroNewsItem>
 
                             <HeroNewsItem>
-                                <HeroNewsItemDate>02/21/24</HeroNewsItemDate>
-                                <HeroNewsItemContent>New blog about the <UDLLink href="https://www.borealisai.com/research-blogs/the-neural-tangent-kernel/">Neural Tangent Kernel.</UDLLink></HeroNewsItemContent>
+                                <HeroNewsItemDate>05/10/24</HeroNewsItemDate>
+                                <HeroNewsItemContent> Positive <UDLLink href="https://github.com/udlbook/udlbook/blob/main/public/NMI_Review.pdf">review</UDLLink> in Nature Machine Intelligence.</HeroNewsItemContent>
                             </HeroNewsItem>
+
+                            {/* <HeroNewsItem>
+                                <HeroNewsItemDate>03/12/24</HeroNewsItemDate>
+                                <HeroNewsItemContent> Book now available again.</HeroNewsItemContent>
+                            </HeroNewsItem> */}
+
                             <HeroNewsItem>
+                                <HeroNewsItemDate>02/21/24</HeroNewsItemDate>
+                                <HeroNewsItemContent>New blog about the <UDLLink href="https://www.borealisai.com/research-blogs/the-neural-tangent-kernel/">Neural Tangent Kernel</UDLLink>.</HeroNewsItemContent>
+                            </HeroNewsItem>
+                            {/* <HeroNewsItem>
                                 <HeroNewsItemDate>02/15/24</HeroNewsItemDate>
                                 <HeroNewsItemContent> First printing of book has sold out in most places. Second printing available mid-March.</HeroNewsItemContent>
-                            </HeroNewsItem>
+                            </HeroNewsItem> */}
 
 
                             <HeroNewsItem>
@@ -54,7 +64,7 @@ const HeroSection = () => {
 
                             <HeroNewsItem>
                                 <HeroNewsItemDate>12/06/23</HeroNewsItemDate>
-                                <HeroNewsItemContent> I did an <UDLLink href="https://www.borealisai.com/news/understanding-deep-learning/">interview</UDLLink> discussing the book with Borealis AI.</HeroNewsItemContent>
+                                <HeroNewsItemContent> <UDLLink href="https://www.borealisai.com/news/understanding-deep-learning/">Interview</UDLLink>  with Borealis AI.</HeroNewsItemContent>
                             </HeroNewsItem>
 
                             <HeroNewsItem>
@@ -79,7 +89,7 @@ const HeroSection = () => {
                         <HeroImgWrap>
                             <Img src={img} alt="book cover"/>
                         </HeroImgWrap>
-                        <HeroLink href="https://github.com/udlbook/udlbook/releases/download/v2.05/UnderstandingDeepLearning_04_18_24_C.pdf">Download full pdf (18 Apr 2024)</HeroLink>
+                        <HeroLink href="https://github.com/udlbook/udlbook/releases/download/v4.0.1/UnderstandingDeepLearning_05_27_24_C.pdf">Download full pdf (27 May 2024)</HeroLink>
                         <HeroDownloadsImg src="https://img.shields.io/github/downloads/udlbook/udlbook/total" alt="download stats shield"/>
                         <HeroLink href="https://mitpress.mit.edu/9780262048644/understanding-deep-learning/">Buy the book</HeroLink>
                         <HeroLink href="https://github.com/udlbook/udlbook/raw/main/UDL_Answer_Booklet_Students.pdf">Answers to selected questions</HeroLink>

@@ -285,19 +285,22 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                             </MoreOuterList>
+                  
+                            <TopLine>Temporal models</TopLine>
+                            <MoreOuterList>
                                 <li>
-                                    <MoreLink href="https://www.borealisai.com/en/blog/tutorial-11-sat-solvers-iii-factor-graphs-and-smt-solvers/" target="_blank"  rel="noreferrer">SAT Solvers III</MoreLink>
+                                    <MoreLink href="https://drive.google.com/file/d/1rrzGNyZDjXQ3_9ZqCGDmRMM3GYtHSBvj/view?usp=sharing" target="_blank"  rel="noreferrer">Temporal models</MoreLink>
                                     <MoreInnerP>
                                         <MoreInnerList> 
-                                            <li> Satisfiability vs. problem size </li>
-                                            <li> Factor graph representation </li>
-                                            <li> Max product / sum product for SAT </li>
-                                            <li> Survey propagation </li>
-                                            <li> SAT with non-binary variables </li>
-                                            <li> SMT solvers </li>
+                                            <li> Kalman filter </li>
+                                            <li> Smoothing </li>
+                                            <li> Extended Kalman filter </li>
+                                            <li> Unscented Kalman filter </li>
+                                            <li> Particle filtering </li>
                                         </MoreInnerList>
                                     </MoreInnerP>
                                 </li>
+                            </MoreOuterList>
 
                             <TopLine>Computer vision</TopLine>
                                 <MoreOuterList>
@@ -400,28 +403,27 @@ const MoreSection = () => {
                                             <li> Training dynamics </li>
                                             <li> Empirical NTK for shallow network</li>
                                             <li> Analytical NTK for shallow network </li>
-                                            <li> Empirical NTK for ddep network </li>
+                                            <li> Empirical NTK for deep network </li>
                                             <li> Analtical NTK for deep network</li>
+                                        </MoreInnerList>
+                                    </MoreInnerP>
+                                </li>
+                                <li>
+                                <MoreLink href="https://www.borealisai.com/research-blogs/neural-tangent-kernel-applications/" target="_blank"  rel="noreferrer">NTK applications</MoreLink>
+                                    <MoreInnerP>
+                                        <MoreInnerList> 
+                                            <li> Trainability </li>
+                                            <li> Convergence bounds </li>
+                                            <li> Evolution of parameters</li>
+                                            <li> Evolution of predictions </li>
+                                            <li> NTK Gaussian processes</li>
+                                            <li> NTK and generalizability</li>
                                         </MoreInnerList>
                                     </MoreInnerP>
                                 </li>
                             </MoreOuterList>
 
-                            <TopLine>Temporal models</TopLine>
-                            <MoreOuterList>
-                                <li>
-                                    <MoreLink href="https://drive.google.com/file/d/1rrzGNyZDjXQ3_9ZqCGDmRMM3GYtHSBvj/view?usp=sharing" target="_blank"  rel="noreferrer">Temporal models</MoreLink>
-                                    <MoreInnerP>
-                                        <MoreInnerList> 
-                                            <li> Kalman filter </li>
-                                            <li> Smoothing </li>
-                                            <li> Extended Kalman filter </li>
-                                            <li> Unscented Kalman filter </li>
-                                            <li> Particle filtering </li>
-                                        </MoreInnerList>
-                                    </MoreInnerP>
-                                </li>
-                            </MoreOuterList>
+                 
 
                             <TopLine> Unsupervised learning</TopLine>
                             <MoreOuterList>
