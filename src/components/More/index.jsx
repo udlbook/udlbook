@@ -1,65 +1,101 @@
-import React from 'react'
-import { ImgWrap, Img, MoreContainer, MoreLink, MoreRow2, MoreWrapper, MoreRow, Column1, Column2, TextWrapper, TopLine, Heading, Subtitle, MoreOuterList, MoreInnerList, MoreInnerP} from './MoreElements'
-import img from '../../images/more.svg'
+import img from "../../images/more.svg";
+import {
+    Column1,
+    Column2,
+    Heading,
+    Img,
+    ImgWrap,
+    MoreContainer,
+    MoreInnerList,
+    MoreInnerP,
+    MoreLink,
+    MoreOuterList,
+    MoreRow,
+    MoreRow2,
+    MoreWrapper,
+    Subtitle,
+    TextWrapper,
+    TopLine,
+} from "./MoreElements";
 
-
-const MoreSection = () => {
+export default function MoreSection() {
     return (
         <>
-            <MoreContainer lightBg={true} id='More'>
-                <MoreWrapper> 
+            <MoreContainer lightBg={true} id="More">
+                <MoreWrapper>
                     <MoreRow imgStart={false}>
                         <Column1>
                             <TextWrapper>
                                 <TopLine>More</TopLine>
                                 <Heading lightText={false}>Further reading</Heading>
-                                <Subtitle darkText={true}>Other articles, blogs, and books that I have written. Most in a similar style and using the same notation as Understanding Deep Learning. </Subtitle>
+                                <Subtitle darkText={true}>
+                                    Other articles, blogs, and books that I have written. Most in a
+                                    similar style and using the same notation as Understanding Deep
+                                    Learning.{" "}
+                                </Subtitle>
                             </TextWrapper>
                         </Column1>
                         <Column2>
                             <ImgWrap>
-                                <Img src={img} alt='Car'/>
+                                <Img src={img} alt="Car" />
                             </ImgWrap>
                         </Column2>
                     </MoreRow>
                     <MoreRow2>
-                     
                         <Column1>
                             <TopLine>Book</TopLine>
-                                <MoreOuterList>
-                                    <li>
-                                        <MoreLink href="http://computervisionmodels.com" target="_blank" rel="noreferrer">Computer vision: models, learning, and inference</MoreLink>
-                                        <MoreInnerP>
-                                            <MoreInnerList>
-                                                <li> 2012 book published with CUP </li>
-                                                <li> Focused on probabilistic models </li>
-                                                <li> Pre-"deep learning" </li>
-                                                <li> Lots of ML content</li>
-                                                <li> Individual chapters available below</li>
-                                            </MoreInnerList> 
-                                        </MoreInnerP>
-                                    </li>
-                                </MoreOuterList>
+                            <MoreOuterList>
+                                <li>
+                                    <MoreLink
+                                        href="http://computervisionmodels.com"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Computer vision: models, learning, and inference
+                                    </MoreLink>
+                                    <MoreInnerP>
+                                        <MoreInnerList>
+                                            <li> 2012 book published with CUP </li>
+                                            <li> Focused on probabilistic models </li>
+                                            <li> Pre-"deep learning" </li>
+                                            <li> Lots of ML content </li>
+                                            <li> Individual chapters available below </li>
+                                        </MoreInnerList>
+                                    </MoreInnerP>
+                                </li>
+                            </MoreOuterList>
 
                             <TopLine>Transformers & LLMs</TopLine>
                             <MoreOuterList>
                                 <li>
-                                    <MoreLink href="https://www.borealisai.com/research-blogs/a-high-level-overview-of-large-language-models/" target="_blank"  rel="noreferrer">Intro to LLMs</MoreLink>
+                                    <MoreLink
+                                        href="https://www.borealisai.com/research-blogs/a-high-level-overview-of-large-language-models/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Intro to LLMs
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
-                                            <li> What is an LLM?</li>
-                                            <li> Pretraining</li>
-                                            <li> Instruction fine-tuning</li>
-                                            <li> Reinforcement learning from human feedback</li>
-                                            <li> Notable LLMs</li>
-                                            <li> LLMs without training from scratch</li>
+                                        <MoreInnerList>
+                                            <li> What is an LLM? </li>
+                                            <li> Pretraining </li>
+                                            <li> Instruction fine-tuning </li>
+                                            <li>Reinforcement learning from human feedback </li>
+                                            <li> Notable LLMs </li>
+                                            <li> LLMs without training from scratch </li>
                                         </MoreInnerList>
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://www.borealisai.com/en/blog/tutorial-14-transformers-i-introduction/" target="_blank"  rel="noreferrer">Transformers I</MoreLink>
+                                    <MoreLink
+                                        href="https://www.borealisai.com/en/blog/tutorial-14-transformers-i-introduction/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Transformers I
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Dot-Product self-attention </li>
                                             <li> Scaled dot-product self-attention </li>
                                             <li> Position encoding</li>
@@ -72,9 +108,15 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://www.borealisai.com/en/blog/tutorial-16-transformers-ii-extensions/" target="_blank"  rel="noreferrer">Transformers II</MoreLink>
+                                    <MoreLink
+                                        href="https://www.borealisai.com/en/blog/tutorial-16-transformers-ii-extensions/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Transformers II
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Sinusoidal position embeddings </li>
                                             <li> Learned position embeddings </li>
                                             <li> Relatives vs. absolute position embeddings</li>
@@ -93,22 +135,37 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://www.borealisai.com/en/blog/tutorial-17-transformers-iii-training/" target="_blank"  rel="noreferrer">Transformers III</MoreLink>
+                                    <MoreLink
+                                        href="https://www.borealisai.com/en/blog/tutorial-17-transformers-iii-training/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Transformers III
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Tricks for training transformers </li>
                                             <li> Why are these tricks required? </li>
                                             <li> Removing layer normalization</li>
                                             <li> Balancing residual dependencies </li>
                                             <li> Reducing optimizer variance </li>
-                                            <li> How to train deeper transformers on small datasets </li>
+                                            <li>
+                                                {" "}
+                                                How to train deeper transformers on small datasets{" "}
+                                            </li>
                                         </MoreInnerList>
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://www.borealisai.com/research-blogs/training-and-fine-tuning-large-language-models/" target="_blank"  rel="noreferrer">Training and fine-tuning LLMs</MoreLink>
+                                    <MoreLink
+                                        href="https://www.borealisai.com/research-blogs/training-and-fine-tuning-large-language-models/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Training and fine-tuning LLMs
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Large language models </li>
                                             <li> Pretraining </li>
                                             <li> Supervised fine tuning</li>
@@ -118,9 +175,15 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://www.borealisai.com/research-blogs/speeding-up-inference-in-transformers/" target="_blank"  rel="noreferrer">Speeding up inference in LLMs</MoreLink>
+                                    <MoreLink
+                                        href="https://www.borealisai.com/research-blogs/speeding-up-inference-in-transformers/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Speeding up inference in LLMs
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Problems with transformers</li>
                                             <li> Attention-free transformers </li>
                                             <li> Complexity</li>
@@ -135,9 +198,15 @@ const MoreSection = () => {
                             <TopLine>Math for machine learning</TopLine>
                             <MoreOuterList>
                                 <li>
-                                    <MoreLink href="https://drive.google.com/file/d/1j2v2n6STPnblOCZ1_GBcVAZrsYkjPYwR/view?usp=sharing" target="_blank"  rel="noreferrer">Linear algebra</MoreLink>
+                                    <MoreLink
+                                        href="https://drive.google.com/file/d/1j2v2n6STPnblOCZ1_GBcVAZrsYkjPYwR/view?usp=sharing"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Linear algebra
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Vectors and matrices </li>
                                             <li> Determinant and trace </li>
                                             <li> Orthogonal matrices </li>
@@ -154,9 +223,15 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://drive.google.com/file/d/1cmxXneW122-hcfmMRjEE-n5C9T2YvuQX/view?usp=sharing" target="_blank"  rel="noreferrer">Introduction to probability</MoreLink>
+                                    <MoreLink
+                                        href="https://drive.google.com/file/d/1cmxXneW122-hcfmMRjEE-n5C9T2YvuQX/view?usp=sharing"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Introduction to probability
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Random variables </li>
                                             <li> Joint probability </li>
                                             <li> Marginal probability </li>
@@ -168,9 +243,15 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://drive.google.com/file/d/1GI3eZNB1CjTqYHLyuRhCV215rwqANVOx/view?usp=sharing" target="_blank"  rel="noreferrer">Probability distributions</MoreLink>
+                                    <MoreLink
+                                        href="https://drive.google.com/file/d/1GI3eZNB1CjTqYHLyuRhCV215rwqANVOx/view?usp=sharing"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Probability distributions
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Bernouilli distribution </li>
                                             <li> Beta distribution</li>
                                             <li> Categorical distribution </li>
@@ -184,9 +265,15 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://drive.google.com/file/d/1DZ4rCmC7AZ8PFc51PiMUIkBO-xqKT_CG/view?usp=sharing" target="_blank"  rel="noreferrer">Fitting probability distributions</MoreLink>
+                                    <MoreLink
+                                        href="https://drive.google.com/file/d/1DZ4rCmC7AZ8PFc51PiMUIkBO-xqKT_CG/view?usp=sharing"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Fitting probability distributions
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Maximum likelihood </li>
                                             <li> Maximum a posteriori </li>
                                             <li> Bayesian approach </li>
@@ -196,9 +283,15 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://drive.google.com/file/d/1CTfmsN-HJWZBRj8lY0ZhgHEbPCmYXWnA/view?usp=sharing" target="_blank"  rel="noreferrer">The normal distribution</MoreLink>
+                                    <MoreLink
+                                        href="https://drive.google.com/file/d/1CTfmsN-HJWZBRj8lY0ZhgHEbPCmYXWnA/view?usp=sharing"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        The normal distribution
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Types of covariance matrix </li>
                                             <li> Decomposition of covariance </li>
                                             <li> Linear transformations </li>
@@ -214,9 +307,15 @@ const MoreSection = () => {
                             <TopLine>Optimization</TopLine>
                             <MoreOuterList>
                                 <li>
-                                    <MoreLink href="https://drive.google.com/file/d/1IoOSfJ0ku89aVyM9qygPl4MVnAhMEbAZ/view?usp=sharing" target="_blank"  rel="noreferrer">Gradient-based optimization</MoreLink>
+                                    <MoreLink
+                                        href="https://drive.google.com/file/d/1IoOSfJ0ku89aVyM9qygPl4MVnAhMEbAZ/view?usp=sharing"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Gradient-based optimization
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Convexity </li>
                                             <li> Steepest descent </li>
                                             <li> Newton's method </li>
@@ -227,25 +326,37 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://www.borealisai.com/en/blog/tutorial-8-bayesian-optimization/" target="_blank"  rel="noreferrer">Bayesian optimization</MoreLink>
+                                    <MoreLink
+                                        href="https://www.borealisai.com/en/blog/tutorial-8-bayesian-optimization/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Bayesian optimization
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Gaussian processes </li>
                                             <li> Acquisition functions </li>
                                             <li> Incorporating noise</li>
                                             <li> Kernel choice </li>
                                             <li> Learning GP parameters </li>
-                                            <li> Tips, tricks, and limitations  </li>
-                                            <li> Beta-Bernoulli bandit  </li>
+                                            <li> Tips, tricks, and limitations </li>
+                                            <li> Beta-Bernoulli bandit </li>
                                             <li> Random forests for BO </li>
                                             <li> Tree-Parzen estimators </li>
                                         </MoreInnerList>
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://www.borealisai.com/en/blog/tutorial-9-sat-solvers-i-introduction-and-applications/" target="_blank"  rel="noreferrer">SAT Solvers I</MoreLink>
+                                    <MoreLink
+                                        href="https://www.borealisai.com/en/blog/tutorial-9-sat-solvers-i-introduction-and-applications/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        SAT Solvers I
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Boolean logic and satisfiability </li>
                                             <li> Conjunctive normal form </li>
                                             <li> The Tseitin transformation </li>
@@ -258,9 +369,15 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://www.borealisai.com/en/blog/tutorial-10-sat-solvers-ii-algorithms/" target="_blank"  rel="noreferrer">SAT Solvers II</MoreLink>
+                                    <MoreLink
+                                        href="https://www.borealisai.com/en/blog/tutorial-10-sat-solvers-ii-algorithms/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        SAT Solvers II
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Conditioning </li>
                                             <li> Resolution </li>
                                             <li> Solving 2-SAT by unit propagation </li>
@@ -272,9 +389,15 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://www.borealisai.com/en/blog/tutorial-11-sat-solvers-iii-factor-graphs-and-smt-solvers/" target="_blank"  rel="noreferrer">SAT Solvers III</MoreLink>
+                                    <MoreLink
+                                        href="https://www.borealisai.com/en/blog/tutorial-11-sat-solvers-iii-factor-graphs-and-smt-solvers/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        SAT Solvers III
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Satisfiability vs. problem size </li>
                                             <li> Factor graph representation </li>
                                             <li> Max product / sum product for SAT </li>
@@ -285,13 +408,93 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                             </MoreOuterList>
-                  
+                            {/* <li>
+                                <MoreLink
+                                    href="https://www.borealisai.com/en/blog/tutorial-11-sat-solvers-iii-factor-graphs-and-smt-solvers/"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    SAT Solvers III
+                                </MoreLink>
+                                <MoreInnerP>
+                                    <MoreInnerList>
+                                        <li> Satisfiability vs. problem size </li>
+                                        <li> Factor graph representation </li>
+                                        <li> Max product / sum product for SAT </li>
+                                        <li> Survey propagation </li>
+                                        <li> SAT with non-binary variables </li>
+                                        <li> SMT solvers </li>
+                                    </MoreInnerList>
+                                </MoreInnerP>
+                            </li>
+
+                            <TopLine>Computer vision</TopLine>
+                            <MoreOuterList>
+                                <li>
+                                    <MoreLink
+                                        href="https://drive.google.com/file/d/1r3V1GC5grhPF2pD91izuE0hTrTUEpQ9I/view?usp=sharing"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Image Processing
+                                    </MoreLink>
+                                    <MoreInnerP>
+                                        <MoreInnerList>
+                                            <li> Whitening </li>
+                                            <li> Histogram equalization </li>
+                                            <li> Filtering </li>
+                                            <li> Edges and corners </li>
+                                            <li> Dimensionality reduction </li>
+                                        </MoreInnerList>
+                                    </MoreInnerP>
+                                </li>
+                                <li>
+                                    <MoreLink
+                                        href="https://drive.google.com/file/d/1dbMBE13MWcd84dEGjYeWsC6eXouoC0xn/view?usp=sharing"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Pinhole camera
+                                    </MoreLink>
+                                    <MoreInnerP>
+                                        <MoreInnerList>
+                                            <li> Pinhole camera model </li>
+                                            <li> Radial distortion </li>
+                                            <li> Homogeneous coordinates </li>
+                                            <li> Learning extrinsic parameters </li>
+                                            <li> Learning intrinsic parameters </li>
+                                            <li> Inferring three-dimensional world points </li>
+                                        </MoreInnerList>
+                                    </MoreInnerP>
+                                </li>
+                                <li>
+                                    <MoreLink
+                                        href="https://drive.google.com/file/d/1UArrb1ovqvZHbv90MufkW372r__ZZACQ/view?usp=sharing"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Geometric transformations
+                                    </MoreLink>
+                                    <MoreInnerP>
+                                        <MoreInnerList>
+                                            <li>
+                                                {" "}
+                                                Euclidean, similarity, affine, projective
+                                                transformations{" "}
+                                            </li> */}
+
                             <TopLine>Temporal models</TopLine>
                             <MoreOuterList>
                                 <li>
-                                    <MoreLink href="https://drive.google.com/file/d/1rrzGNyZDjXQ3_9ZqCGDmRMM3GYtHSBvj/view?usp=sharing" target="_blank"  rel="noreferrer">Temporal models</MoreLink>
+                                    <MoreLink
+                                        href="https://drive.google.com/file/d/1rrzGNyZDjXQ3_9ZqCGDmRMM3GYtHSBvj/view?usp=sharing"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Temporal models
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Kalman filter </li>
                                             <li> Smoothing </li>
                                             <li> Extended Kalman filter </li>
@@ -303,37 +506,59 @@ const MoreSection = () => {
                             </MoreOuterList>
 
                             <TopLine>Computer vision</TopLine>
-                                <MoreOuterList>
-                                    <li>
-                                        <MoreLink href="https://drive.google.com/file/d/1r3V1GC5grhPF2pD91izuE0hTrTUEpQ9I/view?usp=sharing" target="_blank" rel="noreferrer">Image Processing</MoreLink>
-                                        <MoreInnerP>
-                                            <MoreInnerList>
-                                                <li> Whitening </li>
-                                                <li> Histogram equalization </li>
-                                                <li> Filtering </li>
-                                                <li> Edges and corners </li>
-                                                <li> Dimensionality reduction </li>
-                                            </MoreInnerList> 
-                                        </MoreInnerP>
-                                    </li>
-                                    <li>
-                                        <MoreLink href="https://drive.google.com/file/d/1dbMBE13MWcd84dEGjYeWsC6eXouoC0xn/view?usp=sharing" target="_blank" rel="noreferrer">Pinhole camera</MoreLink>
-                                        <MoreInnerP>
-                                            <MoreInnerList> 
-                                                <li> Pinhole camera model </li>
-                                                <li> Radial distortion </li>
-                                                <li> Homogeneous coordinates </li>
-                                                <li> Learning extrinsic parameters </li>
-                                                <li> Learning intrinsic parameters </li>
-                                                <li> Inferring three-dimensional world points </li>
-                                            </MoreInnerList>
-                                        </MoreInnerP>
-                                    </li>
+                            <MoreOuterList>
                                 <li>
-                                    <MoreLink href="https://drive.google.com/file/d/1UArrb1ovqvZHbv90MufkW372r__ZZACQ/view?usp=sharing" target="_blank" rel="noreferrer">Geometric transformations</MoreLink>
+                                    <MoreLink
+                                        href="https://drive.google.com/file/d/1r3V1GC5grhPF2pD91izuE0hTrTUEpQ9I/view?usp=sharing"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Image Processing
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
-                                            <li> Euclidean, similarity, affine, projective transformations </li>
+                                        <MoreInnerList>
+                                            <li> Whitening </li>
+                                            <li> Histogram equalization </li>
+                                            <li> Filtering </li>
+                                            <li> Edges and corners </li>
+                                            <li> Dimensionality reduction </li>
+                                        </MoreInnerList>
+                                    </MoreInnerP>
+                                </li>
+                                <li>
+                                    <MoreLink
+                                        href="https://drive.google.com/file/d/1dbMBE13MWcd84dEGjYeWsC6eXouoC0xn/view?usp=sharing"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Pinhole camera
+                                    </MoreLink>
+                                    <MoreInnerP>
+                                        <MoreInnerList>
+                                            <li> Pinhole camera model </li>
+                                            <li> Radial distortion </li>
+                                            <li> Homogeneous coordinates </li>
+                                            <li> Learning extrinsic parameters </li>
+                                            <li> Learning intrinsic parameters </li>
+                                            <li> Inferring three-dimensional world points </li>
+                                        </MoreInnerList>
+                                    </MoreInnerP>
+                                </li>
+                                <li>
+                                    <MoreLink
+                                        href="https://drive.google.com/file/d/1UArrb1ovqvZHbv90MufkW372r__ZZACQ/view?usp=sharing"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Geometric transformations
+                                    </MoreLink>
+                                    <MoreInnerP>
+                                        <MoreInnerList>
+                                            <li>
+                                                {" "}
+                                                Euclidean, similarity, affine, projective
+                                                transformations{" "}
+                                            </li>
                                             <li> Fitting transformation models </li>
                                             <li> Inference in transformation models </li>
                                             <li> Three geometric problems for planes </li>
@@ -343,9 +568,15 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://drive.google.com/file/d/1RqUoc7kvK8vqZF1NVuw7bIex9v4_QlSx/view?usp=sharing" target="_blank" rel="noreferrer">Multiple cameras</MoreLink>
+                                    <MoreLink
+                                        href="https://drive.google.com/file/d/1RqUoc7kvK8vqZF1NVuw7bIex9v4_QlSx/view?usp=sharing"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Multiple cameras
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Two view geometry </li>
                                             <li> The essential matrix </li>
                                             <li> The fundamental matrix </li>
@@ -355,14 +586,20 @@ const MoreSection = () => {
                                         </MoreInnerList>
                                     </MoreInnerP>
                                 </li>
-                            </MoreOuterList>  
+                            </MoreOuterList>
 
                             <TopLine>Reinforcement learning</TopLine>
                             <MoreOuterList>
                                 <li>
-                                    <MoreLink href="https://arxiv.org/abs/2307.05979" target="_blank"  rel="noreferrer">Transformers in RL</MoreLink>
+                                    <MoreLink
+                                        href="https://arxiv.org/abs/2307.05979"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Transformers in RL
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Challenges in RL</li>
                                             <li> Advantages of transformers for RL</li>
                                             <li> Representation learning</li>
@@ -384,9 +621,15 @@ const MoreSection = () => {
                             <TopLine>AI Theory</TopLine>
                             <MoreOuterList>
                                 <li>
-                                    <MoreLink href="https://www.borealisai.com/research-blogs/gradient-flow/" target="_blank"  rel="noreferrer">Gradient flow</MoreLink>
+                                    <MoreLink
+                                        href="https://www.borealisai.com/research-blogs/gradient-flow/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Gradient flow
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Gradient flow </li>
                                             <li> Evolution of residual </li>
                                             <li> Evolution of parameters </li>
@@ -396,9 +639,15 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                <MoreLink href="https://www.borealisai.com/research-blogs/the-neural-tangent-kernel/" target="_blank"  rel="noreferrer">Neural tangent kernel</MoreLink>
+                                    <MoreLink
+                                        href="https://www.borealisai.com/research-blogs/the-neural-tangent-kernel/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Neural tangent kernel
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Infinite width neural networks </li>
                                             <li> Training dynamics </li>
                                             <li> Empirical NTK for shallow network</li>
@@ -409,9 +658,30 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                <MoreLink href="https://www.borealisai.com/research-blogs/neural-tangent-kernel-applications/" target="_blank"  rel="noreferrer">NTK applications</MoreLink>
+                                    {/*
+                                    <MoreLink
+                                        href="https://drive.google.com/file/d/1rrzGNyZDjXQ3_9ZqCGDmRMM3GYtHSBvj/view?usp=sharing"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Temporal models
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
+                                            <li> Kalman filter </li>
+                                            <li> Smoothing </li>
+                                            <li> Extended Kalman filter </li>
+                                            <li> Unscented Kalman filter </li>
+                                            <li> Particle filtering </li>*/}
+                                    <MoreLink
+                                        href="https://www.borealisai.com/research-blogs/neural-tangent-kernel-applications/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        NTK applications
+                                    </MoreLink>
+                                    <MoreInnerP>
+                                        <MoreInnerList>
                                             <li> Trainability </li>
                                             <li> Convergence bounds </li>
                                             <li> Evolution of parameters</li>
@@ -423,14 +693,18 @@ const MoreSection = () => {
                                 </li>
                             </MoreOuterList>
 
-                 
-
                             <TopLine> Unsupervised learning</TopLine>
                             <MoreOuterList>
                                 <li>
-                                    <MoreLink href="https://drive.google.com/file/d/1BrPHxAuyz28hhz_FtbO0A1cWYdMs2_h8/view?usp=sharing" target="_blank"  rel="noreferrer">Modeling complex data densities</MoreLink>
+                                    <MoreLink
+                                        href="https://drive.google.com/file/d/1BrPHxAuyz28hhz_FtbO0A1cWYdMs2_h8/view?usp=sharing"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Modeling complex data densities
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Hidden variables </li>
                                             <li> Expectation maximization </li>
                                             <li> Mixture of Gaussians </li>
@@ -442,9 +716,15 @@ const MoreSection = () => {
                                 </li>
 
                                 <li>
-                                    <MoreLink href="https://www.borealisai.com/en/blog/tutorial-5-variational-auto-encoders/" target="_blank"  rel="noreferrer">Variational autoencoders</MoreLink>
+                                    <MoreLink
+                                        href="https://www.borealisai.com/en/blog/tutorial-5-variational-auto-encoders/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Variational autoencoders
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Non-linear latent variable models </li>
                                             <li> Evidence lower bound (ELBO) </li>
                                             <li> ELBO properties </li>
@@ -455,17 +735,23 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://arxiv.org/abs/1908.09257" target="_blank"  rel="noreferrer">Normalizing flows: introduction and review</MoreLink>
+                                    <MoreLink
+                                        href="https://arxiv.org/abs/1908.09257"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Normalizing flows: introduction and review
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
-                                        <li> Normalizing flows </li>
-                                        <li> Elementwise and linear flows </li>
-                                        <li> Planar and radial flows </li>
-                                        <li> Coupling and auto-regressive flows </li>
-                                        <li> Coupling functions </li>
-                                        <li> Residual flows </li>
-                                        <li> Infinitesimal (continuous) flows </li>
-                                        <li> Datasets and performance </li>
+                                        <MoreInnerList>
+                                            <li> Normalizing flows </li>
+                                            <li> Elementwise and linear flows </li>
+                                            <li> Planar and radial flows </li>
+                                            <li> Coupling and auto-regressive flows </li>
+                                            <li> Coupling functions </li>
+                                            <li> Residual flows </li>
+                                            <li> Infinitesimal (continuous) flows </li>
+                                            <li> Datasets and performance </li>
                                         </MoreInnerList>
                                     </MoreInnerP>
                                 </li>
@@ -473,9 +759,15 @@ const MoreSection = () => {
                             <TopLine>Graphical Models</TopLine>
                             <MoreOuterList>
                                 <li>
-                                    <MoreLink href="https://drive.google.com/file/d/1ghgeRmeZMyzNHcuzVwS4vRP6BXi3npVO/view?usp=sharing" target="_blank"  rel="noreferrer">Graphical models</MoreLink>
+                                    <MoreLink
+                                        href="https://drive.google.com/file/d/1ghgeRmeZMyzNHcuzVwS4vRP6BXi3npVO/view?usp=sharing"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Graphical models
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Conditional independence </li>
                                             <li> Directed graphical models </li>
                                             <li> Undirected graphical models </li>
@@ -486,9 +778,15 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://drive.google.com/file/d/1WAMc3wtZoPv5wRkdF-D0SShVYF6Net84/view?usp=sharing" target="_blank"  rel="noreferrer">Models for chains and trees</MoreLink>
+                                    <MoreLink
+                                        href="https://drive.google.com/file/d/1WAMc3wtZoPv5wRkdF-D0SShVYF6Net84/view?usp=sharing"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Models for chains and trees
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Hidden Markov models </li>
                                             <li> Viterbi algorithm </li>
                                             <li> Forward-backward algorithm </li>
@@ -500,9 +798,15 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://drive.google.com/file/d/1qqS9OfA1z7t12M45UaBr4CSCj1jwzcwz/view?usp=sharing" target="_blank"  rel="noreferrer">Models for grids</MoreLink>
+                                    <MoreLink
+                                        href="https://drive.google.com/file/d/1qqS9OfA1z7t12M45UaBr4CSCj1jwzcwz/view?usp=sharing"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Models for grids
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Markov random fields </li>
                                             <li> MAP inference in binary pairwise MRFs </li>
                                             <li> Graph cuts </li>
@@ -517,9 +821,15 @@ const MoreSection = () => {
                             <TopLine>Machine learning</TopLine>
                             <MoreOuterList>
                                 <li>
-                                    <MoreLink href="https://drive.google.com/file/d/1ArWWi-qbzK2ih6KpOeIF8wX5g3S4J5DY/view?usp=sharing" target="_blank"  rel="noreferrer">Learning and inference</MoreLink>
+                                    <MoreLink
+                                        href="https://drive.google.com/file/d/1ArWWi-qbzK2ih6KpOeIF8wX5g3S4J5DY/view?usp=sharing"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Learning and inference
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Discriminative models </li>
                                             <li> Generative models </li>
                                             <li> Example: regression </li>
@@ -528,9 +838,15 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://drive.google.com/file/d/1QZX5jm4xN8rhpvdjRsFP5Ybw1EXSNGaL/view?usp=sharing" target="_blank"  rel="noreferrer">Regression models</MoreLink>
+                                    <MoreLink
+                                        href="https://drive.google.com/file/d/1QZX5jm4xN8rhpvdjRsFP5Ybw1EXSNGaL/view?usp=sharing"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Regression models
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Linear regression </li>
                                             <li> Bayesian linear regression </li>
                                             <li> Non-linear regression </li>
@@ -543,9 +859,15 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://drive.google.com/file/d/1-_f4Yfm8iBWcaZ2Gyjw6O0eZiODipmSV/view?usp=sharing" target="_blank"  rel="noreferrer">Classification models</MoreLink>
+                                    <MoreLink
+                                        href="https://drive.google.com/file/d/1-_f4Yfm8iBWcaZ2Gyjw6O0eZiODipmSV/view?usp=sharing"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Classification models
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Logistic regression </li>
                                             <li> Bayesian logistic regression </li>
                                             <li> Non-linear logistic regression </li>
@@ -557,9 +879,15 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://www.borealisai.com/en/blog/tutorial-2-few-shot-learning-and-meta-learning-i/" target="_blank"  rel="noreferrer">Few-shot learning and meta-learning I</MoreLink>
+                                    <MoreLink
+                                        href="https://www.borealisai.com/en/blog/tutorial-2-few-shot-learning-and-meta-learning-i/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Few-shot learning and meta-learning I
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Meta-learning framework </li>
                                             <li> Approaches to meta-learning </li>
                                             <li> Matching networks </li>
@@ -569,9 +897,15 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://www.borealisai.com/en/blog/tutorial-3-few-shot-learning-and-meta-learning-ii/" target="_blank"  rel="noreferrer">Few-shot learning and meta-learning II</MoreLink>
+                                    <MoreLink
+                                        href="https://www.borealisai.com/en/blog/tutorial-3-few-shot-learning-and-meta-learning-ii/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Few-shot learning and meta-learning II
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> MAML & Reptile </li>
                                             <li> LSTM based meta-learning </li>
                                             <li> Reinforcement learning based approaches</li>
@@ -582,14 +916,20 @@ const MoreSection = () => {
                                         </MoreInnerList>
                                     </MoreInnerP>
                                 </li>
-                           </MoreOuterList>
+                            </MoreOuterList>
 
-                           <TopLine>Natural language processing</TopLine>
-                           <MoreOuterList>
+                            <TopLine>Natural language processing</TopLine>
+                            <MoreOuterList>
                                 <li>
-                                    <MoreLink href="https://www.borealisai.com/en/blog/tutorial-6-neural-natural-language-generation-decoding-algorithms/" target="_blank"  rel="noreferrer">Neural natural language generation I</MoreLink>
+                                    <MoreLink
+                                        href="https://www.borealisai.com/en/blog/tutorial-6-neural-natural-language-generation-decoding-algorithms/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Neural natural language generation I
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Encoder-decoder architecture </li>
                                             <li> Maximum-likelihood training </li>
                                             <li> Greedy search </li>
@@ -601,9 +941,15 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://www.borealisai.com/en/blog/tutorial-7-neural-natural-language-generation-sequence-level-training/" target="_blank"  rel="noreferrer">Neural natural language generation II</MoreLink>
+                                    <MoreLink
+                                        href="https://www.borealisai.com/en/blog/tutorial-7-neural-natural-language-generation-sequence-level-training/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Neural natural language generation II
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Fine-tuning with reinforcement learning </li>
                                             <li> Training from scratch with RL </li>
                                             <li> RL vs. structured prediction </li>
@@ -616,9 +962,15 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://www.borealisai.com/en/blog/tutorial-15-parsing-i-context-free-grammars-and-cyk-algorithm/" target="_blank"  rel="noreferrer">Parsing I</MoreLink>
+                                    <MoreLink
+                                        href="https://www.borealisai.com/en/blog/tutorial-15-parsing-i-context-free-grammars-and-cyk-algorithm/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Parsing I
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Parse trees </li>
                                             <li> Context-free grammars </li>
                                             <li> Chomsky normal form </li>
@@ -628,9 +980,15 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://www.borealisai.com/en/blog/tutorial-18-parsing-ii-wcfgs-inside-algorithm-and-weighted-parsing/" target="_blank"  rel="noreferrer">Parsing II</MoreLink>
+                                    <MoreLink
+                                        href="https://www.borealisai.com/en/blog/tutorial-18-parsing-ii-wcfgs-inside-algorithm-and-weighted-parsing/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Parsing II
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Weighted context-free grammars </li>
                                             <li> Semirings </li>
                                             <li> Inside algorithm </li>
@@ -640,9 +998,15 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://www.borealisai.com/en/blog/tutorial-19-parsing-iii-pcfgs-and-inside-outside-algorithm/" target="_blank"  rel="noreferrer">Parsing III</MoreLink>
+                                    <MoreLink
+                                        href="https://www.borealisai.com/en/blog/tutorial-19-parsing-iii-pcfgs-and-inside-outside-algorithm/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Parsing III
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Probabilistic context-free grammars </li>
                                             <li> Parameter estimation (supervised) </li>
                                             <li> Parameter estimation (unsupervised) </li>
@@ -654,9 +1018,15 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://www.borealisai.com/en/blog/understanding-xlnet/" target="_blank"  rel="noreferrer">XLNet</MoreLink>
+                                    <MoreLink
+                                        href="https://www.borealisai.com/en/blog/understanding-xlnet/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        XLNet
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Language modeling </li>
                                             <li> XLNet training objective </li>
                                             <li> Permutations </li>
@@ -667,14 +1037,18 @@ const MoreSection = () => {
                                 </li>
                             </MoreOuterList>
 
-       
-                           
-                           <TopLine>Responsible AI</TopLine>
-                           <MoreOuterList>
+                            <TopLine>Responsible AI</TopLine>
+                            <MoreOuterList>
                                 <li>
-                                    <MoreLink href="https://www.borealisai.com/en/blog/tutorial1-bias-and-fairness-ai/" target="_blank"  rel="noreferrer">Bias and fairness</MoreLink>
+                                    <MoreLink
+                                        href="https://www.borealisai.com/en/blog/tutorial1-bias-and-fairness-ai/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Bias and fairness
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Sources of bias</li>
                                             <li> Demographic Parity </li>
                                             <li> Equality of odds</li>
@@ -685,9 +1059,15 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://www.borealisai.com/research-blogs/explainability-i-local-post-hoc-explanations/" target="_blank"  rel="noreferrer">Explainability I</MoreLink>
+                                    <MoreLink
+                                        href="https://www.borealisai.com/research-blogs/explainability-i-local-post-hoc-explanations/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Explainability I
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Taxonomy of XAI approaches</li>
                                             <li> Local post-hoc explanations </li>
                                             <li> Individual conditional explanation</li>
@@ -698,9 +1078,15 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://www.borealisai.com/research-blogs/explainability-ii-global-explanations-proxy-models-and-interpretable-models/" target="_blank"  rel="noreferrer">Explainability II</MoreLink>
+                                    <MoreLink
+                                        href="https://www.borealisai.com/research-blogs/explainability-ii-global-explanations-proxy-models-and-interpretable-models/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Explainability II
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Global feature importance</li>
                                             <li> Partial dependence & ICE plots</li>
                                             <li> Accumulated local effects</li>
@@ -712,9 +1098,15 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://www.borealisai.com/en/blog/tutorial-12-differential-privacy-i-introduction/" target="_blank"  rel="noreferrer">Differential privacy I</MoreLink>
+                                    <MoreLink
+                                        href="https://www.borealisai.com/en/blog/tutorial-12-differential-privacy-i-introduction/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Differential privacy I
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Early approaches to privacy </li>
                                             <li> Fundamental law of information recovery </li>
                                             <li> Differential privacy</li>
@@ -726,9 +1118,15 @@ const MoreSection = () => {
                                     </MoreInnerP>
                                 </li>
                                 <li>
-                                    <MoreLink href="https://www.borealisai.com/en/blog/tutorial-13-differential-privacy-ii-machine-learning-and-data-generation/" target="_blank"  rel="noreferrer">Differential privacy II</MoreLink>
+                                    <MoreLink
+                                        href="https://www.borealisai.com/en/blog/tutorial-13-differential-privacy-ii-machine-learning-and-data-generation/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Differential privacy II
+                                    </MoreLink>
                                     <MoreInnerP>
-                                        <MoreInnerList> 
+                                        <MoreInnerList>
                                             <li> Differential privacy and matchine learning</li>
                                             <li> DPSGD</li>
                                             <li> PATE </li>
@@ -738,15 +1136,11 @@ const MoreSection = () => {
                                         </MoreInnerList>
                                     </MoreInnerP>
                                 </li>
-                           </MoreOuterList>
+                            </MoreOuterList>
                         </Column2>
                     </MoreRow2>
                 </MoreWrapper>
             </MoreContainer>
         </>
-    )
+    );
 }
-
-export default MoreSection
-
-

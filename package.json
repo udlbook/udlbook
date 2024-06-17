@@ -1,33 +1,36 @@
 {
-  "name": "react-website-smooth-scroll",
-  "version": "0.1.0",
-  "private": true,
-  "homepage": "https://udlbook.github.io/udlbook",
-  "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.5.1",
-    "react": "^18.0.2",
-    "react-dom": "^18.0.2",
-    "react-icons": "^5.0.1",
-    "react-router-dom": "^6.0.2",
-    "react-scripts": "4.0.3",
-    "react-scroll": "^1.8.4",
-    "styled-components": "^5.3.3"
-  },
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-react-swc": "^3.5.0",
-    "gh-pages": "^6.1.1",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react": "^7.34.1",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.6",
-    "vite": "^5.2.0"
-  }
+    "name": "udlbook-website",
+    "version": "0.1.0",
+    "private": true,
+    "homepage": "https://udlbook.github.io/udlbook",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d dist",
+        "clean": "rm -rf node_modules dist",
+        "format": "prettier --write ."
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^6.5.2",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "react-icons": "^5.2.1",
+        "react-router-dom": "^6.23.1",
+        "react-scroll": "^1.8.4",
+        "styled-components": "^6.1.11"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-react-swc": "^3.5.0",
+        "eslint": "^8.57.0",
+        "eslint-plugin-react": "^7.34.2",
+        "eslint-plugin-react-hooks": "^4.6.2",
+        "eslint-plugin-react-refresh": "^0.4.7",
+        "gh-pages": "^6.1.1",
+        "prettier": "^3.3.1",
+        "prettier-plugin-organize-imports": "^3.2.4",
+        "vite": "^5.2.12"
+    }
 }
