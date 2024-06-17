@@ -408,7 +408,7 @@ export default function MoreSection() {
                                     </MoreInnerP>
                                 </li>
                             </MoreOuterList>
-                            <li>
+        {/* <li>
                                 <MoreLink
                                     href="https://www.borealisai.com/en/blog/tutorial-11-sat-solvers-iii-factor-graphs-and-smt-solvers/"
                                     target="_blank"
@@ -481,7 +481,56 @@ export default function MoreSection() {
                                                 {" "}
                                                 Euclidean, similarity, affine, projective
                                                 transformations{" "}
-                                            </li>
+                                            </li> */}
+                  
+                            <TopLine>Temporal models</TopLine>
+                            <MoreOuterList>
+                                <li>
+                                    <MoreLink href="https://drive.google.com/file/d/1rrzGNyZDjXQ3_9ZqCGDmRMM3GYtHSBvj/view?usp=sharing" target="_blank"  rel="noreferrer">Temporal models</MoreLink>
+                                    <MoreInnerP>
+                                        <MoreInnerList> 
+                                            <li> Kalman filter </li>
+                                            <li> Smoothing </li>
+                                            <li> Extended Kalman filter </li>
+                                            <li> Unscented Kalman filter </li>
+                                            <li> Particle filtering </li>
+                                        </MoreInnerList>
+                                    </MoreInnerP>
+                                </li>
+                            </MoreOuterList>
+
+                            <TopLine>Computer vision</TopLine>
+                                <MoreOuterList>
+                                    <li>
+                                        <MoreLink href="https://drive.google.com/file/d/1r3V1GC5grhPF2pD91izuE0hTrTUEpQ9I/view?usp=sharing" target="_blank" rel="noreferrer">Image Processing</MoreLink>
+                                        <MoreInnerP>
+                                            <MoreInnerList>
+                                                <li> Whitening </li>
+                                                <li> Histogram equalization </li>
+                                                <li> Filtering </li>
+                                                <li> Edges and corners </li>
+                                                <li> Dimensionality reduction </li>
+                                            </MoreInnerList> 
+                                        </MoreInnerP>
+                                    </li>
+                                    <li>
+                                        <MoreLink href="https://drive.google.com/file/d/1dbMBE13MWcd84dEGjYeWsC6eXouoC0xn/view?usp=sharing" target="_blank" rel="noreferrer">Pinhole camera</MoreLink>
+                                        <MoreInnerP>
+                                            <MoreInnerList> 
+                                                <li> Pinhole camera model </li>
+                                                <li> Radial distortion </li>
+                                                <li> Homogeneous coordinates </li>
+                                                <li> Learning extrinsic parameters </li>
+                                                <li> Learning intrinsic parameters </li>
+                                                <li> Inferring three-dimensional world points </li>
+                                            </MoreInnerList>
+                                        </MoreInnerP>
+                                    </li>
+                                <li>
+                                    <MoreLink href="https://drive.google.com/file/d/1UArrb1ovqvZHbv90MufkW372r__ZZACQ/view?usp=sharing" target="_blank" rel="noreferrer">Geometric transformations</MoreLink>
+                                    <MoreInnerP>
+                                        <MoreInnerList> 
+                                            <li> Euclidean, similarity, affine, projective transformations </li>
                                             <li> Fitting transformation models </li>
                                             <li> Inference in transformation models </li>
                                             <li> Three geometric problems for planes </li>
@@ -575,16 +624,13 @@ export default function MoreSection() {
                                             <li> Training dynamics </li>
                                             <li> Empirical NTK for shallow network</li>
                                             <li> Analytical NTK for shallow network </li>
-                                            <li> Empirical NTK for ddep network </li>
+                                            <li> Empirical NTK for deep network </li>
                                             <li> Analtical NTK for deep network</li>
                                         </MoreInnerList>
                                     </MoreInnerP>
                                 </li>
-                            </MoreOuterList>
-
-                            <TopLine>Temporal models</TopLine>
-                            <MoreOuterList>
                                 <li>
+                                    {/*
                                     <MoreLink
                                         href="https://drive.google.com/file/d/1rrzGNyZDjXQ3_9ZqCGDmRMM3GYtHSBvj/view?usp=sharing"
                                         target="_blank"
@@ -598,11 +644,22 @@ export default function MoreSection() {
                                             <li> Smoothing </li>
                                             <li> Extended Kalman filter </li>
                                             <li> Unscented Kalman filter </li>
-                                            <li> Particle filtering </li>
+                                            <li> Particle filtering </li>*/}
+                                <MoreLink href="https://www.borealisai.com/research-blogs/neural-tangent-kernel-applications/" target="_blank"  rel="noreferrer">NTK applications</MoreLink>
+                                    <MoreInnerP>
+                                        <MoreInnerList> 
+                                            <li> Trainability </li>
+                                            <li> Convergence bounds </li>
+                                            <li> Evolution of parameters</li>
+                                            <li> Evolution of predictions </li>
+                                            <li> NTK Gaussian processes</li>
+                                            <li> NTK and generalizability</li>
                                         </MoreInnerList>
                                     </MoreInnerP>
                                 </li>
                             </MoreOuterList>
+
+                 
 
                             <TopLine> Unsupervised learning</TopLine>
                             <MoreOuterList>

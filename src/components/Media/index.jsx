@@ -76,6 +76,8 @@ export default function MediaSection() {
                             <TopLine>Reviews</TopLine>
                             <MediaContent>
                                 <ul>
+ <li> Nature Machine Intelligence <MediaLink href="https://github.com/udlbook/udlbook/blob/main/public/NMI_Review.pdf"> review </MediaLink> by <MediaLink href="https://wang-axis.github.io/">Ge Wang</MediaLink></li>
+                                   
                                     <li>
                                         {" "}
                                         Amazon{" "}
@@ -96,6 +98,9 @@ export default function MediaSection() {
                                         </MediaLink>{" "}
                                         by Vishal V.
                                     </li>
+                                    <li> Amazon <MediaLink href="https://www.amazon.com/Understanding-Deep-Learning-Simon-Prince-ebook/product-reviews/B0BXKH8XY6/">reviews</MediaLink></li>          
+                                    <li>Goodreads <MediaLink href="https://www.goodreads.com/book/show/123239819-understanding-deep-learning?">reviews </MediaLink></li>
+                                    <li>Book <MediaLink href="https://medium.com/@vishalvignesh/udl-book-review-the-new-deep-learning-textbook-youll-want-to-finish-69e1557b018d">review</MediaLink> by Vishal V.</li>
                                 </ul>
                             </MediaContent>
                         </Column1>
