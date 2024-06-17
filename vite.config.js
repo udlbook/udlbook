@@ -10,8 +10,5 @@ export default defineConfig({
     preview: {
         port: 3000,
     },
-    build: {
-        outDir: "build",
-    },
     base: "/udlbook",
 });
