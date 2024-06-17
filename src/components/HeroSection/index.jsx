@@ -109,7 +109,7 @@ export default function HeroSection() {
                                     New blog about{" "}
                                     <UDLLink href="https://www.borealisai.com/research-blogs/gradient-flow/">
                                         {" "}
-                                        gradient flow{" "}
+                                        gradient flow
                                     </UDLLink>{" "}
                                     published.
                                 </HeroNewsItemContent>
