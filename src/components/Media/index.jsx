@@ -17,6 +17,19 @@ import {
     VideoFrame,
 } from "./MediaElements";
 
+const interviews = [
+    {
+        href: "https://www.borealisai.com/news/understanding-deep-learning/",
+        text: "Borealis AI",
+        linkText: "interview",
+    },
+    {
+        href: "https://shepherd.com/best-books/machine-learning-and-deep-neural-networks",
+        text: "Shepherd ML book",
+        linkText: "recommendations",
+    },
+];
+
 export default function MediaSection() {
     return (
         <>
@@ -27,7 +40,6 @@ export default function MediaSection() {
                             <TextWrapper>
                                 <TopLine>Media</TopLine>
                                 <Heading lightText={true}>
-                                    {" "}
                                     Reviews, videos, podcasts, interviews
                                 </Heading>
                                 <Subtitle darkText={false}>
@@ -37,7 +49,7 @@ export default function MediaSection() {
                         </Column1>
                         <Column2>
                             <ImgWrap>
-                                <Img src={img} alt="Car" />
+                                <Img src={img} alt="Media" />
                             </ImgWrap>
                         </Column2>
                     </MediaRow>
@@ -75,9 +87,9 @@ export default function MediaSection() {
                         <Column1>
                             <TopLine>Reviews</TopLine>
                             <MediaContent>
+                                {/* TODO: add dynamic rendering for reviews */}
                                 <ul>
                                     <li>
-                                        {" "}
                                         Nature Machine Intelligence{" "}
                                         <MediaLink href="https://github.com/udlbook/udlbook/blob/main/public/NMI_Review.pdf">
                                             {" "}
@@ -88,9 +100,7 @@ export default function MediaSection() {
                                             Ge Wang
                                         </MediaLink>
                                     </li>
-
                                     <li>
-                                        {" "}
                                         Amazon{" "}
                                         <MediaLink href="https://www.amazon.com/Understanding-Deep-Learning-Simon-Prince-ebook/product-reviews/B0BXKH8XY6/">
                                             reviews
@@ -110,7 +120,6 @@ export default function MediaSection() {
                                         by Vishal V.
                                     </li>
                                     <li>
-                                        {" "}
                                         Amazon{" "}
                                         <MediaLink href="https://www.amazon.com/Understanding-Deep-Learning-Simon-Prince-ebook/product-reviews/B0BXKH8XY6/">
                                             reviews
@@ -136,18 +145,14 @@ export default function MediaSection() {
                             <TopLine>Interviews</TopLine>
                             <MediaContent>
                                 <ul>
-                                    <li>
-                                        Borealis AI{" "}
-                                        <MediaLink href="https://www.borealisai.com/news/understanding-deep-learning/">
-                                            interview
-                                        </MediaLink>
-                                    </li>
-                                    <li>
-                                        Shepherd ML book{" "}
-                                        <MediaLink href="https://shepherd.com/best-books/machine-learning-and-deep-neural-networks">
-                                            recommendations
-                                        </MediaLink>
-                                    </li>
+                                    {interviews.map((interview, index) => (
+                                        <li key={index}>
+                                            {interview.text}{" "}
+                                            <MediaLink href={interview.href}>
+                                                {interview.linkText}
+                                            </MediaLink>
+                                        </li>
+                                    ))}
                                 </ul>
                             </MediaContent>
                         </Column2>
