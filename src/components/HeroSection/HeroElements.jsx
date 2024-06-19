@@ -69,8 +69,8 @@ export const HeroRow = styled.div`
     @media screen and (max-width: 768px) {
         grid-template-columns: 1fr;
         grid-template-areas:
-            "col1"
-            "col2";
+            "col2"
+            "col1";
     }
 `;
 
