@@ -169,7 +169,7 @@ export default function HeroSection() {
                         <HeroFollowBlock>
                             Follow me on{" "}
                             <UDLLink href="https://twitter.com/SimonPrinceAI">Twitter</UDLLink> or{" "}
-                            <UDLLink href="https://www.linkedin.com/in/simon-prince-615bb9165/">
+                            <UDLLink href="https://linkedin.com/in/simon-prince-615bb9165/">
                                 LinkedIn
                             </UDLLink>{" "}
                             for updates.
@@ -177,7 +177,7 @@ export default function HeroSection() {
                     </HeroColumn1>
                     <HeroColumn2>
                         <HeroImgWrap>
-                            <Img src={img} alt="book cover" />
+                            <Img src={img} alt="UDL Book" />
                         </HeroImgWrap>
                         <HeroLink href="https://github.com/udlbook/udlbook/releases/download/v4.0.1/UnderstandingDeepLearning_05_27_24_C.pdf">
                             Download full pdf (27 May 2024)
