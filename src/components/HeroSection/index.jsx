@@ -1,4 +1,3 @@
-import img from "../../images/F23.prince.learning.turquoise.jpg";
 import {
     HeroCitationBlock,
     HeroCitationTitle,
@@ -18,7 +17,8 @@ import {
     HeroRow,
     Img,
     UDLLink,
-} from "./HeroElements";
+} from "@/components/HeroSection/HeroElements";
+import img from "@/images/F23.prince.learning.turquoise.jpg";
 
 export default function HeroSection() {
     const citation = `

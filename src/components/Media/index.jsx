@@ -1,4 +1,3 @@
-import img from "../../images/media.svg";
 import {
     Column1,
     Column2,
@@ -15,7 +14,8 @@ import {
     TextWrapper,
     TopLine,
     VideoFrame,
-} from "./MediaElements";
+} from "@/components/Media/MediaElements";
+import img from "@/images/media.svg";
 
 const interviews = [
     {

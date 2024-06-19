@@ -1,11 +1,11 @@
+import Index from "@/pages";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./pages";
 
 export default function App() {
     return (
         <Router>
             <Routes>
-                <Route exact path="/udlbook/" element={<Home />} />
+                <Route exact path="/udlbook" element={<Index />} />
             </Routes>
         </Router>
     );

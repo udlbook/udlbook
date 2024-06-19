@@ -1,4 +1,3 @@
-import img from "../../images/coding.svg";
 import {
     Column1,
     Column2,
@@ -12,7 +11,8 @@ import {
     Subtitle,
     TextWrapper,
     TopLine,
-} from "./NotebookElements";
+} from "@/components/Notebooks/NotebookElements";
+import img from "@/images/coding.svg";
 
 const notebooks = [
     {
