@@ -61,12 +61,16 @@ export const HeroBtnWrapper = styled.div`
 
 export const HeroRow = styled.div`
     display: grid;
-    grid-auto-columns: minmax(auto, 1fr);
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
     align-items: top;
-    grid-template-areas:  'col1 col2' };
+    grid-template-areas: "col1 col2";
 
-    @media screen and (max-width: 768px){
-        grid-template-areas: 'col2' 'col1';
+    @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "col1"
+            "col2";
     }
 `;
 
@@ -74,7 +78,6 @@ export const HeroNewsItem = styled.div`
     margin-left: 4px;
     color: #000000;
     font-size: 16px;
-    /* line-height: 16px; */
     margin-bottom: 16px;
     display: flex;
     justify-content: start;
@@ -111,12 +114,16 @@ export const HeroColumn1 = styled.div`
     margin-left: 12px;
     margin-top: 60px;
     padding: 10px 15px;
-    padding: 0 15px;
     grid-area: col1;
-    align-items: left;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @media screen and (max-width: 768px) {
+        margin-left: 0;
+        margin-top: 20px;
+        padding: 0;
+    }
 `;
 
 export const HeroColumn2 = styled.div`
@@ -126,6 +133,10 @@ export const HeroColumn2 = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+
+    @media screen and (max-width: 768px) {
+        padding: 0;
+    }
 `;
 
 export const TextWrapper = styled.div`
