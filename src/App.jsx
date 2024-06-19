@@ -5,7 +5,7 @@ export default function App() {
     return (
         <Router>
             <Routes>
-                <Route exact path="/udlbook/" element={<Index />} />
+                <Route exact path="/udlbook" element={<Index />} />
             </Routes>
         </Router>
     );

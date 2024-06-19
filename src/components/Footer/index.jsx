@@ -43,7 +43,7 @@ export default function Footer() {
                 <FooterWrap>
                     <SocialMedia>
                         <SocialMediaWrap>
-                            <SocialLogo to="/udlbook/" onClick={toggleHome}>
+                            <SocialLogo to="/udlbook" onClick={toggleHome}>
                                 Understanding Deep Learning
                             </SocialLogo>
                             <WebsiteRights>
