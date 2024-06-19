@@ -1,7 +1,3 @@
-import { useEffect, useState } from "react";
-import { FaBars } from "react-icons/fa";
-import { IconContext } from "react-icons/lib";
-import { animateScroll as scroll } from "react-scroll";
 import {
     MobileIcon,
     Nav,
@@ -10,7 +6,11 @@ import {
     NavLinks,
     NavLogo,
     NavMenu,
-} from "./NavbarElements";
+} from "@/components/NavBar/NavbarElements";
+import { useEffect, useState } from "react";
+import { FaBars } from "react-icons/fa";
+import { IconContext } from "react-icons/lib";
+import { animateScroll as scroll } from "react-scroll";
 
 export default function NavBar({ toggle }) {
     const [scrollNav, setScrollNav] = useState(false);

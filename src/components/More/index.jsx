@@ -1,4 +1,3 @@
-import img from "../../images/more.svg";
 import {
     Column1,
     Column2,
@@ -16,7 +15,8 @@ import {
     Subtitle,
     TextWrapper,
     TopLine,
-} from "./MoreElements";
+} from "@/components/More/MoreElements";
+import img from "@/images/more.svg";
 
 const book = [
     {

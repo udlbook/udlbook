@@ -1,6 +1,3 @@
-import { FaLinkedin } from "react-icons/fa";
-import { FaSquareXTwitter } from "react-icons/fa6";
-import { animateScroll as scroll } from "react-scroll";
 import {
     FooterContainer,
     FooterWrap,
@@ -10,7 +7,10 @@ import {
     SocialMedia,
     SocialMediaWrap,
     WebsiteRights,
-} from "./FooterElements";
+} from "@/components/Footer/FooterElements";
+import { FaLinkedin } from "react-icons/fa";
+import { FaSquareXTwitter } from "react-icons/fa6";
+import { animateScroll as scroll } from "react-scroll";
 
 const images = [
     "https://freepik.com/free-vector/hand-coding-concept-illustration_21864184.htm#query=coding&position=17&from_view=search&track=sph&uuid=5896d847-38e4-4cb9-8fe1-103041c7c933",
