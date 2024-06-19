@@ -3,7 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import InstructorsSection from "@/components/Instructors";
 import MediaSection from "@/components/Media";
 import MoreSection from "@/components/More";
-import Navbar from "src/components/NavbarTest";
+import Navbar from "src/components/Navbar";
 import NotebookSection from "@/components/Notebooks";
 import Sidebar from "@/components/Sidebar";
 import { useState } from "react";
