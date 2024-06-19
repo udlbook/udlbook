@@ -12,7 +12,7 @@ import { FaBars } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 import { animateScroll as scroll } from "react-scroll";
 
-export default function NavBar({ toggle }) {
+export default function Navbar({ toggle }) {
     const [scrollNav, setScrollNav] = useState(false);
 
     useEffect(() => {
