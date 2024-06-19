@@ -8,7 +8,7 @@ import NotebookSection from "@/components/Notebooks";
 import Sidebar from "@/components/Sidebar";
 import { useState } from "react";
 
-export default function Home() {
+export default function Index() {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => {
