@@ -1,5 +1,5 @@
-import ScrollToTop from "../components/ScrollToTop";
-import SignIn from "../components/SignIn";
+import ScrollToTop from "@/components/ScrollToTop";
+import SignIn from "@/components/SignIn";
 
 export default function SigninPage() {
     return (

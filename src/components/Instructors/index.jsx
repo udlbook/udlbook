@@ -1,4 +1,3 @@
-import img from "../../images/instructor.svg";
 import {
     Column1,
     Column2,
@@ -14,7 +13,8 @@ import {
     Subtitle,
     TextWrapper,
     TopLine,
-} from "./InstructorsElements";
+} from "@/components/Instructors/InstructorsElements";
+import img from "@/images/instructor.svg";
 
 const fullSlides = [
     {
