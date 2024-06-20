@@ -55,10 +55,10 @@ const news = [
             </HeroNewsItemContent>
         ),
     },
-    {
-        date: "03/12/24",
-        content: <HeroNewsItemContent>Book now available again.</HeroNewsItemContent>,
-    },
+    // {
+    //     date: "03/12/24",
+    //     content: <HeroNewsItemContent>Book now available again.</HeroNewsItemContent>,
+    // },
     {
         date: "02/21/24",
         content: (
@@ -71,15 +71,15 @@ const news = [
             </HeroNewsItemContent>
         ),
     },
-    {
-        date: "02/15/24",
-        content: (
-            <HeroNewsItemContent>
-                First printing of book has sold out in most places. Second printing available
-                mid-March.
-            </HeroNewsItemContent>
-        ),
-    },
+    // {
+    //     date: "02/15/24",
+    //     content: (
+    //         <HeroNewsItemContent>
+    //             First printing of book has sold out in most places. Second printing available
+    //             mid-March.
+    //         </HeroNewsItemContent>
+    //     ),
+    // },
     {
         date: "01/29/24",
         content: (
