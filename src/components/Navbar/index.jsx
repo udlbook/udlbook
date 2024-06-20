@@ -6,7 +6,7 @@ import {
     NavLinks,
     NavLogo,
     NavMenu,
-} from "./NavbarElements";
+} from "@/components/Navbar/NavbarElements";
 import { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
