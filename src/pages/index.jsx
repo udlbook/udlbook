@@ -12,7 +12,7 @@ export default function Index() {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => {
-        setIsOpen(!isOpen);
+        setIsOpen((p) => !p);
     };
 
     return (
