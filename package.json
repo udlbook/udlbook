@@ -3,6 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "homepage": "https://udlbook.github.io/udlbook",
+    "type": "module",
     "scripts": {
         "dev": "vite",
         "build": "vite build",

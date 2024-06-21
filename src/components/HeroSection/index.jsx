@@ -13,15 +13,16 @@ import {
     HeroNewsItem,
     HeroNewsItemContent,
     HeroNewsItemDate,
+    HeroNewsMoreButton,
     HeroNewsTitle,
     HeroRow,
     Img,
     UDLLink,
 } from "@/components/HeroSection/HeroElements";
-import img from "@/images/F23.prince.learning.turquoise.jpg";
+import img from "@/images/book_cover.jpg";
+import { useState } from "react";
 
-export default function HeroSection() {
-    const citation = `
+const citation = `
     @book{prince2023understanding,
         author = "Simon J.D. Prince",
         title = "Understanding Deep Learning",
@@ -31,6 +32,122 @@ export default function HeroSection() {
     }
     `;
 
+const news = [
+    {
+        date: "05/22/24",
+        content: (
+            <HeroNewsItemContent>
+                New{" "}
+                <UDLLink href="https://borealisai.com/research-blogs/neural-tangent-kernel-applications/">
+                    blog
+                </UDLLink>{" "}
+                about the applications of the neural tangent kernel.
+            </HeroNewsItemContent>
+        ),
+    },
+    {
+        date: "05/10/24",
+        content: (
+            <HeroNewsItemContent>
+                Positive{" "}
+                <UDLLink href="https://github.com/udlbook/udlbook/blob/main/public/NMI_Review.pdf">
+                    review
+                </UDLLink>{" "}
+                in Nature Machine Intelligence.
+            </HeroNewsItemContent>
+        ),
+    },
+    // {
+    //     date: "03/12/24",
+    //     content: <HeroNewsItemContent>Book now available again.</HeroNewsItemContent>,
+    // },
+    {
+        date: "02/21/24",
+        content: (
+            <HeroNewsItemContent>
+                New blog about the{" "}
+                <UDLLink href="https://borealisai.com/research-blogs/the-neural-tangent-kernel/">
+                    Neural Tangent Kernel
+                </UDLLink>
+                .
+            </HeroNewsItemContent>
+        ),
+    },
+    // {
+    //     date: "02/15/24",
+    //     content: (
+    //         <HeroNewsItemContent>
+    //             First printing of book has sold out in most places. Second printing available
+    //             mid-March.
+    //         </HeroNewsItemContent>
+    //     ),
+    // },
+    {
+        date: "01/29/24",
+        content: (
+            <HeroNewsItemContent>
+                New blog about{" "}
+                <UDLLink href="https://borealisai.com/research-blogs/gradient-flow/">
+                    gradient flow
+                </UDLLink>{" "}
+                published.
+            </HeroNewsItemContent>
+        ),
+    },
+    {
+        date: "12/26/23",
+        content: (
+            <HeroNewsItemContent>
+                Machine Learning Street Talk{" "}
+                <UDLLink href="https://youtube.com/watch?v=sJXn4Cl4oww">podcast</UDLLink> discussing
+                book.
+            </HeroNewsItemContent>
+        ),
+    },
+    {
+        date: "12/19/23",
+        content: (
+            <HeroNewsItemContent>
+                Deeper Insights{" "}
+                <UDLLink href="https://podcasts.apple.com/us/podcast/understanding-deep-learning-with-simon-prince/id1669436318?i=1000638269385">
+                    podcast
+                </UDLLink>{" "}
+                discussing book.
+            </HeroNewsItemContent>
+        ),
+    },
+    {
+        date: "12/06/23",
+        content: (
+            <HeroNewsItemContent>
+                <UDLLink href="https://borealisai.com/news/understanding-deep-learning/">
+                    Interview
+                </UDLLink>{" "}
+                with Borealis AI.
+            </HeroNewsItemContent>
+        ),
+    },
+    {
+        date: "12/05/23",
+        content: (
+            <HeroNewsItemContent>
+                Book released by{" "}
+                <UDLLink href="https://mitpress.mit.edu/9780262048644/understanding-deep-learning/">
+                    The MIT Press
+                </UDLLink>
+                .
+            </HeroNewsItemContent>
+        ),
+    },
+];
+
+export default function HeroSection() {
+    const [showMoreNews, setShowMoreNews] = useState(false);
+
+    const toggleShowMore = () => {
+        setShowMoreNews((p) => !p);
+    };
+
     return (
         <HeroContainer id="home">
             <HeroContent>
@@ -38,132 +155,20 @@ export default function HeroSection() {
                     <HeroColumn1>
                         <HeroNewsBlock>
                             <HeroNewsTitle>RECENT NEWS:</HeroNewsTitle>
-                            <HeroNewsItem>
-                                <HeroNewsItemDate>05/22/24</HeroNewsItemDate>
-                                <HeroNewsItemContent>
-                                    {" "}
-                                    New{" "}
-                                    <UDLLink href="https://www.borealisai.com/research-blogs/neural-tangent-kernel-applications/">
-                                        {" "}
-                                        blog{" "}
-                                    </UDLLink>{" "}
-                                    about the applications of the neural tangent kernel.
-                                </HeroNewsItemContent>
-                            </HeroNewsItem>
-
-                            <HeroNewsItem>
-                                <HeroNewsItemDate>05/10/24</HeroNewsItemDate>
-                                <HeroNewsItemContent>
-                                    {" "}
-                                    Positive{" "}
-                                    <UDLLink href="https://github.com/udlbook/udlbook/blob/main/public/NMI_Review.pdf">
-                                        review
-                                    </UDLLink>{" "}
-                                    in Nature Machine Intelligence.
-                                </HeroNewsItemContent>
-                            </HeroNewsItem>
-
-                            {/* <HeroNewsItem>
-                                <HeroNewsItemDate>03/12/24</HeroNewsItemDate>
-                                <HeroNewsItemContent>
-                                    {" "}
-                                    Book now available again.
-                                </HeroNewsItemContent>
-                            </HeroNewsItem>
-                            <HeroNewsItem>
-                                <HeroNewsItemDate>02/21/24</HeroNewsItemDate>
-                                <HeroNewsItemContent>
-                                    New blog about the{" "}
-                                    <UDLLink href="https://www.borealisai.com/research-blogs/the-neural-tangent-kernel/">
-                                        Neural Tangent Kernel.
-                                    </UDLLink>
-                                </HeroNewsItemContent>
-                                <HeroNewsItemContent> Book now available again.</HeroNewsItemContent>
-                            </HeroNewsItem> */}
-
-                            <HeroNewsItem>
-                                <HeroNewsItemDate>02/21/24</HeroNewsItemDate>
-                                <HeroNewsItemContent>
-                                    New blog about the{" "}
-                                    <UDLLink href="https://www.borealisai.com/research-blogs/the-neural-tangent-kernel/">
-                                        Neural Tangent Kernel
-                                    </UDLLink>
-                                    .
-                                </HeroNewsItemContent>
-                            </HeroNewsItem>
-                            {/* <HeroNewsItem>
-                                <HeroNewsItemDate>02/15/24</HeroNewsItemDate>
-                                <HeroNewsItemContent>
-                                    {" "}
-                                    First printing of book has sold out in most places. Second
-                                    printing available mid-March.
-                                </HeroNewsItemContent>
-                            </HeroNewsItem>
-                                <HeroNewsItemContent> First printing of book has sold out in most places. Second printing available mid-March.</HeroNewsItemContent>
-                            </HeroNewsItem> */}
-
-                            <HeroNewsItem>
-                                <HeroNewsItemDate>01/29/24</HeroNewsItemDate>
-                                <HeroNewsItemContent>
-                                    {" "}
-                                    New blog about{" "}
-                                    <UDLLink href="https://www.borealisai.com/research-blogs/gradient-flow/">
-                                        {" "}
-                                        gradient flow
-                                    </UDLLink>{" "}
-                                    published.
-                                </HeroNewsItemContent>
-                            </HeroNewsItem>
-                            <HeroNewsItem>
-                                <HeroNewsItemDate>12/26/23</HeroNewsItemDate>
-                                <HeroNewsItemContent>
-                                    {" "}
-                                    Machine Learning Street Talk{" "}
-                                    <UDLLink href="https://www.youtube.com/watch?v=sJXn4Cl4oww">
-                                        {" "}
-                                        podcast{" "}
-                                    </UDLLink>{" "}
-                                    discussing book.
-                                </HeroNewsItemContent>
-                            </HeroNewsItem>
-                            <HeroNewsItem>
-                                <HeroNewsItemDate>12/19/23</HeroNewsItemDate>
-                                <HeroNewsItemContent>
-                                    Deeper Insights{" "}
-                                    <UDLLink href="https://podcasts.apple.com/us/podcast/understanding-deep-learning-with-simon-prince/id1669436318?i=1000638269385">
-                                        podcast
-                                    </UDLLink>{" "}
-                                    discussing book.
-                                </HeroNewsItemContent>
-                            </HeroNewsItem>
-                            <HeroNewsItem>
-                                <HeroNewsItemDate>12/06/23</HeroNewsItemDate>
-                                <HeroNewsItemContent>
-                                    {" "}
-                                    <UDLLink href="https://www.borealisai.com/news/understanding-deep-learning/">
-                                        Interview
-                                    </UDLLink>{" "}
-                                    with Borealis AI.
-                                </HeroNewsItemContent>
-                            </HeroNewsItem>
-                            <HeroNewsItem>
-                                <HeroNewsItemDate>12/05/23</HeroNewsItemDate>
-                                <HeroNewsItemContent>
-                                    {" "}
-                                    Book released by{" "}
-                                    <UDLLink href="https://mitpress.mit.edu/9780262048644/understanding-deep-learning/">
-                                        The MIT Press
-                                    </UDLLink>
-                                    .
-                                </HeroNewsItemContent>
-                            </HeroNewsItem>
+                            {(showMoreNews ? news : news.slice(0, 7)).map((item, index) => (
+                                <HeroNewsItem key={index}>
+                                    <HeroNewsItemDate>{item.date}</HeroNewsItemDate>
+                                    {item.content}
+                                </HeroNewsItem>
+                            ))}
+                            <HeroNewsMoreButton onClick={toggleShowMore}>
+                                {showMoreNews ? "Show less" : "Show more"}
+                            </HeroNewsMoreButton>
                         </HeroNewsBlock>
                         <HeroCitationTitle>CITATION:</HeroCitationTitle>
                         <HeroCitationBlock>
                             <pre>
-                                <code>
-                                    <>{citation}</>
-                                </code>
+                                <code>{citation}</code>
                             </pre>
                         </HeroCitationBlock>
                         <HeroFollowBlock>
@@ -177,11 +182,12 @@ export default function HeroSection() {
                     </HeroColumn1>
                     <HeroColumn2>
                         <HeroImgWrap>
-                            <Img src={img} alt="UDL Book" />
+                            <Img src={img} alt="Book Cover" />
                         </HeroImgWrap>
                         <HeroLink href="https://github.com/udlbook/udlbook/releases/download/v4.0.1/UnderstandingDeepLearning_05_27_24_C.pdf">
-                            Download full pdf (27 May 2024)
+                            Download full PDF (27 May 2024)
                         </HeroLink>
+                        <br />
                         <HeroDownloadsImg
                             src="https://img.shields.io/github/downloads/udlbook/udlbook/total"
                             alt="download stats shield"

@@ -6,7 +6,7 @@ import {
     NavLinks,
     NavLogo,
     NavMenu,
-} from "./NavbarElements";
+} from "@/components/Navbar/NavbarElements";
 import { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
@@ -17,11 +17,7 @@ export default function Navbar({ toggle }) {
 
     useEffect(() => {
         const changeNav = () => {
-            if (window.scrollY >= 80) {
-                setScrollNav(true);
-            } else {
-                setScrollNav(false);
-            }
+            setScrollNav(window.scrollY >= 80);
         };
 
         window.addEventListener("scroll", changeNav);
@@ -31,7 +27,7 @@ export default function Navbar({ toggle }) {
         };
     }, []);
 
-    const toggleHome = () => {
+    const scrollToHome = () => {
         scroll.scrollToTop();
     };
 
@@ -40,7 +36,7 @@ export default function Navbar({ toggle }) {
             <IconContext.Provider value={{ color: "#fff" }}>
                 <Nav scrollNav={scrollNav}>
                     <NavbarContainer>
-                        <NavLogo to="/udlbook/" onClick={toggleHome}>
+                        <NavLogo to="/udlbook/" onClick={scrollToHome}>
                             <h1> Understanding Deep Learning </h1>
                         </NavLogo>
                         <MobileIcon onClick={toggle}>

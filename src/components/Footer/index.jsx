@@ -33,7 +33,7 @@ const socials = [
 ];
 
 export default function Footer() {
-    const toggleHome = () => {
+    const scrollToHome = () => {
         scroll.scrollToTop();
     };
 
@@ -43,7 +43,7 @@ export default function Footer() {
                 <FooterWrap>
                     <SocialMedia>
                         <SocialMediaWrap>
-                            <SocialLogo to="/udlbook" onClick={toggleHome}>
+                            <SocialLogo to="/udlbook" onClick={scrollToHome}>
                                 Understanding Deep Learning
                             </SocialLogo>
                             <WebsiteRights>

@@ -274,3 +274,21 @@ export const HeroFollowBlock = styled.div`
         font-size: 14px;
     }
 `;
+
+export const HeroNewsMoreButton = styled.button`
+    background: #fff;
+    color: #000;
+    font-size: 16px;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    align-self: center;
+
+    &:hover {
+        background: #000;
+        color: #fff;
+    }
+`;
