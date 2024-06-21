@@ -13,12 +13,14 @@ import {
     HeroNewsItem,
     HeroNewsItemContent,
     HeroNewsItemDate,
+    HeroNewsMoreButton,
     HeroNewsTitle,
     HeroRow,
     Img,
     UDLLink,
 } from "@/components/HeroSection/HeroElements";
 import img from "@/images/book_cover.jpg";
+import { useState } from "react";
 
 const citation = `
     @book{prince2023understanding,
@@ -140,6 +142,12 @@ const news = [
 ];
 
 export default function HeroSection() {
+    const [showMoreNews, setShowMoreNews] = useState(false);
+
+    const toggleShowMore = () => {
+        setShowMoreNews((p) => !p);
+    };
+
     return (
         <HeroContainer id="home">
             <HeroContent>
@@ -147,12 +155,15 @@ export default function HeroSection() {
                     <HeroColumn1>
                         <HeroNewsBlock>
                             <HeroNewsTitle>RECENT NEWS:</HeroNewsTitle>
-                            {news.map((item, index) => (
+                            {(showMoreNews ? news : news.slice(0, 7)).map((item, index) => (
                                 <HeroNewsItem key={index}>
                                     <HeroNewsItemDate>{item.date}</HeroNewsItemDate>
                                     {item.content}
                                 </HeroNewsItem>
                             ))}
+                            <HeroNewsMoreButton onClick={toggleShowMore}>
+                                {showMoreNews ? "Show less" : "Show more"}
+                            </HeroNewsMoreButton>
                         </HeroNewsBlock>
                         <HeroCitationTitle>CITATION:</HeroCitationTitle>
                         <HeroCitationBlock>
