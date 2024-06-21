@@ -8,6 +8,10 @@ on:
             - "src/**"
             - "public/**"
             - "index.html"
+            - "package.json"
+            - "package-lock.json"
+            - "vite.config.js"
+            - "jsconfig.json"
 
 jobs:
     build-and-deploy:
