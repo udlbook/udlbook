@@ -8,7 +8,7 @@ import {
     SocialMediaWrap,
     WebsiteRights,
 } from "@/components/Footer/FooterElements";
-import { FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { animateScroll as scroll } from "react-scroll";
 
@@ -29,6 +29,11 @@ const socials = [
         href: "https://linkedin.com/in/simon-prince-615bb9165/",
         icon: FaLinkedin,
         alt: "LinkedIn",
+    },
+    {
+        href: "https://github.com/udlbook/udlbook",
+        icon: FaGithub,
+        alt: "GitHub",
     },
 ];
 
