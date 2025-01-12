@@ -5,7 +5,7 @@ import {
     SidebarLink,
     SidebarMenu,
     SidebarWrapper,
-} from "@/components/Sidebar/SidebarElements";
+} from "@/components/Sidebar/elements";
 
 export default function Sidebar({ isOpen, toggle }) {
     return (

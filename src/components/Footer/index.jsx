@@ -7,7 +7,7 @@ import {
     SocialMedia,
     SocialMediaWrap,
     WebsiteRights,
-} from "@/components/Footer/FooterElements";
+} from "@/components/Footer/elements";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { animateScroll as scroll } from "react-scroll";

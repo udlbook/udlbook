@@ -11,7 +11,7 @@ import {
     Subtitle,
     TextWrapper,
     TopLine,
-} from "@/components/Notebooks/NotebookElements";
+} from "@/components/Notebooks/elements";
 import img from "@/images/coding.svg";
 
 const notebooks = [

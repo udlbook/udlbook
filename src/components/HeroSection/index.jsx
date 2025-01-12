@@ -18,7 +18,7 @@ import {
     HeroRow,
     Img,
     UDLLink,
-} from "@/components/HeroSection/HeroElements";
+} from "@/components/HeroSection/elements";
 import img from "@/images/book_cover.jpg";
 import { useState } from "react";
 

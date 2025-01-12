@@ -13,7 +13,7 @@ import {
     Subtitle,
     TextWrapper,
     TopLine,
-} from "@/components/Instructors/InstructorsElements";
+} from "@/components/Instructors/elements";
 import img from "@/images/instructor.svg";
 
 const fullSlides = [

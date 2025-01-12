@@ -15,7 +15,7 @@ import {
     Subtitle,
     TextWrapper,
     TopLine,
-} from "@/components/More/MoreElements";
+} from "@/components/More/elements";
 import img from "@/images/more.svg";
 
 const book = [

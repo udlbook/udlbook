@@ -14,7 +14,7 @@ import {
     TextWrapper,
     TopLine,
     VideoFrame,
-} from "@/components/Media/MediaElements";
+} from "@/components/Media/elements";
 import img from "@/images/media.svg";
 
 const interviews = [
