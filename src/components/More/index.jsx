@@ -666,268 +666,266 @@ const responsibleAI = [
 
 export default function MoreSection() {
     return (
-        <>
-            <MoreContainer lightBg={true} id="More">
-                <MoreWrapper>
-                    <MoreRow imgStart={false}>
-                        <Column1>
-                            <TextWrapper>
-                                <TopLine>More</TopLine>
-                                <Heading lightText={false}>Further reading</Heading>
-                                <Subtitle darkText={true}>
-                                    Other articles, blogs, and books that I have written. Most in a
-                                    similar style and using the same notation as Understanding Deep
-                                    Learning.
-                                </Subtitle>
-                            </TextWrapper>
-                        </Column1>
-                        <Column2>
-                            <ImgWrap>
-                                <Img src={img} alt="More" />
-                            </ImgWrap>
-                        </Column2>
-                    </MoreRow>
-                    <MoreRow2>
-                        <Column1>
-                            <TopLine>Book</TopLine>
-                            <MoreOuterList>
-                                {book.map((item, index) => (
-                                    <li key={index}>
-                                        <MoreLink href={item.link} target="_blank" rel="noreferrer">
-                                            {item.text}
-                                        </MoreLink>
-                                        <MoreInnerP>
-                                            <MoreInnerList>
-                                                {item.details.map((detail, index) => (
-                                                    <li key={index}>{detail}</li>
-                                                ))}
-                                            </MoreInnerList>
-                                        </MoreInnerP>
-                                    </li>
-                                ))}
-                            </MoreOuterList>
+        <MoreContainer lightBg={true} id="More">
+            <MoreWrapper>
+                <MoreRow imgStart={false}>
+                    <Column1>
+                        <TextWrapper>
+                            <TopLine>More</TopLine>
+                            <Heading lightText={false}>Further reading</Heading>
+                            <Subtitle darkText={true}>
+                                Other articles, blogs, and books that I have written. Most in a
+                                similar style and using the same notation as Understanding Deep
+                                Learning.
+                            </Subtitle>
+                        </TextWrapper>
+                    </Column1>
+                    <Column2>
+                        <ImgWrap>
+                            <Img src={img} alt="More" />
+                        </ImgWrap>
+                    </Column2>
+                </MoreRow>
+                <MoreRow2>
+                    <Column1>
+                        <TopLine>Book</TopLine>
+                        <MoreOuterList>
+                            {book.map((item, index) => (
+                                <li key={index}>
+                                    <MoreLink href={item.link} target="_blank" rel="noreferrer">
+                                        {item.text}
+                                    </MoreLink>
+                                    <MoreInnerP>
+                                        <MoreInnerList>
+                                            {item.details.map((detail, index) => (
+                                                <li key={index}>{detail}</li>
+                                            ))}
+                                        </MoreInnerList>
+                                    </MoreInnerP>
+                                </li>
+                            ))}
+                        </MoreOuterList>
 
-                            <TopLine>Transformers & LLMs</TopLine>
-                            <MoreOuterList>
-                                {transformersAndLLMs.map((item, index) => (
-                                    <li key={index}>
-                                        <MoreLink href={item.link} target="_blank" rel="noreferrer">
-                                            {item.text}
-                                        </MoreLink>
-                                        <MoreInnerP>
-                                            <MoreInnerList>
-                                                {item.details.map((detail, index) => (
-                                                    <li key={index}>{detail}</li>
-                                                ))}
-                                            </MoreInnerList>
-                                        </MoreInnerP>
-                                    </li>
-                                ))}
-                            </MoreOuterList>
+                        <TopLine>Transformers & LLMs</TopLine>
+                        <MoreOuterList>
+                            {transformersAndLLMs.map((item, index) => (
+                                <li key={index}>
+                                    <MoreLink href={item.link} target="_blank" rel="noreferrer">
+                                        {item.text}
+                                    </MoreLink>
+                                    <MoreInnerP>
+                                        <MoreInnerList>
+                                            {item.details.map((detail, index) => (
+                                                <li key={index}>{detail}</li>
+                                            ))}
+                                        </MoreInnerList>
+                                    </MoreInnerP>
+                                </li>
+                            ))}
+                        </MoreOuterList>
 
-                            <TopLine>Math for machine learning</TopLine>
-                            <MoreOuterList>
-                                {mathForMachineLearning.map((item, index) => (
-                                    <li key={index}>
-                                        <MoreLink href={item.link} target="_blank" rel="noreferrer">
-                                            {item.text}
-                                        </MoreLink>
-                                        <MoreInnerP>
-                                            <MoreInnerList>
-                                                {item.details.map((detail, index) => (
-                                                    <li key={index}>{detail}</li>
-                                                ))}
-                                            </MoreInnerList>
-                                        </MoreInnerP>
-                                    </li>
-                                ))}
-                            </MoreOuterList>
+                        <TopLine>Math for machine learning</TopLine>
+                        <MoreOuterList>
+                            {mathForMachineLearning.map((item, index) => (
+                                <li key={index}>
+                                    <MoreLink href={item.link} target="_blank" rel="noreferrer">
+                                        {item.text}
+                                    </MoreLink>
+                                    <MoreInnerP>
+                                        <MoreInnerList>
+                                            {item.details.map((detail, index) => (
+                                                <li key={index}>{detail}</li>
+                                            ))}
+                                        </MoreInnerList>
+                                    </MoreInnerP>
+                                </li>
+                            ))}
+                        </MoreOuterList>
 
-                            <TopLine>Optimization</TopLine>
-                            <MoreOuterList>
-                                {optimization.map((item, index) => (
-                                    <li key={index}>
-                                        <MoreLink href={item.link} target="_blank" rel="noreferrer">
-                                            {item.text}
-                                        </MoreLink>
-                                        <MoreInnerP>
-                                            <MoreInnerList>
-                                                {item.details.map((detail, index) => (
-                                                    <li key={index}>{detail}</li>
-                                                ))}
-                                            </MoreInnerList>
-                                        </MoreInnerP>
-                                    </li>
-                                ))}
-                            </MoreOuterList>
+                        <TopLine>Optimization</TopLine>
+                        <MoreOuterList>
+                            {optimization.map((item, index) => (
+                                <li key={index}>
+                                    <MoreLink href={item.link} target="_blank" rel="noreferrer">
+                                        {item.text}
+                                    </MoreLink>
+                                    <MoreInnerP>
+                                        <MoreInnerList>
+                                            {item.details.map((detail, index) => (
+                                                <li key={index}>{detail}</li>
+                                            ))}
+                                        </MoreInnerList>
+                                    </MoreInnerP>
+                                </li>
+                            ))}
+                        </MoreOuterList>
 
-                            <TopLine>Temporal models</TopLine>
-                            <MoreOuterList>
-                                {temporalModels.map((item, index) => (
-                                    <li key={index}>
-                                        <MoreLink href={item.link} target="_blank" rel="noreferrer">
-                                            {item.text}
-                                        </MoreLink>
-                                        <MoreInnerP>
-                                            <MoreInnerList>
-                                                {item.details.map((detail, index) => (
-                                                    <li key={index}>{detail}</li>
-                                                ))}
-                                            </MoreInnerList>
-                                        </MoreInnerP>
-                                    </li>
-                                ))}
-                            </MoreOuterList>
+                        <TopLine>Temporal models</TopLine>
+                        <MoreOuterList>
+                            {temporalModels.map((item, index) => (
+                                <li key={index}>
+                                    <MoreLink href={item.link} target="_blank" rel="noreferrer">
+                                        {item.text}
+                                    </MoreLink>
+                                    <MoreInnerP>
+                                        <MoreInnerList>
+                                            {item.details.map((detail, index) => (
+                                                <li key={index}>{detail}</li>
+                                            ))}
+                                        </MoreInnerList>
+                                    </MoreInnerP>
+                                </li>
+                            ))}
+                        </MoreOuterList>
 
-                            <TopLine>Computer vision</TopLine>
-                            <MoreOuterList>
-                                {computerVision.map((item, index) => (
-                                    <li key={index}>
-                                        <MoreLink href={item.link} target="_blank" rel="noreferrer">
-                                            {item.text}
-                                        </MoreLink>
-                                        <MoreInnerP>
-                                            <MoreInnerList>
-                                                {item.details.map((detail, index) => (
-                                                    <li key={index}>{detail}</li>
-                                                ))}
-                                            </MoreInnerList>
-                                        </MoreInnerP>
-                                    </li>
-                                ))}
-                            </MoreOuterList>
+                        <TopLine>Computer vision</TopLine>
+                        <MoreOuterList>
+                            {computerVision.map((item, index) => (
+                                <li key={index}>
+                                    <MoreLink href={item.link} target="_blank" rel="noreferrer">
+                                        {item.text}
+                                    </MoreLink>
+                                    <MoreInnerP>
+                                        <MoreInnerList>
+                                            {item.details.map((detail, index) => (
+                                                <li key={index}>{detail}</li>
+                                            ))}
+                                        </MoreInnerList>
+                                    </MoreInnerP>
+                                </li>
+                            ))}
+                        </MoreOuterList>
 
-                            <TopLine>Reinforcement learning</TopLine>
-                            <MoreOuterList>
-                                {reinforcementLearning.map((item, index) => (
-                                    <li key={index}>
-                                        <MoreLink href={item.link} target="_blank" rel="noreferrer">
-                                            {item.text}
-                                        </MoreLink>
-                                        <MoreInnerP>
-                                            <MoreInnerList>
-                                                {item.details.map((detail, index) => (
-                                                    <li key={index}>{detail}</li>
-                                                ))}
-                                            </MoreInnerList>
-                                        </MoreInnerP>
-                                    </li>
-                                ))}
-                            </MoreOuterList>
-                        </Column1>
+                        <TopLine>Reinforcement learning</TopLine>
+                        <MoreOuterList>
+                            {reinforcementLearning.map((item, index) => (
+                                <li key={index}>
+                                    <MoreLink href={item.link} target="_blank" rel="noreferrer">
+                                        {item.text}
+                                    </MoreLink>
+                                    <MoreInnerP>
+                                        <MoreInnerList>
+                                            {item.details.map((detail, index) => (
+                                                <li key={index}>{detail}</li>
+                                            ))}
+                                        </MoreInnerList>
+                                    </MoreInnerP>
+                                </li>
+                            ))}
+                        </MoreOuterList>
+                    </Column1>
 
-                        <Column2>
-                            <TopLine>AI Theory</TopLine>
-                            <MoreOuterList>
-                                {aiTheory.map((item, index) => (
-                                    <li key={index}>
-                                        <MoreLink href={item.link} target="_blank" rel="noreferrer">
-                                            {item.text}
-                                        </MoreLink>
-                                        <MoreInnerP>
-                                            <MoreInnerList>
-                                                {item.details.map((detail, index) => (
-                                                    <li key={index}>{detail}</li>
-                                                ))}
-                                            </MoreInnerList>
-                                        </MoreInnerP>
-                                    </li>
-                                ))}
-                            </MoreOuterList>
+                    <Column2>
+                        <TopLine>AI Theory</TopLine>
+                        <MoreOuterList>
+                            {aiTheory.map((item, index) => (
+                                <li key={index}>
+                                    <MoreLink href={item.link} target="_blank" rel="noreferrer">
+                                        {item.text}
+                                    </MoreLink>
+                                    <MoreInnerP>
+                                        <MoreInnerList>
+                                            {item.details.map((detail, index) => (
+                                                <li key={index}>{detail}</li>
+                                            ))}
+                                        </MoreInnerList>
+                                    </MoreInnerP>
+                                </li>
+                            ))}
+                        </MoreOuterList>
 
-                            <TopLine>Unsupervised learning</TopLine>
-                            <MoreOuterList>
-                                {unsupervisedLearning.map((item, index) => (
-                                    <li key={index}>
-                                        <MoreLink href={item.link} target="_blank" rel="noreferrer">
-                                            {item.text}
-                                        </MoreLink>
-                                        <MoreInnerP>
-                                            <MoreInnerList>
-                                                {item.details.map((detail, index) => (
-                                                    <li key={index}>{detail}</li>
-                                                ))}
-                                            </MoreInnerList>
-                                        </MoreInnerP>
-                                    </li>
-                                ))}
-                            </MoreOuterList>
+                        <TopLine>Unsupervised learning</TopLine>
+                        <MoreOuterList>
+                            {unsupervisedLearning.map((item, index) => (
+                                <li key={index}>
+                                    <MoreLink href={item.link} target="_blank" rel="noreferrer">
+                                        {item.text}
+                                    </MoreLink>
+                                    <MoreInnerP>
+                                        <MoreInnerList>
+                                            {item.details.map((detail, index) => (
+                                                <li key={index}>{detail}</li>
+                                            ))}
+                                        </MoreInnerList>
+                                    </MoreInnerP>
+                                </li>
+                            ))}
+                        </MoreOuterList>
 
-                            <TopLine>Graphical Models</TopLine>
-                            <MoreOuterList>
-                                {graphicalModels.map((item, index) => (
-                                    <li key={index}>
-                                        <MoreLink href={item.link} target="_blank" rel="noreferrer">
-                                            {item.text}
-                                        </MoreLink>
-                                        <MoreInnerP>
-                                            <MoreInnerList>
-                                                {item.details.map((detail, index) => (
-                                                    <li key={index}>{detail}</li>
-                                                ))}
-                                            </MoreInnerList>
-                                        </MoreInnerP>
-                                    </li>
-                                ))}
-                            </MoreOuterList>
+                        <TopLine>Graphical Models</TopLine>
+                        <MoreOuterList>
+                            {graphicalModels.map((item, index) => (
+                                <li key={index}>
+                                    <MoreLink href={item.link} target="_blank" rel="noreferrer">
+                                        {item.text}
+                                    </MoreLink>
+                                    <MoreInnerP>
+                                        <MoreInnerList>
+                                            {item.details.map((detail, index) => (
+                                                <li key={index}>{detail}</li>
+                                            ))}
+                                        </MoreInnerList>
+                                    </MoreInnerP>
+                                </li>
+                            ))}
+                        </MoreOuterList>
 
-                            <TopLine>Machine learning</TopLine>
-                            <MoreOuterList>
-                                {machineLearning.map((item, index) => (
-                                    <li key={index}>
-                                        <MoreLink href={item.link} target="_blank" rel="noreferrer">
-                                            {item.text}
-                                        </MoreLink>
-                                        <MoreInnerP>
-                                            <MoreInnerList>
-                                                {item.details.map((detail, index) => (
-                                                    <li key={index}>{detail}</li>
-                                                ))}
-                                            </MoreInnerList>
-                                        </MoreInnerP>
-                                    </li>
-                                ))}
-                            </MoreOuterList>
+                        <TopLine>Machine learning</TopLine>
+                        <MoreOuterList>
+                            {machineLearning.map((item, index) => (
+                                <li key={index}>
+                                    <MoreLink href={item.link} target="_blank" rel="noreferrer">
+                                        {item.text}
+                                    </MoreLink>
+                                    <MoreInnerP>
+                                        <MoreInnerList>
+                                            {item.details.map((detail, index) => (
+                                                <li key={index}>{detail}</li>
+                                            ))}
+                                        </MoreInnerList>
+                                    </MoreInnerP>
+                                </li>
+                            ))}
+                        </MoreOuterList>
 
-                            <TopLine>Natural language processing</TopLine>
-                            <MoreOuterList>
-                                {nlp.map((item, index) => (
-                                    <li key={index}>
-                                        <MoreLink href={item.link} target="_blank" rel="noreferrer">
-                                            {item.text}
-                                        </MoreLink>
-                                        <MoreInnerP>
-                                            <MoreInnerList>
-                                                {item.details.map((detail, index) => (
-                                                    <li key={index}>{detail}</li>
-                                                ))}
-                                            </MoreInnerList>
-                                        </MoreInnerP>
-                                    </li>
-                                ))}
-                            </MoreOuterList>
+                        <TopLine>Natural language processing</TopLine>
+                        <MoreOuterList>
+                            {nlp.map((item, index) => (
+                                <li key={index}>
+                                    <MoreLink href={item.link} target="_blank" rel="noreferrer">
+                                        {item.text}
+                                    </MoreLink>
+                                    <MoreInnerP>
+                                        <MoreInnerList>
+                                            {item.details.map((detail, index) => (
+                                                <li key={index}>{detail}</li>
+                                            ))}
+                                        </MoreInnerList>
+                                    </MoreInnerP>
+                                </li>
+                            ))}
+                        </MoreOuterList>
 
-                            <TopLine>Responsible AI</TopLine>
-                            <MoreOuterList>
-                                {responsibleAI.map((item, index) => (
-                                    <li key={index}>
-                                        <MoreLink href={item.link} target="_blank" rel="noreferrer">
-                                            {item.text}
-                                        </MoreLink>
-                                        <MoreInnerP>
-                                            <MoreInnerList>
-                                                {item.details.map((detail, index) => (
-                                                    <li key={index}>{detail}</li>
-                                                ))}
-                                            </MoreInnerList>
-                                        </MoreInnerP>
-                                    </li>
-                                ))}
-                            </MoreOuterList>
-                        </Column2>
-                    </MoreRow2>
-                </MoreWrapper>
-            </MoreContainer>
-        </>
+                        <TopLine>Responsible AI</TopLine>
+                        <MoreOuterList>
+                            {responsibleAI.map((item, index) => (
+                                <li key={index}>
+                                    <MoreLink href={item.link} target="_blank" rel="noreferrer">
+                                        {item.text}
+                                    </MoreLink>
+                                    <MoreInnerP>
+                                        <MoreInnerList>
+                                            {item.details.map((detail, index) => (
+                                                <li key={index}>{detail}</li>
+                                            ))}
+                                        </MoreInnerList>
+                                    </MoreInnerP>
+                                </li>
+                            ))}
+                        </MoreOuterList>
+                    </Column2>
+                </MoreRow2>
+            </MoreWrapper>
+        </MoreContainer>
     );
 }

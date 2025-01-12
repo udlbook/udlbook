@@ -291,54 +291,52 @@ const notebooks = [
 
 export default function NotebookSection() {
     return (
-        <>
-            <NotebookContainer lightBg={false} id="Notebooks">
-                <NotebookWrapper>
-                    <NotebookRow imgStart={true}>
-                        <Column1>
-                            <TextWrapper>
-                                <TopLine>Coding exercises</TopLine>
-                                <Heading lightText={true}>
-                                    Python notebooks covering the whole text
-                                </Heading>
-                                <Subtitle darkText={false}>
-                                    Sixty eight python notebook exercises with missing code to fill
-                                    in based on the text
-                                </Subtitle>
-                            </TextWrapper>
-                        </Column1>
-                        <Column2>
-                            <ImgWrap>
-                                <Img src={img} alt="Coding" />
-                            </ImgWrap>
-                        </Column2>
-                    </NotebookRow>
-                    <NotebookRow>
-                        <Column1>
-                            <ul>
-                                {/* render first half of notebooks*/}
-                                {notebooks.slice(0, notebooks.length / 2).map((notebook, index) => (
-                                    <li key={index}>
-                                        {notebook.text}:{" "}
-                                        <NBLink href={notebook.link}>ipynb/colab</NBLink>
-                                    </li>
-                                ))}
-                            </ul>
-                        </Column1>
-                        <Column2>
-                            <ul>
-                                {/* render second half of notebooks*/}
-                                {notebooks.slice(notebooks.length / 2).map((notebook, index) => (
-                                    <li key={index}>
-                                        {notebook.text}:{" "}
-                                        <NBLink href={notebook.link}>ipynb/colab</NBLink>
-                                    </li>
-                                ))}
-                            </ul>
-                        </Column2>
-                    </NotebookRow>
-                </NotebookWrapper>
-            </NotebookContainer>
-        </>
+        <NotebookContainer lightBg={false} id="Notebooks">
+            <NotebookWrapper>
+                <NotebookRow imgStart={true}>
+                    <Column1>
+                        <TextWrapper>
+                            <TopLine>Coding exercises</TopLine>
+                            <Heading lightText={true}>
+                                Python notebooks covering the whole text
+                            </Heading>
+                            <Subtitle darkText={false}>
+                                Sixty eight python notebook exercises with missing code to fill in
+                                based on the text
+                            </Subtitle>
+                        </TextWrapper>
+                    </Column1>
+                    <Column2>
+                        <ImgWrap>
+                            <Img src={img} alt="Coding" />
+                        </ImgWrap>
+                    </Column2>
+                </NotebookRow>
+                <NotebookRow>
+                    <Column1>
+                        <ul>
+                            {/* render first half of notebooks*/}
+                            {notebooks.slice(0, notebooks.length / 2).map((notebook, index) => (
+                                <li key={index}>
+                                    {notebook.text}:{" "}
+                                    <NBLink href={notebook.link}>ipynb/colab</NBLink>
+                                </li>
+                            ))}
+                        </ul>
+                    </Column1>
+                    <Column2>
+                        <ul>
+                            {/* render second half of notebooks*/}
+                            {notebooks.slice(notebooks.length / 2).map((notebook, index) => (
+                                <li key={index}>
+                                    {notebook.text}:{" "}
+                                    <NBLink href={notebook.link}>ipynb/colab</NBLink>
+                                </li>
+                            ))}
+                        </ul>
+                    </Column2>
+                </NotebookRow>
+            </NotebookWrapper>
+        </NotebookContainer>
     );
 }

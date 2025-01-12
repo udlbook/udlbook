@@ -43,42 +43,40 @@ export default function Footer() {
     };
 
     return (
-        <>
-            <FooterContainer>
-                <FooterWrap>
-                    <SocialMedia>
-                        <SocialMediaWrap>
-                            <SocialLogo to="/udlbook" onClick={scrollToHome}>
-                                Understanding Deep Learning
-                            </SocialLogo>
-                            <WebsiteRights>
-                                &copy; {new Date().getFullYear()} Simon J.D. Prince
-                            </WebsiteRights>
-                            <WebsiteRights>
-                                Images by StorySet on FreePik:{" "}
-                                {images.map((image, index) => (
-                                    <a key={index} href={image}>
-                                        [{index + 1}]
-                                    </a>
-                                ))}
-                            </WebsiteRights>
-                            <SocialIcons>
-                                {socials.map((social, index) => (
-                                    <SocialIconLink
-                                        key={index}
-                                        href={social.href}
-                                        target="_blank"
-                                        aria-label={social.alt}
-                                        alt={social.alt}
-                                    >
-                                        <social.icon />
-                                    </SocialIconLink>
-                                ))}
-                            </SocialIcons>
-                        </SocialMediaWrap>
-                    </SocialMedia>
-                </FooterWrap>
-            </FooterContainer>
-        </>
+        <FooterContainer>
+            <FooterWrap>
+                <SocialMedia>
+                    <SocialMediaWrap>
+                        <SocialLogo to="/udlbook" onClick={scrollToHome}>
+                            Understanding Deep Learning
+                        </SocialLogo>
+                        <WebsiteRights>
+                            &copy; {new Date().getFullYear()} Simon J.D. Prince
+                        </WebsiteRights>
+                        <WebsiteRights>
+                            Images by StorySet on FreePik:{" "}
+                            {images.map((image, index) => (
+                                <a key={index} href={image}>
+                                    [{index + 1}]
+                                </a>
+                            ))}
+                        </WebsiteRights>
+                        <SocialIcons>
+                            {socials.map((social, index) => (
+                                <SocialIconLink
+                                    key={index}
+                                    href={social.href}
+                                    target="_blank"
+                                    aria-label={social.alt}
+                                    alt={social.alt}
+                                >
+                                    <social.icon />
+                                </SocialIconLink>
+                            ))}
+                        </SocialIcons>
+                    </SocialMediaWrap>
+                </SocialMedia>
+            </FooterWrap>
+        </FooterContainer>
     );
 }

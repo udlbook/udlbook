@@ -252,83 +252,79 @@ const figures = [
 
 export default function InstructorsSection() {
     return (
-        <>
-            <InstructorsContainer lightBg={true} id="Instructors">
-                <InstructorsWrapper>
-                    <InstructorsRow imgStart={false}>
-                        <Column1>
-                            <TextWrapper>
-                                <TopLine>Instructors</TopLine>
-                                <Heading lightText={false}>Resources for instructors</Heading>
-                                <Subtitle darkText={true}>
-                                    All the figures in vector and image formats, full slides for
-                                    first twelve chapters, instructor answer booklet
-                                </Subtitle>
-                            </TextWrapper>
-                        </Column1>
-                        <Column2>
-                            <ImgWrap>
-                                <Img src={img} alt="Instructor" />
-                            </ImgWrap>
-                        </Column2>
-                    </InstructorsRow>
-                    <InstructorsRow2>
-                        <Column1>
-                            <TopLine>Register</TopLine>
-                            <InstructorsLink href="https://mitpress.ublish.com/request?cri=15055">
-                                Register
-                            </InstructorsLink>{" "}
-                            with MIT Press for answer booklet.
-                            <InstructorsContent></InstructorsContent>
-                            <TopLine>Full slides</TopLine>
-                            <InstructorsContent>
-                                Slides for 20 lecture undergraduate deep learning course:
-                            </InstructorsContent>
-                            <InstructorsContent>
-                                <ol>
-                                    {fullSlides.map((slide, index) => (
-                                        <li key={index}>
-                                            {slide.text}{" "}
-                                            <InstructorsLink href={slide.link}>
-                                                PPTX
-                                            </InstructorsLink>
-                                        </li>
-                                    ))}
-                                </ol>
-                            </InstructorsContent>
-                        </Column1>
-                        <Column2>
-                            <TopLine>Figures</TopLine>
-                            <InstructorsContent>
-                                <ol>
-                                    {figures.map((figure, index) => (
-                                        <li key={index}>
-                                            {figure.text}:{" "}
-                                            <InstructorsLink href={figure.links.pdf}>
-                                                PDF
-                                            </InstructorsLink>{" "}
-                                            /{" "}
-                                            <InstructorsLink href={figure.links.svg}>
-                                                {" "}
-                                                SVG
-                                            </InstructorsLink>{" "}
-                                            /{" "}
-                                            <InstructorsLink href={figure.links.pptx}>
-                                                PPTX{" "}
-                                            </InstructorsLink>
-                                        </li>
-                                    ))}
-                                </ol>
-                            </InstructorsContent>
-                            <InstructorsLink href="https://drive.google.com/file/d/1T_MXXVR4AfyMnlEFI-UVDh--FXI5deAp/view?usp=sharing">
-                                Instructions
-                            </InstructorsLink>{" "}
-                            for editing equations in figures.
-                            <InstructorsContent></InstructorsContent>
-                        </Column2>
-                    </InstructorsRow2>
-                </InstructorsWrapper>
-            </InstructorsContainer>
-        </>
+        <InstructorsContainer lightBg={true} id="Instructors">
+            <InstructorsWrapper>
+                <InstructorsRow imgStart={false}>
+                    <Column1>
+                        <TextWrapper>
+                            <TopLine>Instructors</TopLine>
+                            <Heading lightText={false}>Resources for instructors</Heading>
+                            <Subtitle darkText={true}>
+                                All the figures in vector and image formats, full slides for first
+                                twelve chapters, instructor answer booklet
+                            </Subtitle>
+                        </TextWrapper>
+                    </Column1>
+                    <Column2>
+                        <ImgWrap>
+                            <Img src={img} alt="Instructor" />
+                        </ImgWrap>
+                    </Column2>
+                </InstructorsRow>
+                <InstructorsRow2>
+                    <Column1>
+                        <TopLine>Register</TopLine>
+                        <InstructorsLink href="https://mitpress.ublish.com/request?cri=15055">
+                            Register
+                        </InstructorsLink>{" "}
+                        with MIT Press for answer booklet.
+                        <InstructorsContent></InstructorsContent>
+                        <TopLine>Full slides</TopLine>
+                        <InstructorsContent>
+                            Slides for 20 lecture undergraduate deep learning course:
+                        </InstructorsContent>
+                        <InstructorsContent>
+                            <ol>
+                                {fullSlides.map((slide, index) => (
+                                    <li key={index}>
+                                        {slide.text}{" "}
+                                        <InstructorsLink href={slide.link}>PPTX</InstructorsLink>
+                                    </li>
+                                ))}
+                            </ol>
+                        </InstructorsContent>
+                    </Column1>
+                    <Column2>
+                        <TopLine>Figures</TopLine>
+                        <InstructorsContent>
+                            <ol>
+                                {figures.map((figure, index) => (
+                                    <li key={index}>
+                                        {figure.text}:{" "}
+                                        <InstructorsLink href={figure.links.pdf}>
+                                            PDF
+                                        </InstructorsLink>{" "}
+                                        /{" "}
+                                        <InstructorsLink href={figure.links.svg}>
+                                            {" "}
+                                            SVG
+                                        </InstructorsLink>{" "}
+                                        /{" "}
+                                        <InstructorsLink href={figure.links.pptx}>
+                                            PPTX{" "}
+                                        </InstructorsLink>
+                                    </li>
+                                ))}
+                            </ol>
+                        </InstructorsContent>
+                        <InstructorsLink href="https://drive.google.com/file/d/1T_MXXVR4AfyMnlEFI-UVDh--FXI5deAp/view?usp=sharing">
+                            Instructions
+                        </InstructorsLink>{" "}
+                        for editing equations in figures.
+                        <InstructorsContent></InstructorsContent>
+                    </Column2>
+                </InstructorsRow2>
+            </InstructorsWrapper>
+        </InstructorsContainer>
     );
 }
