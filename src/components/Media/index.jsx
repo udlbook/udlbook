@@ -120,23 +120,18 @@ export default function MediaSection() {
                                         by Vishal V.
                                     </li>
                                     <li>
-                                        Amazon{" "}
-                                        <MediaLink href="https://www.amazon.com/Understanding-Deep-Learning-Simon-Prince-ebook/product-reviews/B0BXKH8XY6/">
-                                            reviews
-                                        </MediaLink>
-                                    </li>
-                                    <li>
-                                        Goodreads{" "}
-                                        <MediaLink href="https://www.goodreads.com/book/show/123239819-understanding-deep-learning?">
-                                            reviews{" "}
-                                        </MediaLink>
+                                        Book{" "}
+                                        <MediaLink href="https://www.linkedin.com/pulse/review-understanding-deep-learning-prof-simon-prince-chandrasekharan-6egec/">
+                                            review
+                                        </MediaLink>{" "}
+                                        by Nidhin Chandrasekharan
                                     </li>
                                     <li>
                                         Book{" "}
-                                        <MediaLink href="https://medium.com/@vishalvignesh/udl-book-review-the-new-deep-learning-textbook-youll-want-to-finish-69e1557b018d">
+                                        <MediaLink href="https://www.justinmath.com/the-best-neural-nets-textbook/">
                                             review
                                         </MediaLink>{" "}
-                                        by Vishal V.
+                                        by Justin Skycak
                                     </li>
                                 </ul>
                             </MediaContent>
@@ -155,6 +150,10 @@ export default function MediaSection() {
                                     ))}
                                 </ul>
                             </MediaContent>
+                            <TopLine>Video lectures</TopLine>                     
+                            <MediaLink href="https://www.youtube.com/playlist?list=PLRdABJkXXytCz19PsZ1PCQBKoZGV069k3">
+                                Video lectures 
+                            </MediaLink>{" "} for chapter 1-12 from Tamer Elsayed
                         </Column2>
                     </MediaRow2>
                 </MediaWrapper>

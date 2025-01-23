@@ -376,6 +376,51 @@ const aiTheory = [
             "NTK and generalizability",
         ],
     },
+    {
+        text: "Bayesian ML I",
+        link: "https://www.borealisai.com/research-blogs/bayesian-machine-learning-parameter-space/",
+        details: [
+            "Maximum likelihood",
+            "Maximum a posteriori",
+            "The Bayesian approach",
+            "Example: 1D linear regression",
+            "Practical concerns",
+        ],
+    },
+    {
+        text: "Bayesian ML II",
+        link: "https://www.borealisai.com/research-blogs/bayesian-machine-learning-function-space/",
+        details: [
+            "Function space",
+            "Gaussian processes",
+            "Inference",
+            "Non-linear regression",
+            "Kernels and the kernel trick",
+        ],
+    },
+    {
+        text: "Bayesian neural networks",
+        link: "https://rbcborealis.com/research-blogs/bayesian-neural-networks/",
+        details: [
+            "Sampling vs. variational approximation",
+            "MCMC methods",
+            "SWAG and MultiSWAG",
+            "Bayes by backprop",
+            "Monte Carlo dropout",
+        ],
+    },
+    {
+        text: "Neural network Gaussian processes",
+        link: "https://rbcborealis.com/research-blogs/neural-network-gaussian-processes/",
+        details: [
+            "Shallow networks as GPs",
+            "Neural network Gaussian processes",
+            "NNGP Kernel",
+            "Kernel regression",
+            "Network stability",
+        ],
+    },
+    
 ];
 
 const unsupervisedLearning = [
@@ -689,7 +734,7 @@ export default function MoreSection() {
                     </MoreRow>
                     <MoreRow2>
                         <Column1>
-                            <TopLine>Book</TopLine>
+                            <TopLine>Computer vision book</TopLine>
                             <MoreOuterList>
                                 {book.map((item, index) => (
                                     <li key={index}>
@@ -817,7 +862,7 @@ export default function MoreSection() {
                         </Column1>
 
                         <Column2>
-                            <TopLine>AI Theory</TopLine>
+                            <TopLine>ML Theory</TopLine>
                             <MoreOuterList>
                                 {aiTheory.map((item, index) => (
                                     <li key={index}>

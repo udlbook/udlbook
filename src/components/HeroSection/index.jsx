@@ -33,6 +33,94 @@ const citation = `
     `;
 
 const news = [
+{
+    date: "01/23/25",
+    content: (
+        <HeroNewsItemContent>
+            Added{" "}
+            <UDLLink href="https://github.com/udlbook/udlbook/raw/main/understanding-deep-learning-final.bib">
+                bibfile 
+            </UDLLink>{" "} for book an
+            <UDLLink href="https://github.com/udlbook/udlbook/raw/main/UDL_Equations.tex">
+               LaTeX 
+            </UDLLink>{" "}
+            for equations 
+        </HeroNewsItemContent>
+    ),
+},
+{
+    date: "12/17/24",
+    content: (
+        <HeroNewsItemContent>
+            
+            <UDLLink href="https://www.youtube.com/playlist?list=PLRdABJkXXytCz19PsZ1PCQBKoZGV069k3">
+                Video lectures
+            </UDLLink>{" "}
+            for chapters 1-12 from Tamer Elsayed of Qatar University.
+        </HeroNewsItemContent>
+    ),
+},
+{
+    date: "12/05/24",
+    content: (
+        <HeroNewsItemContent>
+            New{" "}
+            <UDLLink href="https://rbcborealis.com/research-blogs/neural-network-gaussian-processes/">
+                blog
+            </UDLLink>{" "}
+            on Neural network Gaussian processes
+        </HeroNewsItemContent>
+    ),
+},
+
+    {
+        date: "11/14/24",
+        content: (
+            <HeroNewsItemContent>
+                New{" "}
+                <UDLLink href=" https://rbcborealis.com/research-blogs/bayesian-neural-networks/">
+                    blog
+                </UDLLink>{" "}
+                on Bayesian Neural Networks
+            </HeroNewsItemContent>
+        ),
+    },
+    {
+        date: "08/13/24",
+        content: (
+            <HeroNewsItemContent>
+                New{" "}
+                <UDLLink href="https://www.borealisai.com/research-blogs/bayesian-machine-learning-function-space/">
+                    blog
+                </UDLLink>{" "}
+                on Bayesian machine learning (function perspective)
+            </HeroNewsItemContent>
+        ),
+    },
+    {
+        date: "08/05/24",
+        content: (
+            <HeroNewsItemContent>
+                Added{" "}
+                <UDLLink href="https://udlbook.github.io/udlfigures/">
+                    interactive figures
+                </UDLLink>{" "}
+                to explore 1D linear regression, shallow and deep networks, Gabor model.
+            </HeroNewsItemContent>
+        ),
+    },
+    {
+        date: "07/30/24",
+        content: (
+            <HeroNewsItemContent>
+                New{" "}
+                <UDLLink href="https://www.borealisai.com/research-blogs/bayesian-machine-learning-parameter-space/">
+                    blog
+                </UDLLink>{" "}
+                on Bayesian machine learning (parameter perspective)
+            </HeroNewsItemContent>
+        ),
+    },
     {
         date: "05/22/24",
         content: (
@@ -184,10 +272,10 @@ export default function HeroSection() {
                         <HeroImgWrap>
                             <Img src={img} alt="Book Cover" />
                         </HeroImgWrap>
-                        <HeroLink href="https://github.com/udlbook/udlbook/releases/download/v4.0.1/UnderstandingDeepLearning_05_27_24_C.pdf">
-                            Download full PDF (27 May 2024)
+                        <HeroLink href="https://github.com/udlbook/udlbook/releases/download/v5.00/UnderstandingDeepLearning_11_21_24_C.pdf">
+                            Download full PDF (21 November 2024)
                         </HeroLink>
-                        <br />
+                        <br /> 
                         <HeroDownloadsImg
                             src="https://img.shields.io/github/downloads/udlbook/udlbook/total"
                             alt="download stats shield"
@@ -201,8 +289,8 @@ export default function HeroSection() {
                         <HeroLink href="https://github.com/udlbook/udlbook/raw/main/UDL_Errata.pdf">
                             Errata
                         </HeroLink>
-                    </HeroColumn2>
-                </HeroRow>
+                    </HeroColumn2> <h1></h1>
+                </HeroRow> 
             </HeroContent>
         </HeroContainer>
     );

@@ -280,6 +280,12 @@ export default function InstructorsSection() {
                             </InstructorsLink>{" "}
                             with MIT Press for answer booklet.
                             <InstructorsContent></InstructorsContent>
+                            <TopLine>Interactive figures</TopLine>
+                            <InstructorsLink href="https://udlbook.github.io/udlfigures/">
+                            Interactive figures  </InstructorsLink>{" "} 
+                            to illustrate ideas in class
+                            <InstructorsContent></InstructorsContent>
+    
                             <TopLine>Full slides</TopLine>
                             <InstructorsContent>
                                 Slides for 20 lecture undergraduate deep learning course:
@@ -296,6 +302,11 @@ export default function InstructorsSection() {
                                     ))}
                                 </ol>
                             </InstructorsContent>
+                            <TopLine>LaTeX for equations</TopLine>
+                            A {" "} <InstructorsLink href="https://github.com/udlbook/udlbook/raw/main/UDL_Equations.tex">
+                            working Latex file  </InstructorsLink>{" "} 
+                            containing all of the equations
+                            <InstructorsContent></InstructorsContent>
                         </Column1>
                         <Column2>
                             <TopLine>Figures</TopLine>
@@ -324,6 +335,11 @@ export default function InstructorsSection() {
                                 Instructions
                             </InstructorsLink>{" "}
                             for editing equations in figures.
+                            <InstructorsContent></InstructorsContent>
+                            <TopLine>LaTeX Bibfile </TopLine>
+                            The {" "} <InstructorsLink href="https://github.com/udlbook/udlbook/raw/main/understanding-deep-learning-final.bib">
+                            bibfile  </InstructorsLink>{" "} 
+                            containing all of the references
                             <InstructorsContent></InstructorsContent>
                         </Column2>
                     </InstructorsRow2>
