@@ -40,11 +40,11 @@ const news = [
             Added{" "}
             <UDLLink href="https://github.com/udlbook/udlbook/raw/main/understanding-deep-learning-final.bib">
                 bibfile 
-            </UDLLink>{" "} for book an
+            </UDLLink>{" "} for book and
             <UDLLink href="https://github.com/udlbook/udlbook/raw/main/UDL_Equations.tex">
                LaTeX 
             </UDLLink>{" "}
-            for equations 
+            for all equations 
         </HeroNewsItemContent>
     ),
 },
