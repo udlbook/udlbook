@@ -1,0 +1,2229 @@
+\documentclass[letterpaper,twoside,openany, titlepage,oldfontcommands,titles,dvipsnames]{memoir}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{color}
+\newcommand*\mystrut[1]{\vrule width0pt height0pt depth#1\relax}
+
+\setstocksize{11in}{8.5in} 
+\settrimmedsize{9in}{8in}{*}  
+\setlength{\trimtop}{1in} 
+\setlength{\trimedge}{0.25in}  
+\setlength{\textheight}{7.5in}  
+\setlength{\textwidth}{5.3125in}
+\setlrmargins{*}{*}{1.5}  
+\setulmargins{0.905in}{*}{*}
+\setlength{\marginparsep}{0mm}  
+\setlength{\marginparwidth}{1mm}  
+
+
+\title{Understanding Deep Learning Equations}
+
+
+
+
+\begin{document}
+\maketitle
+
+\chapter{Introduction}
+
+\chapter{Supervised Learning}
+
+
+\begin{eqnarray}
+  \mathbf{y} = \mbox{\bf f}[\mathbf{x}].
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mathbf{y} = \mbox{\bf f}[\mathbf{x}, \boldsymbol\phi].
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \hat{\boldsymbol\phi} = \mathop{\rm argmin}_{\boldsymbol\phi}\Bigl[L\left[\boldsymbol\phi\right] \Bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:sl_linear_regression}
+  y &=& \mbox{f}[x,\boldsymbol\phi]\nonumber \\
+  &=&\phi_{0}+\phi_{1}x.
+ \end{eqnarray}
+
+\begin{eqnarray}\
+  L[\boldsymbol\phi] &=& \sum_{i=1}^{I} \left(\mbox{f}[x_{i}, \boldsymbol\phi]-y_{i}\right)^{2}\nonumber \\
+  &=& \sum_{i=1}^{I} \left(\phi_{0}+\phi_{1}x_i-y_{i}\right)^{2}.\label{eq:sl_loss_function}
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \hat{\boldsymbol\phi} &=& \mathop{\rm argmin}_{\boldsymbol\phi}\Bigl[L[\boldsymbol\phi]\Bigr]\nonumber \\
+  &=& \mathop{\rm argmin}_{\boldsymbol\phi}\left[\sum_{i=1}^{I} \left(\mbox{f}[x_{i}, \boldsymbol\phi]-y_{i}\right)^{2}\right]\nonumber \\
+  &=& \mathop{\rm argmin}_{\boldsymbol\phi}\left[\sum_{i=1}^{I} \left(\phi_{0}+\phi_{1}x_i-y_{i}\right)^{2}\right].
+ \end{eqnarray}
+
+\chapter{Shallow neural networks}
+
+\begin{eqnarray}\label{eq:snn_simple_eq}
+ y &=& \mbox{f}[x,\boldsymbol\phi]\nonumber \\
+ &=&\phi_{0}+\phi_{1}\mbox{a}[\theta_{10} + \theta_{11}x]+\phi_{2}\mbox{a}[\theta_{20} + \theta_{21}x]+\phi_{3}\mbox{a}[\theta_{30} + \theta_{31}x].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:snn_relu}
+ \mbox{a}[z] = \mbox{ReLU}[z] = \begin{cases} 0 & \quad z <0 \\ z & \quad z\geq 0\end{cases}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:snn_simple_eq1b}
+ h_{1} &=& \mbox{a}[\theta_{10} + \theta_{11}x] \nonumber \\
+ h_{2} &=& \mbox{a}[\theta_{20} + \theta_{21}x] \nonumber \\
+ h_{3} &=& \mbox{a}[\theta_{30} + \theta_{31}x],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:snn_simple_eq2}
+ y = \phi_{0}+\phi_{1}h_{1}+\phi_{2}h_{2}+\phi_{3}h_{3}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ h_{d} = \mbox{a}[\theta_{d0} + \theta_{d1}x], 
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:snn_many_hidden}
+ y = \phi_{0}+\sum_{d=1}^{D}\phi_{d}h_{d}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:snn_multiple_out2}
+ h_{1} &=& \mbox{a}[\theta_{10} + \theta_{11}x] \nonumber \\
+ h_{2} &=& \mbox{a}[\theta_{20} + \theta_{21}x] \nonumber \\
+ h_{3} &=& \mbox{a}[\theta_{30} + \theta_{31}x] \nonumber \\
+ h_{4} &=& \mbox{a}[\theta_{40} + \theta_{41}x],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:snn_multiple_out1}
+ y_1 &=& \phi_{10}+\phi_{11}h_{1}+\phi_{12}h_{2}+\phi_{13}h_{3}+\phi_{14}h_{4}\nonumber \\
+ y_2 &=& \phi_{20}+\phi_{21}h_{1}+\phi_{22}h_{2}+\phi_{23}h_{3}+\phi_{24}h_{4}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:snn_multiple3}
+ h_{1} &=& \mbox{a}[\theta_{10} + \theta_{11}x_1+ \theta_{12}x_2] \nonumber \\
+ h_{2} &=& \mbox{a}[\theta_{20} + \theta_{21}x_1+\theta_{22}x_2] \nonumber \\
+ h_{3} &=& \mbox{a}[\theta_{30} + \theta_{31}x_1+\theta_{32}x_2],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:snn_multiple4}
+ y = \phi_{0}+\phi_{1}h_{1}+\phi_{2}h_{2}+\phi_{3}h_{3}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:snn_general_1}
+ h_{d} = \mbox{a}\left[\theta_{d0} + \sum_{i=1}^{D_{i}}\theta_{di}x_i\right], 
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:snn_general_2}
+ y_j = \phi_{j0}+\sum_{d=1}^{D}\phi_{jd}h_{d},
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:snn_harswish}
+ \mbox{HardSwish}[z] = \begin{cases} 0 & \quad z <-3 \\ z(z+3)/6 & \quad -3\leq z\leq 3 \\ z &\quad z>3 \end{cases}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mbox{ReLU}[\alpha \cdot z] = \alpha \cdot \mbox{ReLU}[z].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mbox{heaviside}[z] = \begin{cases} 0 & \quad z <0 \\ 1 & \quad z\geq 0\end{cases} \hspace{2cm} \mbox{rect}[z] = \begin{cases} 0 & \quad z < 0 \\ 1 & \quad 0 \leq z\leq 1 \\ 0 & \quad z > 1\end{cases}.
+ \end{eqnarray}
+
+ \chapter{Deep neural networks}
+
+\begin{eqnarray}\label{eq:dnn_comp_in}
+ h_{1} &=& \mbox{a}[\theta_{10} + \theta_{11}x] \nonumber \\
+ h_{2} &=& \mbox{a}[\theta_{20} + \theta_{21}x] \nonumber \\
+ h_{3} &=& \mbox{a}[\theta_{30} + \theta_{31}x],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:dnn_comp}
+ y = \phi_{0}+\phi_{1}h_{1}+\phi_{2}h_{2}+\phi_{3}h_{3}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:dnn_comp_2}
+ h'_{1} &=& \mbox{a}[\theta'_{10} + \theta'_{11}y] \nonumber \\
+ h'_{2} &=& \mbox{a}[\theta'_{20} + \theta'_{21}y] \nonumber \\
+ h'_{3} &=& \mbox{a}[\theta'_{30} + \theta'_{31}y],
+ \end{eqnarray}
+
+\begin{eqnarray} \label{eq:dnn_comp_out}
+ y' = \phi'_{0}+\phi'_{1}h'_{1}+\phi'_{2}h'_{2}+\phi'_{3}h'_{3}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:dnn_deep_linear}
+ h'_{1} &=\quad \mbox{a}[\theta'_{10} + \theta'_{11}y] &=\quad \mbox{a}[\theta'_{10} + \theta'_{11}\phi_{0}+\theta'_{11}\phi_{1}h_{1}+\theta'_{11}\phi_{2}h_{2}+\theta'_{11}\phi_{3}h_{3}] \nonumber \\
+ h'_{2} &= \quad\mbox{a}[\theta'_{20} + \theta'_{21}y] &=\quad \mbox{a}[\theta'_{20} + \theta'_{21}\phi_{0}+\theta'_{21}\phi_{1}h_{1}+\theta'_{21}\phi_{2}h_{2}+\theta'_{21}\phi_{3}h_{3}] \nonumber \\
+ h'_{3} &=\quad \mbox{a}[\theta'_{30} + \theta'_{31}y] &=\quad \mbox{a}[\theta'_{30} + \theta'_{31}\phi_{0}+\theta'_{31}\phi_{1}h_{1}+\theta'_{31}\phi_{2}h_{2}+\theta'_{31}\phi_{3}h_{3}],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:dnn_three_layer_middle}
+ h'_{1} &=& \mbox{a}[\psi_{10} + \psi_{11}h_{1}+ \psi_{12}h_{2}+ \psi_{13}h_{3}] \nonumber \\
+ h'_{2} &=& \mbox{a}[\psi_{20} + \psi_{21}h_{1}+ \psi_{22}h_{2}+ \psi_{23}h_{3}] \nonumber \\
+ h'_{3} &=& \mbox{a}[\psi_{30} + \psi_{31}h_{1}+ \psi_{32}h_{2}+ \psi_{33}h_{3}],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:dnn_three_layer_in}
+ h_{1} &=& \mbox{a}[\theta_{10} + \theta_{11}x] \nonumber \\
+ h_{2} &=& \mbox{a}[\theta_{20} + \theta_{21}x] \nonumber \\
+ h_{3} &=& \mbox{a}[\theta_{30} + \theta_{31}x],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:dnn_three_layer_middle2}
+ h'_{1} &=& \mbox{a}[\psi_{10} + \psi_{11}h_{1}+ \psi_{12}h_{2}+ \psi_{13}h_{3}] \nonumber \\
+ h'_{2} &=& \mbox{a}[\psi_{20} + \psi_{21}h_{1}+ \psi_{22}h_{2}+ \psi_{23}h_{3}] \nonumber \\
+ h'_{3} &=& \mbox{a}[\psi_{30} + \psi_{31}h_{1}+ \psi_{32}h_{2}+ \psi_{33}h_{3}],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:dnn_three_layer_out}
+ y' = \phi'_{0}+\phi'_{1}h'_{1}+\phi'_{2}h'_{2}+\phi'_{3}h'_{3}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:dnn_expanded}
+ y' &=& \phi'_{0}+\phi'_{1}\mbox{a}\left[\psi_{10} + \psi_{11}\mbox{a}[\theta_{10} + \theta_{11}x] + \psi_{12}\mbox{a}[\theta_{20} + \theta_{21}x]+ \psi_{13}\mbox{a}[\theta_{30} + \theta_{31}x]\right]\nonumber \\
+ &&\hspace{0.55cm}+\phi'_{2}\mbox{a}[\psi_{20} + \psi_{21}\mbox{a}[\theta_{10} + \theta_{11}x] + \psi_{22}\mbox{a}[\theta_{20} + \theta_{21}x]+ \psi_{23}\mbox{a}[\theta_{30} + \theta_{31}x]] \nonumber\\
+ &&\hspace{0.55cm}+\phi'_{3}\mbox{a}[\psi_{30} + \psi_{31}\mbox{a}[\theta_{10} + \theta_{11}x] + \psi_{32}\mbox{a}[\theta_{20} + \theta_{21}x]+ \psi_{33}\mbox{a}[\theta_{30} + \theta_{31}x]],\nonumber \\
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \begin{bmatrix}
+  h_{1} \\ h_{2} \\ h_{3}
+  \end{bmatrix}
+  = \mbox{\bf a}\left[\begin{bmatrix}\theta_{10}\\ \theta_{20}\\ \theta_{30} \end{bmatrix}+\begin{bmatrix}\theta_{11}\\\theta_{21}\\\theta_{31}\end{bmatrix}x\right],
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \begin{bmatrix}
+  h'_{1} \\ h'_{2} \\h'_{3} 
+  \end{bmatrix}
+  =\mbox{\bf a}\left[\begin{bmatrix}\psi_{10} \\ \psi_{20}\\ \psi_{30}\end{bmatrix} + \begin{bmatrix}\psi_{11} &\psi_{12} & \psi_{13} \\\psi_{21} &\psi_{22} & \psi_{23} \\\psi_{31} &\psi_{32} & \psi_{33} \end{bmatrix} \begin{bmatrix}
+  h_{1} \\ h_{2} \\ h_{3}
+  \end{bmatrix} \right],
+  \end{eqnarray}
+
+\begin{eqnarray}
+  y' = \phi'_{0} + \begin{bmatrix} \phi'_{1} & \phi'_{2} & \phi'_{3} \end{bmatrix}\begin{bmatrix}h'_{1} \\ h'_{2} \\h'_{3} \end{bmatrix},
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mathbf{h} &=& \mbox{\bf a}\left[\boldsymbol\theta_{0}+\boldsymbol\theta x\right] \nonumber\\
+  \mathbf{h}' &=& \mbox{\bf a}\left[\boldsymbol\psi_{0}+\boldsymbol\Psi \mathbf{h}\right] \nonumber \\
+  y' &=& \phi'_{0} + \boldsymbol\phi' \mathbf{h}',
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:dnn_la1}
+  \mathbf{h}_{1} &=& \mathbf{a}[\boldsymbol\beta_{0} +\boldsymbol\Omega_{0}\mathbf{x}]\nonumber \\
+  \mathbf{h}_{2} &=& \mathbf{a}[\boldsymbol\beta_{1} +\boldsymbol\Omega_{1}\mathbf{h}_{1}]\nonumber \\
+  \mathbf{h}_{3} &=& \mathbf{a}[\boldsymbol\beta_{2} +\boldsymbol\Omega_{2}\mathbf{h}_{2}]\nonumber \\
+  &\vdots&\nonumber\\
+  \mathbf{h}_{K} &=& \mathbf{a}[\boldsymbol\beta_{K-1} +\boldsymbol\Omega_{K-1}\mathbf{h}_{K-1}] \nonumber\\
+  \mathbf{y} &=& \boldsymbol\beta_{K} +\boldsymbol\Omega_{K}\mathbf{h}_{K}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:dnn_la2}
+  \mathbf{y}\!\! &\!\!=\!\!& \!\!\boldsymbol\beta_{K} +\boldsymbol\Omega_{K}\mathbf{a}\left[\boldsymbol\beta_{K-1} +\boldsymbol\Omega_{K-1}\mathbf{a}\left[\ldots
+  \boldsymbol\beta_{2} +\boldsymbol\Omega_{2}\mathbf{a}\left[\boldsymbol\beta_{1} +\boldsymbol\Omega_{1}\mathbf{a}\left[\boldsymbol\beta_{0} +\boldsymbol\Omega_{0}\mathbf{x}\right]\right]\ldots\right]\right].\nonumber \\
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:dnn_deep_param_calc}
+  N_{r} = \left(\frac{D}{D_{i}}+1\right)^{D_{i}(K-1)}\cdot\sum_{j=0}^{D_{i}}\binom{D}{j}.
+ \end{eqnarray}
+
+
+\begin{eqnarray}
+ \mbox{ReLU}\Bigl[\boldsymbol\beta_{1}\!+\!\lambda_1\!\cdot\!\boldsymbol\Omega_{1}\mbox{ReLU}\left[\boldsymbol\beta_{0}\!+\!\lambda_{0}\cdot\boldsymbol\Omega_{0}\mathbf{x}\right] \Bigr]\!=\! \lambda_0\lambda_{1}\cdot \mbox{ReLU}\left[\frac{1}{\lambda_0\lambda_1}\boldsymbol\beta_{1}\!+\!\boldsymbol\Omega_{1}\mbox{ReLU}\left[\frac{1}{\lambda_0}\boldsymbol\beta_{0}\!+\!\boldsymbol\Omega_{0}\mathbf{x}\right]\right],
+ \end{eqnarray}
+
+\chapter{Loss functions}
+
+
+\begin{eqnarray}\label{eq:loss_max_like1}
+  \hat{\boldsymbol\phi} &=& \mathop{\rm argmax}_{\boldsymbol\phi}\left[\prod_{i=1}^{I} Pr(\mathbf{y}_{i}|\mathbf{x}_{i})\right]\nonumber\\
+  &=& \mathop{\rm argmax}_{\boldsymbol\phi}\left[\prod_{i=1}^{I} Pr(\mathbf{y}_{i}|\boldsymbol\theta_{i})\right] \nonumber \\ &=& \mathop{\rm argmax}_{\boldsymbol\phi}\left[\prod_{i=1}^{I} Pr(\mathbf{y}_{i}|\mbox{\bf f}[\mathbf{x}_{i},\boldsymbol\phi])\right].
+ \end{eqnarray}
+
+\begin{eqnarray}
+  Pr(\mathbf{y}_{1},\mathbf{y}_{2},\ldots, \mathbf{y}_{I}|\mathbf{x}_{1},\mathbf{x}_{2},\ldots,\mathbf{x}_{I}) = \prod_{i=1}^{I} Pr(\mathbf{y}_{i}|\mathbf{x}_{i}).
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:loss_max_like2}
+  \hat{\boldsymbol\phi} &=& \mathop{\rm argmax}_{\boldsymbol\phi}\left[\prod_{i=1}^{I} Pr(\mathbf{y}_{i}|\mbox{\bf f}[\mathbf{x}_{i},\boldsymbol\phi])\right] \nonumber \\
+  &=& \mathop{\rm argmax}_{\boldsymbol\phi}\left[\log\left[\prod_{i=1}^{I} Pr(\mathbf{y}_{i}|\mbox{\bf f}[\mathbf{x}_{i},\boldsymbol\phi])\right]\right]\nonumber \\
+  &=& \mathop{\rm argmax}_{\boldsymbol\phi}\left[\sum_{i=1}^{I} \log\Bigl[Pr(\mathbf{y}_{i}|\mbox{\bf f}[\mathbf{x}_{i},\boldsymbol\phi])\Bigr]\right].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \hat{\boldsymbol\phi} 
+ &=& \mathop{\rm argmin}_{\boldsymbol\phi}\left[-\sum_{i=1}^{I} \log\Bigl[Pr(\mathbf{y}_{i}|\mbox{\bf f}[\mathbf{x}_{i},\boldsymbol\phi])\Bigr]\right]\nonumber \\
+ &=& \mathop{\rm argmin}_{\boldsymbol\phi}\Bigl[L[\boldsymbol\phi]\Bigr],
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \hat{\mathbf{y}} = \mathop{\rm argmax}_{\mathbf{y}}\Bigl[Pr(\mathbf{y}|\mbox{\bf f}[\mathbf{x},\hat{\boldsymbol\phi}])\Bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \hat{\boldsymbol\phi} = \mathop{\rm argmin}_{\boldsymbol\phi}\Bigl[L[\boldsymbol\phi]\Bigr] = \mathop{\rm argmin}_{\boldsymbol\phi}\left[-\sum_{i=1}^{I} \log\Bigl[Pr(\mathbf{y}_{i}|\mbox{\bf f}[\mathbf{x}_{i},\boldsymbol\phi])\Bigr]\right].
+  \end{eqnarray}
+
+\begin{eqnarray}
+  Pr(y|\mu,\sigma^2) = \frac{1}{\sqrt{2\pi\sigma^{2}}}\exp\left[-\frac{(y-\mu)^{2}}{2\sigma^{2}}\right].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:loss_pdf_uni_reg}
+  Pr(y|\mbox{f}[\mathbf{x},\boldsymbol\phi],\sigma^2) = \frac{1}{\sqrt{2\pi\sigma^{2}}}\exp\left[-\frac{(y-\mbox{f}[\mathbf{x},\boldsymbol\phi])^{2}}{2\sigma^{2}}\right].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:loss_normal_full}
+ L[\boldsymbol\phi] &=& -\sum_{i=1}^{I} \log\left[Pr(y_{i}|\mbox{f}[\mathbf{x}_{i},\boldsymbol\phi],\sigma^{2})\right]\nonumber \\
+ &=&-\sum_{i=1}^{I} \log\left[\frac{1}{\sqrt{2\pi\sigma^{2}}}\exp\left[-\frac{(y_i-\mbox{f}[\mathbf{x}_i,\boldsymbol\phi])^{2}}{2\sigma^{2}}\right]\right].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:loss_normal_full2}
+ \hat{\boldsymbol\phi} &=& \mathop{\rm argmin}_{\boldsymbol\phi}\left[-\sum_{i=1}^{I} \log\left[\frac{1}{\sqrt{2\pi\sigma^{2}}}\exp\left[-\frac{(y_i-\mbox{f}[\mathbf{x}_i,\boldsymbol\phi])^{2}}{2\sigma^{2}}\right]\right]\right]
+ \nonumber \\
+ &=&\mathop{\rm argmin}_{\boldsymbol\phi}\left[-\sum_{i=1}^{I} \left(\log\left[\frac{1}{\sqrt{2\pi\sigma^{2}}}\right] -\frac{(y_i-\mbox{f}[\mathbf{x}_i,\boldsymbol\phi])^{2}}{2\sigma^{2}}\right)\right]\nonumber \\
+ &=& \mathop{\rm argmin}_{\boldsymbol\phi}\left[-\sum_{i=1}^{I} -\frac{(y_i-\mbox{f}[\mathbf{x}_i,\boldsymbol\phi])^{2}}{2\sigma^{2}}\right]\nonumber \\
+ &=& \mathop{\rm argmin}_{\boldsymbol\phi}\left[\sum_{i=1}^{I} (y_i-\mbox{f}[\mathbf{x}_i,\boldsymbol\phi])^{2}\right],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:loss_least_squares}
+  L[\boldsymbol\phi] = \sum_{i=1}^{I} \bigl(y_i-\mbox{f}[\mathbf{x}_i,\boldsymbol\phi]\bigr)^{2}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \hat{y} = \mathop{\rm argmax}_{y}\left[Pr(y|\mbox{f}[\mathbf{x},\hat{\boldsymbol\phi}],\sigma^2)\right].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \hat{\boldsymbol\phi},\hat{\sigma}^{2} = \mathop{\rm argmin}_{\boldsymbol\phi,\sigma^{2}}\left[-\sum_{i=1}^{I} \log\left[\frac{1}{\sqrt{2\pi\sigma^{2}}}\exp\left[-\frac{(y_i-\mbox{f}[\mathbf{x}_i,\boldsymbol\phi])^{2}}{2\sigma^{2}}\right]\right]\right].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mu &=& \mbox{f}_1[\mathbf{x},\boldsymbol\phi] \nonumber \\
+ \sigma^2 &=& \mbox{f}_2[\mathbf{x},\boldsymbol\phi]^2,
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \hat{\boldsymbol\phi} = \mathop{\rm argmin}_{\boldsymbol\phi}\left[-\sum_{i=1}^{I} \biggl(\log\left[\frac{1}{\sqrt{2\pi\mbox{f}_2[\mathbf{x}_i,\boldsymbol\phi]^2}}\right] -\frac{(y_i-\mbox{f}_1[\mathbf{x}_i,\boldsymbol\phi])^{2}}{2\mbox{f}_2[\mathbf{x}_i,\boldsymbol\phi]^2}\biggr)\right].
+ \end{eqnarray}
+
+\begin{eqnarray}
+  Pr(y|\lambda) = \begin{cases} 1-\lambda & \quad y =0 \\ \lambda & \quad y= 1\end{cases},
+ \end{eqnarray}
+
+\begin{eqnarray}
+  Pr(y|\lambda) = (1-\lambda)^{1-y}\cdot \lambda^{y}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:logistic_sigmoid}
+  \mbox{sig}[z] = \frac{1}{1+\exp[-z]}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:loss_binary}
+  Pr(y|\mathbf{x}) = (1-\mbox{sig}[\mbox{f}[\mathbf{x},\boldsymbol\phi]])^{1-y}\cdot \mbox{sig}[\mbox{f}[\mathbf{x},\boldsymbol\phi]]^y.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:loss_binary_cross_entropy}
+ L[\boldsymbol\phi] = \sum_{i=1}^{I}-(1-y_{i})\log\Bigl[1-\mbox{sig}[\mbox{f}[\mathbf{x}_i,\boldsymbol\phi]]\Bigr] - y_{i}\log\Bigl[\mbox{sig}[\mbox{f}[\mathbf{x}_i,\boldsymbol\phi]]\Bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ Pr(y=k) = \lambda_{k}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mbox{softmax}_{k}[\mathbf{z}] = \frac{\exp[z_{k}]}{\sum_{k'=1}^{K}\exp[z_{k'}]},
+ \end{eqnarray}
+
+\begin{eqnarray}
+  Pr(y=k|\mathbf{x}) = \mbox{softmax}_{k}\Bigr[\mbox{\bf f}[\mathbf{x},\boldsymbol\phi]\Bigl].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:loss_multiclass_class}
+  L[\boldsymbol\phi] &=& -\sum_{i=1}^{I}\log\left[\mbox{softmax}_{y_{i}}\Bigl[\mbox{\bf f}\left[\mathbf{x}_i,\boldsymbol\phi\right]\Bigr]\right]\nonumber\\
+  &=& -\sum_{i=1}^{I}\left(\mbox{f}_{y_{i}}\left[\mathbf{x}_i,\boldsymbol\phi\right]-\log\left[\sum_{k'=1}^{K}\exp\left[\mbox{ f}_{k'}\left[\mathbf{x}_i,\boldsymbol\phi\right]\right]\right]\right),
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:loss_multiple}
+ Pr(\mathbf{y}|\mbox{\bf f}[\mathbf{x},\boldsymbol\phi])= \prod_{d}Pr(y_{d}|\mbox{\bf f}_d[\mathbf{x},\boldsymbol\phi]),
+ \end{eqnarray}
+
+\begin{eqnarray}
+ L[\boldsymbol\phi] = -\sum_{i=1}^{I}\log\Bigl[Pr(\mathbf{y}_i|\mbox{\bf f}[\mathbf{x}_{i},\boldsymbol\phi])\Bigr]= -\sum_{i=1}^{I}\sum_{d}\log\Bigl[Pr(y_{id}|\mbox{\bf f}_d[\mathbf{x}_{i},\boldsymbol\phi])\Bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ D_{KL}\bigl[q||p\bigr] = \int_{-\infty}^{\infty}q(z) \log\bigl[q(z)\bigr]dz - \int_{-\infty}^{\infty}q(z) \log\bigl[p(z)\bigr]dz.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:loss_cross_entropy_empirical}
+ q(y) = \frac{1}{I} \sum_{i=1}^{I} \delta[y-y_{i}],
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \hat{\boldsymbol\theta} &=& \mathop{\rm argmin}_{\boldsymbol\theta}\left[ \int_{-\infty}^{\infty}q(y) \log\bigl[q(y)\bigr]dy - \int_{-\infty}^{\infty}q(y) \log\bigl[Pr(y|\boldsymbol\theta)\bigr] dy\right] \nonumber \\
+ &=&\mathop{\rm argmin}_{\boldsymbol\theta}\left[- \int_{-\infty}^{\infty}q(y) \log\bigl[Pr(y|\boldsymbol\theta)\bigr] dy\right],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:loss_cross_deriv}
+ \hat{\boldsymbol\theta} &=& \mathop{\rm argmin}_{\theta}\left[-\int_{-\infty}^{\infty}\left(\frac{1}{I} \sum_{i=1}^{I} \delta[y-y_{i}]\right)\log\bigl[Pr(y|\boldsymbol\theta)\bigr]dy\right] \nonumber\\
+ &=&\mathop{\rm argmin}_{\boldsymbol\theta}\left[-\frac{1}{I} \sum_{i=1}^{I} \log\bigl[Pr(y_i|\boldsymbol\theta)\bigr]\right]\nonumber\\
+ &=&\mathop{\rm argmin}_{\boldsymbol\theta}\left[-\sum_{i=1}^{I} \log\bigl[Pr(y_i|\boldsymbol\theta)\bigr]\right].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \hat{\boldsymbol\phi} = \mathop{\rm argmin}_{\boldsymbol\phi}\left[-\sum_{i=1}^{I} \log\bigl[Pr(y_{i}|\mbox{\bf f}[\mathbf{x}_{i},\boldsymbol\phi])\bigr]\right].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:loss_prob_sigmoid}
+  \mbox{sig}[z] = \frac{1}{1+\exp[-z]}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ L = -(1-y)\log\Bigl[1-\mbox{sig}[\mbox{f}[\mathbf{x},\boldsymbol\phi]]\Bigr] - y\log\Bigl[\mbox{sig}[\mbox{f}[\mathbf{x},\boldsymbol\phi]]\Bigr],
+ \end{eqnarray}
+
+\begin{eqnarray}
+ Pr(y|\mu,\kappa) = \frac{\exp\bigl[\kappa \cos[y-\mu]\bigr]}{2\pi \cdot \mbox{Bessel}_{0}[\kappa]} , 
+ \end{eqnarray}
+
+\begin{eqnarray}
+  Pr(y|\lambda,\mu_1,\mu_2,\sigma^2_1,\sigma^2_2) = \frac{\lambda}{\sqrt{2\pi\sigma_1^{2}}}\exp\left[\frac{-(y-\mu_1)^{2}}{2\sigma_1^{2}}\right]+\frac{1-\lambda}{\sqrt{2\pi\sigma_2^{2}}}\exp\left[\frac{-(y-\mu_2)^{2}}{2\sigma_2^{2}}\right],
+ \end{eqnarray}
+
+\begin{eqnarray}
+  Pr(y=k)=\frac{\lambda^{k}e^{-\lambda}}{k!}. 
+ \end{eqnarray}
+
+\chapter{Fitting models}
+
+\begin{eqnarray}
+ \hat{\boldsymbol\phi} = \mathop{\rm argmin}_{\boldsymbol\phi}\Bigl[L[\boldsymbol\phi]\Bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \frac{\partial L}{\partial \boldsymbol\phi} = \begin{bmatrix}\frac{\partial L}{\partial \phi_{0}} \\[5pt] \frac{\partial L}{\partial \phi_{1}}\\ \vdots \\[5pt] \frac{\partial L}{\partial \phi_{N}}\end{bmatrix}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:train_gradient_descent}
+  \boldsymbol\phi\longleftarrow\boldsymbol\phi - \alpha \cdot \frac{\partial L}{\partial \boldsymbol\phi},
+  \end{eqnarray}
+
+\begin{eqnarray}
+  y &=& \mbox{f}[x,\boldsymbol\phi]\nonumber \\
+  &=& \phi_{0} + \phi_{1}x.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:train_lr_cost_function}
+  L[\boldsymbol\phi] \hspace{0.2cm}= \hspace{0.2cm}\sum_{i=1}^{I} \ell_{i} &=& \sum_{i=1}^{I} \left(\mbox{f}[x_i,\boldsymbol\phi]-y_{i}\right)^{2}\nonumber \\
+  &=& \sum_{i=1}^{I} \left(\phi_{0}+\phi_{1}x_{i}-y_{i}\right)^{2},
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:train_linear_deriv1}
+  \frac{\partial L}{\partial \boldsymbol\phi} = \frac{\partial}{\partial \boldsymbol\phi}\sum_{i=1}^{I} \ell_{i} = \sum_{i=1}^{I} \frac{\partial \ell_{i}}{\partial \boldsymbol\phi},
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:train_linear_deriv2}
+  \frac{\partial \ell_{i}}{\partial \boldsymbol\phi} = \begin{bmatrix}\frac{\partial \ell_{i}}{\partial \phi_{0}}\\\vspace{-0.2cm}\\\frac{\partial \ell_{i}}{\partial \phi_{1}}\end{bmatrix} = \begin{bmatrix}2(\phi_{0}+\phi_{1}x_{i}-y_{i})\\ \vspace{-0.2cm}\\ 2x_{i}(\phi_{0}+\phi_{1}x_{i}-y_{i})\end{bmatrix}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:train_gabor}
+ \mbox{f}[x,\boldsymbol\phi] = \sin[\phi_0 + 0.06\cdot\phi_{1}x]\cdot \exp\left(-\frac{(\phi_0+0.06\cdot\phi_{1}x)^2}{32.0}\right).
+ \end{eqnarray}
+
+\begin{eqnarray}
+  L[\boldsymbol\phi] = \sum_{i=1}^{I}\left(\mbox{f}[x_{i},\boldsymbol\phi]-y_{i}\right)^2.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:train_sgd}
+  \boldsymbol\phi_{t+1}\longleftarrow\boldsymbol\phi_{t} - \alpha \cdot \sum_{i\in\mathcal{B}_{t}}\frac{\partial \ell_{i}[\boldsymbol\phi_{t}]}{\partial \boldsymbol\phi},
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:train_momentum}
+  \mathbf{m}_{t+1} &\leftarrow& \beta \cdot \mathbf{m}_t + (1-\beta) \sum_{i\in\mathcal{B}_t}\frac{\partial \ell_{i}[\boldsymbol\phi_{t}]}{\partial \boldsymbol\phi}\nonumber \\
+  \boldsymbol\phi_{t+1} &\leftarrow&\boldsymbol\phi_{t} - \alpha \cdot \mathbf{m}_{t+1},
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:train_nesterov}
+  \mathbf{m}_{t+1} &\leftarrow& \beta \cdot \mathbf{m}_{t} + (1-\beta) \sum_{i\in\mathcal{B}_{t}}\frac{\partial \ell_{i}[\boldsymbol\phi_{t}-\alpha\beta\cdot\mathbf{m}_{t}]}{\partial \boldsymbol\phi}\nonumber \\
+  \boldsymbol\phi_{t+1} &\leftarrow&\boldsymbol\phi_{t} - \alpha\cdot \mathbf{m}_{t+1},
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mathbf{m}_{t+1} &\leftarrow& \frac{\partial L[\boldsymbol\phi_{t}]}{\partial \boldsymbol\phi}\nonumber \\
+  \mathbf{v}_{t+1} &\leftarrow& \left(\frac{\partial L[\boldsymbol\phi_{t}]}{\partial \boldsymbol\phi}\right)^2.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \boldsymbol\phi_{t+1} &\leftarrow & \boldsymbol\phi_{t} - \alpha \cdot \frac{\mathbf{m}_{t+1}}{\sqrt{\mathbf{v}_{t+1}}+\epsilon},
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:train_adam}
+  \mathbf{m}_{t+1} &\leftarrow& \beta \cdot \mathbf{m}_{t} + (1-\beta) \frac{\partial L[\boldsymbol\phi_{t}]}{\partial \boldsymbol\phi}\nonumber \\
+  \mathbf{v}_{t+1} &\leftarrow& \gamma \cdot \mathbf{v}_{t} + (1-\gamma) \left(\frac{\partial L[\boldsymbol\phi_{t}]}{\partial \boldsymbol\phi}\right)^2,
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:train_adam_modify}
+ \tilde{\mathbf{m}}_{t+1} &\leftarrow & \frac{\mathbf{m}_{t+1}}{1-\beta^{t+1}}\nonumber \\
+ \tilde{\mathbf{v}}_{t+1} &\leftarrow & \frac{\mathbf{v}_{t+1}}{1-\gamma^{t+1}}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \boldsymbol\phi_{t+1} &\leftarrow & \boldsymbol\phi_{t} - \alpha\cdot\frac{ \tilde{\mathbf{m}}_{t+1}}{\sqrt{\tilde{\mathbf{v}}_{t+1}}+\epsilon}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:train_adam_final}
+  \mathbf{m}_{t+1} &\leftarrow& \beta \cdot \mathbf{m}_{t} + (1-\beta) \sum_{i\in\mathcal{B}_{t}}\frac{\partial \ell_i[\boldsymbol\phi_{t}]}{\partial \boldsymbol\phi}\nonumber \\
+  \mathbf{v}_{t+1} &\leftarrow& \gamma \cdot \mathbf{v}_{t} + (1-\gamma) \left(\sum_{i\in\mathcal{B}_{t}}\frac{\partial \ell_i[\boldsymbol\phi_{t}]}{\partial \boldsymbol\phi}\right)^2,
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mathbf{H}[\boldsymbol\phi] = \begin{bmatrix} \frac{\partial^{2} L}{\partial\phi_{0}^{2}} & \frac{\partial^{2} L}{\partial\phi_{0}\partial\phi_{1}} &\hdots &\frac{\partial^{2} L}{\partial\phi_{0}\partial\phi_{N}}\\ 
+ \frac{\partial^{2} L}{\partial\phi_{1}\partial\phi_{0}} &\frac{\partial^{2} L}{\partial\phi_{1}^{2}} &\hdots&\frac{\partial^{2} L}{\partial\phi_{1}\partial\phi_{N}} \\ \vdots &\vdots & \ddots &\vdots\\ 
+ \frac{\partial^{2} L}{\partial\phi_{N}\partial\phi_{0}} &\frac{\partial^{2} L}{\partial\phi_{N}\partial\phi_{1}} &\hdots&\frac{\partial^{2} L}{\partial\phi_{N}^2} \end{bmatrix}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mathbf{H}[\boldsymbol\phi] = \begin{bmatrix} \frac{\partial^{2} L}{\partial\phi_{0}^{2}} & \frac{\partial^{2} L}{\partial\phi_{0}\partial\phi_{1}}\\ 
+ \frac{\partial^{2} L}{\partial\phi_{1}\partial\phi_{0}} &\frac{\partial^{2} L}{\partial\phi_{1}^{2}} \end{bmatrix},
+ \end{eqnarray}
+
+\begin{eqnarray}
+ Pr(y=1|x) = \mbox{sig}[\phi_{0}+\phi_{1}x],
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mbox{sig}[z] = \frac{1}{1+\exp[-z]}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mbox{f}[x,\boldsymbol\phi]  = \phi_{0}+\phi_{1}\mbox{a}[\theta_{10} + \theta_{11}x]+\phi_{2}\mbox{a}[\theta_{20} + \theta_{21}x]+\phi_{3}\mbox{a}[\theta_{30} + \theta_{31}x].
+ \end{eqnarray}
+
+ \chapter{Gradients and initialization}
+
+\begin{eqnarray}
+  \mathbf{h}_{1} &=& \mathbf{a}[\boldsymbol\beta_{0} +\boldsymbol\Omega_{0}\mathbf{x}]\nonumber \\
+  \mathbf{h}_{2} &=& \mathbf{a}[\boldsymbol\beta_{1} +\boldsymbol\Omega_{1}\mathbf{h}_{1}] \nonumber\\
+  \mathbf{h}_{3} &=& \mathbf{a}[\boldsymbol\beta_{2} +\boldsymbol\Omega_{2}\mathbf{h}_{2}] \nonumber\\
+  \mbox{\bf f}[\mathbf{x},\boldsymbol\phi] &=& \boldsymbol\beta_{3} +\boldsymbol\Omega_{3}\mathbf{h}_{3},
+ \end{eqnarray}
+
+\begin{eqnarray}
+  L[\boldsymbol\phi]= \sum_{i=1}^{I} \ell_{i}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:train2_sgd}
+  \boldsymbol\phi_{t+1}\longleftarrow\boldsymbol\phi_{t} - \alpha \sum_{i\in\mathcal{B}_{t}}\frac{\partial \ell_{i}[\boldsymbol\phi_{t}]}{\partial \boldsymbol\phi},
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \frac{\partial \ell_{i}}{\partial\boldsymbol\beta_{k}} \quad\quad \mbox{and} \quad\quad \frac{\partial \ell_{i}}{\partial\boldsymbol\Omega_{k}},
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mbox{f}[x,\boldsymbol\phi] = \beta_3+\omega_3\cdot\cos\Bigl[\beta_2+\omega_2\cdot\exp\bigl[\beta_1+\omega_1\cdot\sin[\beta_0+\omega_0\cdot x]\bigr]\Bigr],
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \ell_i = (\mbox{f}[x_i,\boldsymbol\phi]-y_i)^2,
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \frac{\partial \ell_i}{\partial \beta_{0}}, \quad \frac{\partial \ell_i}{\partial \omega_0}, \quad \frac{\partial \ell_i}{\partial \beta_{1}}, \quad \frac{\partial \ell_i}{\partial \omega_1}, \quad
+ \frac{\partial \ell_i}{\partial \beta_{2}}, \quad \frac{\partial \ell_i}{\partial \omega_{2}}, \quad \frac{\partial \ell_i}{\partial \beta_{3}}, \quad\mbox{and} \quad \frac{\partial \ell_i}{\partial \omega_{3}}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:train2_complicated_deriv}
+ \frac{\partial \ell_i}{\partial \omega_{0}} &=& -2 \left( \beta_3+\omega_3\cdot\cos\Bigl[\beta_2+\omega_2\cdot\exp\bigl[\beta_1+\omega_1\cdot\sin[\beta_0+\omega_0\cdot x_i]\bigr]\Bigr]-y_i\right)\nonumber \\
+ &&\hspace{0.5cm}\cdot \omega_1\omega_2\omega_3\cdot x_i\cdot\cos[\beta_0+\omega_0 \cdot x_i]\cdot\exp\Bigl[\beta_1 + \omega_1 \cdot \sin[\beta_0+\omega_0\cdot x_i]\Bigr]\nonumber\\
+ && \hspace{1cm}\cdot \sin\biggl[\beta_2+\omega_2\cdot \exp\Bigl[\beta_1 + \omega_1 \cdot \sin[\beta_0+\omega_0\cdot x_i]\Bigr]\biggr].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ f_{0} &=& \beta_{0} + \omega_{0}\cdot x_i\nonumber\\
+ h_{1} &=& \sin[f_{0}]\nonumber\\
+ f_{1} &=& \beta_{1} + \omega_{1}\cdot h_{1}\nonumber\\
+ h_{2} &=& \exp[f_{1}]\nonumber\\
+ f_{2} &=& \beta_{2} + \omega_{2} \cdot h_{2}\nonumber\\
+ h_{3} &=& \cos[f_{2}]\nonumber\\
+ f_{3} &=& \beta_{3} + \omega_{3}\cdot h_{3}\nonumber\\
+ \ell_{i} &=& (f_{3}-y_{i})^2.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \frac{\partial \ell_i}{\partial f_{3}}, \quad \frac{\partial \ell_i}{\partial h_3}, \quad \frac{\partial \ell_i}{\partial f_2}, \quad
+ \frac{\partial \ell_i}{\partial h_2}, \quad \frac{\partial \ell_i}{\partial f_1}, \quad \frac{\partial \ell_i}{\partial h_1}, \quad\mbox{and} \quad \frac{\partial \ell_i}{\partial f_0}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \frac{\partial \ell_i}{\partial f_{3}} = 2(f_3-y_i).
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \frac{\partial \ell_i}{\partial h_{3}} =\frac{\partial f_{3}}{\partial h_{3}} \frac{\partial \ell_i}{\partial f_{3}} .
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \frac{\partial \ell_i}{\partial f_{2}} &=& \frac{\partial h_{3}}{\partial f_{2}}\left(
+ \frac{\partial f_{3}}{\partial h_{3}}\frac{\partial \ell_i}{\partial f_{3}} \right)
+ \nonumber \\
+ \frac{\partial \ell_i}{\partial h_{2}} &=& \frac{\partial f_{2}}{\partial h_{2}}\left(\frac{\partial h_{3}}{\partial f_{2}}\frac{\partial f_{3}}{\partial h_{3}}\frac{\partial \ell_i}{\partial f_{3}}\right)\nonumber \\
+ \frac{\partial \ell_i}{\partial f_{1}} &=& \frac{\partial h_{2}}{\partial f_{1}}\left( \frac{\partial f_{2}}{\partial h_{2}}\frac{\partial h_{3}}{\partial f_{2}}\frac{\partial f_{3}}{\partial h_{3}}\frac{\partial \ell_i}{\partial f_{3}} \right)\nonumber \\
+ \frac{\partial \ell_i}{\partial h_{1}} &=& \frac{\partial f_{1}}{\partial h_{1}}\left(\frac{\partial h_{2}}{\partial f_{1}} \frac{\partial f_{2}}{\partial h_{2}}\frac{\partial h_{3}}{\partial f_{2}}\frac{\partial f_{3}}{\partial h_{3}}\frac{\partial \ell_i}{\partial f_{3}} \right)\nonumber \\
+ \frac{\partial \ell_i}{\partial f_{0}} &=& \frac{\partial h_{1}}{\partial f_{0}}\left(\frac{\partial f_{1}}{\partial h_{1}}\frac{\partial h_{2}}{\partial f_{1}} \frac{\partial f_{2}}{\partial h_{2}}\frac{\partial h_{3}}{\partial f_{2}}\frac{\partial f_{3}}{\partial h_{3}}\frac{\partial \ell_i}{\partial f_{3}} \right).\label{eq:train2_simple_chain}
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \frac{\partial \ell_i}{\partial \beta_{k}} &=& \frac{\partial f_{k}}{\partial \beta_{k}}\frac{\partial \ell_i}{\partial f_{k}}\nonumber \\
+ \frac{\partial \ell_i}{\partial \omega_{k}} &=& \frac{\partial f_{k}}{\partial \omega_{k}}\frac{\partial \ell_i}{\partial f_{k}}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \frac{\partial f_{k}}{\partial \beta_{k}} = 1 \quad\quad\mbox{and}\quad \quad \frac{\partial f_{k}}{\partial \omega_{k}} &=& h_{k}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \frac{\partial f_{0}}{\partial \beta_{0}} = 1 \quad\quad\mbox{and}\quad \quad \frac{\partial f_{0}}{\partial \omega_{0}} &=& x_{i}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mathbf{f}_{0} &=& \boldsymbol\beta_{0} +\boldsymbol\Omega_{0}\mathbf{x}_i\nonumber \\
+  \mathbf{h}_{1} &=& \mathbf{a}[\mathbf{f}_{0}]\nonumber \\
+  \mathbf{f}_{1} &=& \boldsymbol\beta_{1} +\boldsymbol\Omega_{1}\mathbf{h}_{1}\nonumber \\
+  \mathbf{h}_{2} &=& \mathbf{a}[\mathbf{f}_{1}]\nonumber \\
+  \mathbf{f}_{2} &=& \boldsymbol\beta_{2} +\boldsymbol\Omega_{2}\mathbf{h}_{2}\nonumber \\
+  \mathbf{h}_{3} &=& \mathbf{a}[\mathbf{f}_{2}]\nonumber \\
+  \mathbf{f}_{3}&=& \boldsymbol\beta_{3} +\boldsymbol\Omega_{3}\mathbf{h}_{3}\nonumber \\
+  \ell_{i} &=& \mbox{l}[\mathbf{f}_{3},y_{i}],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:train2_backward1}
+ \frac{\partial \ell_{i}}{\partial \mathbf{f}_{2}}=\frac{\partial \mathbf{h}_{3}}{\partial \mathbf{f}_{2}}\frac{\partial \mathbf{f}_3}{\partial \mathbf{h}_{3}} \frac{\partial \ell_{i}}{\partial \mathbf{f}_3}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:train2_backward2}
+ \frac{\partial \ell_{i}}{\partial \mathbf{f}_{1}}&=& \frac{\partial \mathbf{h}_{2}}{\partial \mathbf{f}_{1}}\frac{\partial \mathbf{f}_{2}}{\partial \mathbf{h}_{2}}
+ \left(\frac{\partial \mathbf{h}_{3}}{\partial \mathbf{f}_{2}}\frac{\partial \mathbf{f}_3}{\partial \mathbf{h}_{3}} \frac{\partial \ell_{i}}{\partial \mathbf{f}_3}\right)  \\
+ \frac{\partial \ell_{i}}{\partial \mathbf{f}_{0}}&=&\frac{\partial \mathbf{h}_{1}}{\partial \mathbf{f}_{0}}\frac{\partial \mathbf{f}_{1}}{\partial \mathbf{h}_{1}}\left(\frac{\partial \mathbf{h}_{2}}{\partial \mathbf{f}_{1}}\frac{\partial \mathbf{f}_{2}}{\partial \mathbf{h}_{2}}
+ \frac{\partial \mathbf{h}_{3}}{\partial \mathbf{f}_{2}}\frac{\partial \mathbf{f}_3}{\partial \mathbf{h}_{3}} \frac{\partial \ell_{i}}{\partial \mathbf{f}_3}\right).\label{eq:train2_backward2a}
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \frac{\partial \mathbf{f}_3}{\partial \mathbf{h}_{3}} = \frac{\partial}{\partial \mathbf{h}_{3}}\left(\boldsymbol\beta_{3} +\boldsymbol\Omega_{3}\mathbf{h}_{3}\right) = \boldsymbol\Omega_{3}^{T}.
+  \end{eqnarray}
+
+\begin{eqnarray}
+ \frac{\partial \ell_{i}}{\partial \boldsymbol\beta_k} &=& \frac{\partial \mathbf{f}_{k}}{\partial \boldsymbol\beta_k} \frac{\partial \ell_{i}}{\partial \mathbf{f}_{k}} \nonumber\\
+ &=& \frac{\partial}{\partial \boldsymbol\beta_k}\left(\boldsymbol\beta_{k} +\boldsymbol\Omega_{k}\mathbf{h}_{k}\right) \frac{\partial \ell_{i}}{\partial \mathbf{f}_{k}} \nonumber \\ 
+ &=& \frac{\partial \ell_{i}}{\partial \mathbf{f}_{k}},
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \frac{\partial \ell_{i}}{\partial \boldsymbol\Omega_k} &=& \frac{\partial \mathbf{f}_{k}}{\partial \boldsymbol\Omega_k} \frac{\partial \ell_{i}}{\partial \mathbf{f}_{k}} \nonumber\\
+ &=& \frac{\partial}{\partial \boldsymbol\Omega_k}\left(\boldsymbol\beta_{k} +\boldsymbol\Omega_{k}\mathbf{h}_{k}\right) \frac{\partial \ell_{i}}{\partial \mathbf{f}_{k}} \nonumber \\ 
+ &=& \frac{\partial \ell_{i}}{\partial \mathbf{f}_{k}}\mathbf{h}_k^{T}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mathbf{f}_{0} &=& \boldsymbol\beta_{0} +\boldsymbol\Omega_{0}\mathbf{x}_i\nonumber \\
+  \mathbf{h}_{k} &=& \mathbf{a}[\mathbf{f}_{k-1}]\hspace{2.76cm} k\in\{1,2,\ldots, K\}\nonumber \\
+  \mathbf{f}_{k} &=& \boldsymbol\beta_{k} +\boldsymbol\Omega_{k}\mathbf{h}_{k}.\hspace{2cm} k\in\{1,2,\ldots, K\}
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:train2_bp_backward_summary}
+ \frac{\partial \ell_{i}}{\partial \boldsymbol\beta_k} &=& \frac{\partial \ell_{i}}{\partial \mathbf{f}_k} \hspace{4.1cm} k\in\{K,K-1,\ldots, 1\}\nonumber\\
+ \frac{\partial \ell_{i}}{\partial \boldsymbol\Omega_k} &=& \frac{\partial \ell_{i}}{\partial \mathbf{f}_k}\mathbf{h}_{k}^{T}\hspace{3.65cm} k\in\{K,K-1,\ldots, 1\}\nonumber\\
+ \frac{\partial \ell_{i}}{\partial \mathbf{f}_{k-1}} &=& \mathbb{I}[\mathbf{f}_{k-1}>0]\odot \left(\boldsymbol\Omega_{k}^{T}\frac{\partial \ell_{i}}{\partial \mathbf{f}_{k}}\right),\hspace{0.82cm} k\in\{K,K-1,\ldots, 1\}
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \frac{\partial \ell_{i}}{\partial \boldsymbol\beta_0} &=& \frac{\partial \ell_{i}}{\partial \mathbf{f}_0} \nonumber\\
+ \frac{\partial \ell_{i}}{\partial \boldsymbol\Omega_0} &=& \frac{\partial \ell_{i}}{\partial \mathbf{f}_0}\mathbf{x}_{i}^{T}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mathbf{f}_{k} &=& \boldsymbol\beta_{k} +\boldsymbol\Omega_{k}\mathbf{h}_{k}\nonumber\\
+ &=& \boldsymbol\beta_{k} +\boldsymbol\Omega_{k}\textbf{a}[\mathbf{f}_{k-1}], 
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mathbf{h} &=& \mbox{\bf a}[\mathbf{f}],\nonumber \\
+  \mathbf{f}' &=& \boldsymbol\beta +\boldsymbol\Omega\mathbf{h} 
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mathbb{E}[f'_{i}] &=& \mathbb{E}\left[\beta_{i} + \sum_{j=1}^{D_h}\Omega_{ij}h_{j}\right]\nonumber \\
+  &=& \mathbb{E}\left[\beta_{i}\right] +\sum_{j=1}^{D_h}\mathbb{E}\left[\Omega_{ij}h_{j}\right] \nonumber\\
+  &=& \mathbb{E}\left[\beta_{i}\right] +\sum_{j=1}^{D_h}\mathbb{E}\left[\Omega_{ij}\right]\mathbb{E}\left[h_{j}\right] \nonumber\\
+  &=& 0 + \sum_{j=1}^{D_h} 0\cdot\mathbb{E}\left[h_{j}\right] = 0,
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \sigma^{2}_{f'_i} &=& \mathbb{E}[f_{i}^{\prime 2}]-\mathbb{E}[f'_{i}]^{2} \nonumber \\
+  &=& \mathbb{E}\left[\left(\beta_{i}+\sum_{j=1}^{D_h}\Omega_{ij}h_{j}\right)^2\right]-0\nonumber\\
+  &=& \mathbb{E}\left[\left(\sum_{j=1}^{D_h}\Omega_{ij}h_{j}\right)^2\right]\nonumber\\
+  &=& \sum_{j=1}^{D_h}\mathbb{E}\left[\Omega_{ij}^2\right]\mathbb{E}\left[h_{j}^2\right]\nonumber \\
+  &=&\sum_{j=1}^{D_h} \sigma_\Omega^2 \mathbb{E}\left[h_{j}^2\right] = \sigma_\Omega^2 \sum_{j=1}^{D_h} \mathbb{E}\left[h_{j}^2\right],
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \sigma^{2}_{f'_{i}} = \sigma_\Omega^2 \sum_{j=1}^{D_h} \frac{\sigma_{f}^2}{2} = \frac{1}{2}D_{h} \sigma_\Omega^2 \sigma_{f}^2.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:train2_init_forward}
+ \sigma_\Omega^2 = \frac{2}{D_h}, 
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:train2_init_back}
+ \sigma_\Omega^2 = \frac{2}{D_{h'}}, 
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \sigma_\Omega^2 = \frac{4}{D_{h}+D_{h'}}. 
+ \end{eqnarray}
+
+\begin{eqnarray}
+ y &=& \phi_{0}+\phi_{1}\mbox{a}\Bigl[\psi_{01} + \psi_{11}\mbox{a}[\theta_{01} + \theta_{11}x] + \psi_{21}\mbox{a}[\theta_{02} + \theta_{12}x]\Bigr]\nonumber \\
+ &&\hspace{0.55cm}+\phi_{2}\mbox{a}\Bigl[\psi_{02} + \psi_{12}\mbox{a}[\theta_{01} + \theta_{11}x] + \psi_{22}\mbox{a}[\theta_{02} + \theta_{12}x]\Bigr], 
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \ell_i = (y_i-\mbox{f}[\mathbf{x}_i,\boldsymbol\phi])^2.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \ell_{i} = -(1-y_{i})\log\Bigl[1-\mbox{sig}\bigl[\mbox{f}[\mathbf{x}_i,\boldsymbol\phi]\bigr]\Bigr] - y_{i}\log\Bigl[\mbox{sig}\bigl[\mbox{f}[\mathbf{x}_i,\boldsymbol\phi]\bigr]\Bigr],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:train2_logistic}
+ \mbox{sig}[z] = \frac{1}{1+\exp[-z]}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \frac{\partial \mathbf{z}}{\partial \mathbf{h}} = \boldsymbol\Omega^{T},
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mbox{Heaviside}[z] = \begin{cases} 0 & \quad z <0 \\ 1 & \quad z\geq 0\end{cases},
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mbox{rect}[z] = \begin{cases} 0 & \quad z < 0 \\ 1 & \quad 0 \leq z\leq 1 \\ 0 & \quad z > 1\end{cases}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+     \frac{\partial \ell}{\partial \boldsymbol\Omega} = \frac{\partial \ell}{\partial \mathbf{f}}\mathbf{h}^{T}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:train2_prob_leaky_relu}
+ \mbox{a}[z] = \mbox{ReLU}[z] = \begin{cases} \alpha \cdot z & \quad z <0 \\ z & \quad z\geq 0\end{cases},
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:prob_comp_graph}\index{reverse-mode differentiation}\index{differentiation!reverse mode}\index{backpropagation!on acyclic graph}
+  y = \exp\left[\exp[x]+\exp[x]^2\right]+ \sin[\exp[x]+\exp[x]^2].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ f_{1} &=& \exp[x]\nonumber \\
+ f_{2} &=& f_{1}^2\nonumber \\
+ f_{3} &=& f_{1}+f_{2}\nonumber \\
+ f_{4} &=& \exp[f_{3}]\nonumber \\
+ f_{5} &=& \sin[f_{3}]\nonumber \\
+ y &=& f_{4}+f_{5}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \frac{\partial y}{\partial f_{5}}, \frac{\partial y}{\partial f_{4}}, \frac{\partial y}{\partial f_{3}},
+  \frac{\partial y}{\partial f_{2}}, \frac{\partial y}{\partial f_{1}} \mbox{ and } \frac{\partial y}{\partial x},
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \frac{\partial f_{1}}{\partial x}, \frac{\partial f_{2}}{\partial x}, \frac{\partial f_{3}}{\partial x}, \frac{\partial f_4}{\partial x},
+  \frac{\partial f_{5}}{\partial x}, \mbox{ and } \frac{\partial y}{\partial x},
+ \end{eqnarray}
+
+\begin{eqnarray}
+ b = \mbox{ReLU}[a] = \begin{cases} 0 & \quad a <0 \\ a& \quad a\geq 0\end{cases},
+ \end{eqnarray}
+
+\chapter{Measuring performance}
+
+\begin{eqnarray}
+  \mu[x] = \mathbb{E}_{y}[y[x]] = \int y[x] Pr(y|x) dy,
+ \end{eqnarray}
+
+\begin{eqnarray}
+  L[x] &=& \bigl(\mbox{f}[x,\boldsymbol\phi]-y[x]\bigr)^2 \\
+  &=& \Bigl(\bigl(\mbox{f}[x,\boldsymbol\phi]-\mu[x]\bigr)+\bigl(\mu[x]-y[x]\bigr)\Bigr)^2\nonumber \\
+  &=& \bigl(\mbox{f}[x,\boldsymbol\phi]-\mu[x]\bigr)^2 + 2\bigl(\mbox{f}[x,\boldsymbol\phi]-\mu[x]\bigr)\bigl(\mu[x]-y[x]\bigr) + \bigl(\mu[x]-y[x]\bigr)^2,\nonumber
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:perf_biasvariance_plus_noise}
+  \mathbb{E}_{y}\bigl[L[x]\bigr]
+  &=&\mathbb{E}_{y}\Bigl[\bigl(\mbox{f}[x,\boldsymbol\phi]\!-\!\mu[x]\bigr)^2+2\bigl(\mbox{f}[x,\boldsymbol\phi]\!-\!\mu[x]\bigr)\bigl(\mu[x]\!-\!y[x]\bigr)+\bigl(\mu[x]\!-\!y[x]\bigr)^2\Bigr]\nonumber \\
+  &=& \bigl(\mbox{f}[x,\boldsymbol\phi]\!-\!\mu[x]\bigr)^2+2\bigl(\mbox{f}[x,\boldsymbol\phi]-\mu[x]\bigr)\bigl(\mu[x]\!-\!\mathbb{E}_y\left[y[x]\right]\bigr)+\mathbb{E}_y\left[(\mu[x]\!-\!y[x])^2\right]\nonumber\\ 
+  &=&\bigl(\mbox{f}[x,\boldsymbol\phi]\!-\!\mu[x]\bigr)^2+2\bigl(\mbox{f}[x,\boldsymbol\phi]\!-\!\mu[x]\bigr)\cdot 0 +\mathbb{E}_y\left[\bigl(\mu[x]\!-\!y[x]\bigr)^2\right]\nonumber \\
+  &=&\bigl(\mbox{f}[x,\boldsymbol\phi]-\mu[x]\bigr)^2+\sigma^{2},
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mbox{f}_{\mu}[x] = \mathbb{E}_{\mathcal{D}}\Bigl[ \mbox{f}\bigl[x,\boldsymbol\phi[\mathcal{D}]\bigr] \Bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \bigl(\mbox{f}[x,\boldsymbol\phi[\mathcal{D}]]\!-\!\mu[x]\bigr)^2 &&\\
+  &&\hspace{-2.5cm}=\Bigl(\bigl(\mbox{f}[x,\boldsymbol\phi[\mathcal{D}]]\!-\! \mbox{f}_{\mu}[x]\bigr)+\bigl( \mbox{f}_{\mu}[x]-\mu[x]\bigr)\Bigr)^2 \nonumber \\ 
+  &&\hspace{-2.5cm}=\bigl(\mbox{f}[x,\boldsymbol\phi[\mathcal{D}]]\!-\! \mbox{f}_{\mu}[x]\bigr)^2+2\bigl(\mbox{f}[x,\boldsymbol\phi[\mathcal{D}]]\!-\! \mbox{f}_{\mu}[x]\bigr)\bigl(\mbox{f}_{\mu}[x]\!-\!\mu[x]\bigr)+\bigl(\mbox{f}_{\mu}[x]\!-\!\mu[x]\bigr)^2.\nonumber
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:perf_bv2}
+ \mathbb{E}_{\mathcal{D}}\Bigl[\bigl(\mbox{f}[x,\boldsymbol\phi[\mathcal{D}]]-\mu[x]\bigr)^2\Bigr] = \mathbb{E}_\mathcal{D}\Bigl[\bigl(\mbox{f}[x,\boldsymbol\phi[\mathcal{D}]]- \mbox{f}_{\mu}[x]\bigr)^2\Bigr]+\bigl(\mbox{f}_{\mu}[x]-\mu[x]\bigr)^2,
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:perf_bias_variance_final}
+ \mathbb{E}_{\mathcal{D}}\Bigl[\mathbb{E}_{y}[L[x]]\Bigr] = 
+ \begingroup\color{red}
+  \underbrace{\color{black}\mystrut{2.0ex}\mathbb{E}_\mathcal{D}\Bigl[\bigl(\mbox{f}[x,\boldsymbol\phi[\mathcal{D}]]- \mbox{f}_{\mu}[x]\bigr)^2\Bigr]}_{\mbox{variance}} 
+  \endgroup
+ +
+ \begingroup\color{red}
+  \underbrace{\color{black}\mystrut{2.0ex}\bigl(\mbox{f}_{\mu}[x]\!-\!\mu[x]\bigr)^2}_{\mbox{bias}} 
+  \endgroup
+ +
+ \begingroup\color{red}
+  \underbrace{\color{black}\mystrut{2.0ex}\sigma^2.}_{\mbox{noise}} 
+  \endgroup
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mbox{Vol}[r] = \frac{r^{D}\pi^{D/2}}{\Gamma[D/2+1]},
+ \end{eqnarray}
+
+\chapter{Regularization}
+
+\begin{eqnarray}
+ \hat{\boldsymbol\phi} &=& \mathop{\rm argmin}_{\boldsymbol\phi}\bigl[L[\boldsymbol\phi]\bigr]\nonumber \\
+ &=& \mathop{\rm argmin}_{\boldsymbol\phi}\left[\sum_{i=1}^{I}\ell_{i}[\mathbf{x}_{i},\mathbf{y}_{i}]\right],
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \hat{\boldsymbol\phi} = \mathop{\rm argmin}_{\boldsymbol\phi}\left[\sum_{i=1}^{I}\ell_{i}[\mathbf{x}_{i},\mathbf{y}_{i}] + \lambda \cdot \mbox{g}[\boldsymbol\phi]\right],
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \hat{\boldsymbol\phi} = \mathop{\rm argmax}_{\boldsymbol\phi}\left[\prod_{i=1}^{I}Pr(\mathbf{y}_{i}|\mathbf{x}_{i},\boldsymbol\phi)\right].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \hat{\boldsymbol\phi} = \mathop{\rm argmax}_{\boldsymbol\phi}\left[\prod_{i=1}^{I}Pr(\mathbf{y}_{i}|\mathbf{x}_{i},\boldsymbol\phi)Pr(\boldsymbol\phi)\right].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:reg_l2}
+ \hat{\boldsymbol\phi} = \mathop{\rm argmin}_{\boldsymbol\phi}\left[\sum_{i=1}^{I}\ell_{i}[\mathbf{x}_{i},\mathbf{y}_{i}] + \lambda \sum_{j}\phi_{j}^{2}\right],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:reg_implicit}
+  \frac{d\boldsymbol\phi}{dt} = -\frac{\partial L}{\partial\boldsymbol\phi}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \boldsymbol\phi_{t+1} = \boldsymbol\phi_{t}-\alpha \frac{\partial L[\boldsymbol\phi_{t}]}{\partial\boldsymbol\phi},
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:reg_imp_gd}
+  \tilde{L}_{GD}[\boldsymbol\phi] = L[\boldsymbol\phi] + \frac{\alpha}{4} \left\lVert\frac{\partial L}{\partial \boldsymbol\phi} \right\rVert^{2}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:reg_imp_sgd}
+  \tilde{L}_{SGD}[\boldsymbol\phi] &=& \tilde{L}_{GD}[\boldsymbol\phi]+\frac{\alpha}{4 B}\sum_{b=1}^{B}\left\lVert\frac{\partial L_{b}}{\partial \boldsymbol\phi} - \frac{\partial L}{\partial \boldsymbol\phi} \right\rVert^{2}\nonumber \\
+  &=& L[\boldsymbol\phi] + \frac{\alpha}{4} \left\lVert\frac{\partial L}{\partial \boldsymbol\phi} \right\rVert^{2}+\frac{\alpha}{4 B}\sum_{b=1}^{B}\left\lVert\frac{\partial L_{b}}{\partial \boldsymbol\phi} - \frac{\partial L}{\partial \boldsymbol\phi} \right\rVert^{2}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+  L = \frac{1}{I} \sum_{i=1}^{I}\ell_{i}[\mathbf{x}_{i},y_{i}] \quad \quad \mbox{and}\quad\quad L_{b} = \frac{1}{|\mathcal{B}|} \sum_{i\in \mathcal{B}_{b}}\ell_{i}[\mathbf{x}_{i},y_{i}].
+ \end{eqnarray}
+
+\begin{eqnarray}
+  Pr(\boldsymbol\phi|\{\mathbf{x}_{i},\mathbf{y}_{i}\}) = \frac{\prod_{i=1}^{I} Pr(\mathbf{y}_{i}|\mathbf{x}_{i},\boldsymbol\phi) Pr(\boldsymbol\phi)}{\int \prod_{i=1}^{I} Pr(\mathbf{y}_{i}|\mathbf{x}_{i},\boldsymbol\phi) Pr(\boldsymbol\phi)d\boldsymbol\phi } ,
+ \end{eqnarray}
+
+\begin{eqnarray}
+  Pr(\mathbf{y}|\mathbf{x}, \{\mathbf{x}_{i},\mathbf{y}_{i}\}) = \int Pr(\mathbf{y}|\mathbf{x},\boldsymbol\phi) Pr(\boldsymbol\phi |\{\mathbf{x}_{i},\mathbf{y}_{i}\}) d\boldsymbol\phi.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:reg_weight_decay}
+ \boldsymbol\phi \longleftarrow (1-\lambda') \boldsymbol\phi - \alpha \frac{\partial L}{\partial \boldsymbol\phi},
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:reg_imp_discrete}
+ \boldsymbol\phi_{1} = \boldsymbol\phi_{0} + \alpha \cdot\mbox{\bf g}[\boldsymbol\phi_0],
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \frac{d\boldsymbol\phi}{dt} =\mbox{\bf g}[\boldsymbol\phi].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:reg_imp_correction}
+ \frac{d\boldsymbol\phi}{dt} \approx \mbox{\bf g}[\boldsymbol\phi] +\alpha \mbox{\bf g}_{1}[\boldsymbol\phi] + \ldots,
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \boldsymbol\phi[\alpha] &\approx& \left.\boldsymbol\phi + \alpha \frac{d\boldsymbol\phi}{dt} + \frac{\alpha^2}{2}\frac{d^2\boldsymbol\phi }{dt^2}\right|_{\boldsymbol\phi=\boldsymbol\phi_{0}}\nonumber \\
+  &\approx& \left.\boldsymbol\phi + \alpha \left(\mbox{\bf g}[\boldsymbol\phi] +\alpha \mbox{\bf g}_{1}[\boldsymbol\phi] \right) + \frac{\alpha^2}{2}\left(\frac{\partial \mbox{\bf g}[\boldsymbol\phi]}{\partial \boldsymbol\phi}\frac{d\boldsymbol\phi}{dt} +\alpha \frac{\partial \mbox{\bf g}_{1}[\boldsymbol\phi]}{\partial \boldsymbol\phi}\frac{d\boldsymbol\phi}{dt}\right)\right|_{\boldsymbol\phi=\boldsymbol\phi_{0}}\nonumber \\
+  &=& \left.\boldsymbol\phi + \alpha \left(\mbox{\bf g}[\boldsymbol\phi] +\alpha \mbox{\bf g}_{1}[\boldsymbol\phi]\right) + \frac{\alpha^2}{2}\left(\frac{\partial \mbox{\bf g}[\boldsymbol\phi]}{\partial \boldsymbol\phi}\mbox{\bf g}[\boldsymbol\phi] +\alpha \frac{\partial \mbox{\bf g}_{1}[\boldsymbol\phi]}{\partial \boldsymbol\phi}\mbox{\bf g}[\boldsymbol\phi]\right)\right|_{\boldsymbol\phi=\boldsymbol\phi_{0}}\nonumber \\
+  &\approx& \left.\boldsymbol\phi + \alpha \mbox{\bf g}[\boldsymbol\phi] + \alpha^2\left(\mbox{\bf g}_{1}[\boldsymbol\phi] +\frac{1}{2}\frac{\partial \mbox{\bf g}[\boldsymbol\phi]}{\partial \boldsymbol\phi}\mbox{\bf g}[\boldsymbol\phi]\right)\right|_{\boldsymbol\phi=\boldsymbol\phi_{0}},
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mbox{\bf g}_{1}[\boldsymbol\phi] = -\frac{1}{2}\frac{\partial \mbox{\bf g}[\boldsymbol\phi]}{\partial \boldsymbol\phi}\mbox{\bf g}[\boldsymbol\phi].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:reg_imp_proof1}
+ \frac{d\boldsymbol\phi}{dt} &\approx& \mbox{\bf g}[\boldsymbol\phi] +\alpha \mbox{\bf g}_{1}[\boldsymbol\phi] \nonumber \\
+ &=& -\frac{\partial L}{\partial \boldsymbol\phi}-\frac{\alpha}{2}\left(\frac{\partial^2 L}{\partial \boldsymbol\phi^2}\right)\frac{\partial L}{\partial \boldsymbol\phi}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:reg_imp_proof2}
+ L_{GD}[\boldsymbol\phi] = L[\boldsymbol\phi] + \frac{\alpha}{4} \left\lVert\frac{\partial L}{\partial \boldsymbol\phi} \right\rVert^{2},
+ \end{eqnarray}
+
+\begin{eqnarray}
+ Pr(\boldsymbol\phi) = \prod_{j=1}^{J}\mbox{Norm}_{\phi_j}[0, \sigma^{2}_{\boldsymbol\phi}],
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \boldsymbol\phi \longleftarrow (1-\lambda) \boldsymbol\phi - \alpha \frac{\partial L}{\partial \boldsymbol\phi},
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \tilde{L}[\boldsymbol\phi] = L[\boldsymbol\phi] + \frac{\lambda}{2\alpha} \sum_{k}\phi_{k}^2,
+ \end{eqnarray}
+
+\chapter{Convolutional networks}
+
+\begin{eqnarray}
+  \mbox{\bf f}\bigl[\mbox{\bf t}[\mathbf{x}]\bigr] = \mbox{\bf f}[\mathbf{x}].
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mbox{\bf f}\bigl[\mbox{\bf t}[\mathbf{x}]\bigr] = \mbox{\bf t}\bigl[\mbox{\bf f}[\mathbf{x}]\bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:conv_kernel_3a}
+  z_{i} = \omega_{1}x_{i-1}+\omega_{2}x_{i} + \omega_{3}x_{i+1},
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:conv_kernel_3}
+  h_{i} &=& \mbox{a}\left[\beta + \omega_{1}x_{i-1}+\omega_{2}x_{i} + \omega_{3}x_{i+1}\right]\nonumber\\
+  &=& \mbox{a}\left[\beta + \sum_{j=1}^{3} \omega_{j} x_{i+j-2}\right],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:conv_fully}
+  h_{i} &=& \mbox{a}\left[\beta_{i} + \sum_{j=1}^{D} \omega_{ij} x_{j}\right].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:conv_kernel_2d}
+  h_{ij} &=& \mbox{a}\left[\beta + \sum_{m=1}^{3}\sum_{n=1}^{3} \omega_{mn} x_{i+m-2,j+n-2}\right],
+ \end{eqnarray}
+
+ \chapter{Residual networks}
+
+\begin{eqnarray}\label{eq:residual_sequential}
+  \mbox{\bf h}_1 &=& \mbox{\bf f}_{1}[\mathbf{x},
+  \boldsymbol\phi_{1}]\nonumber \\
+  \mbox{\bf h}_2 &=& \mbox{\bf f}_{2}[\mathbf{h}_{1},\boldsymbol\phi_{2}]\nonumber \\
+  \mbox{\bf h}_3 &=& \mbox{\bf f}_{3}[\mathbf{h}_{2},\boldsymbol\phi_{3}]\nonumber \\
+  \mathbf{y} &=& \mbox{\bf f}_{4}[\mathbf{h}_{3},\boldsymbol\phi_{4}],
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mathbf{y}= \mbox{\bf f}_{4}\biggl[\mbox{\bf f}_{3}\Bigl[\mbox{\bf f}_{2}\bigl[\mbox{\bf f}_{1}[\mathbf{x},\boldsymbol\phi_{1}],\boldsymbol\phi_{2}\bigr],\boldsymbol\phi_{3}\Bigr],\boldsymbol\phi_{4}\biggr].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:residual_chain}
+  \frac{\partial \mathbf{y}}{\partial \mathbf{f}_1} = \frac{\partial \mathbf{f}_{2}}{\partial \mathbf{f}_{1}}\frac{\partial \mathbf{f}_{3}}{\partial \mathbf{f}_{2}}\frac{\partial \mathbf{f}_{4}}{\partial \mathbf{f}_{3}}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:residual_example}
+  \mathbf{h}_{1} &=& \mathbf{x} + \mbox{\bf f}_{1}[\mathbf{x},\boldsymbol\phi_{1}]\nonumber \\
+  \mathbf{h}_{2} &=& \mathbf{h}_{1} + \mbox{\bf f}_{2}[\mathbf{h}_{1},\boldsymbol\phi_{2}]\nonumber \\
+  \mathbf{h}_3 &=& \mathbf{h}_{2} + \mbox{\bf f}_{3}[\mathbf{h}_{2},\boldsymbol\phi_{3}]\nonumber \\
+  \mathbf{y} &=& \mathbf{h}_{3} + \mbox{\bf f}_{4}[\mathbf{h}_{3}, \boldsymbol\phi_{4}],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:residual_substitute}
+  &\mathbf{y} = \mathbf{x} &\hspace{-2mm}+\hspace{2mm} \mbox{\bf f}_{1}[\mathbf{x}] \\
+  &&\hspace{-2mm}+\hspace{2mm} \mbox{\bf f}_{2}\bigl[\mathbf{x} + \mbox{\bf f}_{1}[\mathbf{x}]\bigr] \nonumber \\
+  &&\hspace{-2mm}+\hspace{2mm} \mbox{\bf f}_{3}\Bigl[\mathbf{x} + \mbox{\bf f}_{1}[\mathbf{x}] + \mbox{\bf f}_{2}\bigl[\mathbf{x} + \mbox{\bf f}_{1}[\mathbf{x}]\bigr]\Bigr]\nonumber\\
+  &&\hspace{-2mm}+\hspace{2mm}\mbox{\bf f}_{4}\biggl[\mathbf{x} + \mbox{\bf f}_{1}[\mathbf{x}] + \mbox{\bf f}_{2}\bigl[\mathbf{x} + \mbox{\bf f}_{1}[\mathbf{x}]\bigr]+ \mbox{\bf f}_{3}\Bigl[\mathbf{x} + \mbox{\bf f}_{1}[\mathbf{x}] + \mbox{\bf f}_{2}\bigl[\mathbf{x} + \mbox{\bf f}_{1}[\mathbf{x}]\bigr]\Bigr]\biggr],\nonumber
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:residual_deriv}
+  \frac{\partial \mathbf{y}}{\partial \mbox{\bf f}_{1}} = \mathbf{I} + \frac{\partial \mathbf{f}_{2}}{\partial \mathbf{f}_1} + \left(\frac{\partial \mathbf{f}_{3}}{\partial \mathbf{f}_1}+ \frac{\partial \mathbf{f}_{2}}{\partial \mathbf{f}_1}\frac{\partial \mathbf{f}_{3}}{\partial \mathbf{f}_2} \right)
+  + \left(\frac{\partial \mathbf{f}_{4}}{\partial \mathbf{f}_1}
+  + \frac{\partial \mathbf{f}_{2}}{\partial \mathbf{f}_1}\frac{\partial \mathbf{f}_{4}}{\partial \mathbf{f}_2}
+  + \frac{\partial \mathbf{f}_{3}}{\partial \mathbf{f}_1}\frac{\partial \mathbf{f}_{4}}{\partial \mathbf{f}_3}
+  + \frac{\partial \mathbf{f}_{2}}{\partial \mathbf{f}_1}\frac{\partial \mathbf{f}_{3}}{\partial \mathbf{f}_2}\frac{\partial \mathbf{f}_{4}}{\partial \mathbf{f}_3}\right),
+ \end{eqnarray}
+
+\begin{eqnarray}
+ m_{h} &=& \frac{1}{|\mathcal{B}|} \sum_{i\in\mathcal{B}} h_{i}\nonumber \\
+ s_{h} &=& \sqrt{\frac{1}{|\mathcal{B}|} \sum_{i\in\mathcal{B}} (h_{i}-m_{h})^2},
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:residual_bn_apply}
+ h_i \leftarrow \frac{h_i-m_{h}}{s_{h}+\epsilon}\hspace{2cm}\forall i\in\mathcal{B},
+ \end{eqnarray}
+
+\begin{eqnarray}
+ h_i \leftarrow \gamma h_i + \delta\hspace{2cm}\forall i\in\mathcal{B}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:residual_prob_forward}
+ \begin{split}
+ f_{1} &= \mathbb{E}[z_{i}]\\
+ f_{2i} &= z_{i} - f_{1}\\
+ f_{3i} &= f_{2i}^2\\
+ f_{4} &= \mathbb{E}[f_{3i}] \\
+ \end{split}
+ \qquad\qquad\qquad
+ \begin{split}
+ f_{5} &= \sqrt{f_{4}+\epsilon} \\
+ f_{6} &= 1/f_{5}\\
+ f_{7i} &= f_{2i}\times f_{6} \\
+ z_{i}' &= f_{7i} \times \gamma + \delta,
+ \end{split}
+ \end{eqnarray}
+
+\chapter{Transformers}
+
+
+\begin{eqnarray}
+  \mbox{{\bf f}}[\mathbf{x}] = \mbox{{\bf ReLU}}[\boldsymbol\beta +\boldsymbol\Omega\mathbf{x}],
+ \end{eqnarray}
+
+
+
+\begin{eqnarray}\label{eq:transformer_values}
+  \mathbf{v}_{m} = \boldsymbol\beta_{v}+\boldsymbol\Omega_{v}\mathbf{x}_{m},
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:transformer_sattention1}
+  \mbox{{\bf sa}}_{n}[\mathbf{x}_{1},\ldots, \mathbf{x}_{N}] = \sum_{m=1}^{N}a[\mathbf{x}_{m}, \mathbf{x}_{n}]\mathbf{v}_{m}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mathbf{q}_{n} &=& \boldsymbol\beta_{q}+\boldsymbol\Omega_{q}\mathbf{x}_{n}\nonumber \\
+  \mathbf{k}_{m} &=& \boldsymbol\beta_{k}+\boldsymbol\Omega_{k}\mathbf{x}_{m},
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:transformer_sattention2}
+  a[\mathbf{x}_{m},\mathbf{x}_{n}] &=& \mbox{softmax}_{m}\left[\mathbf{k}_{\bullet}^{T}\mathbf{q}_{n}\right]\nonumber\\
+  &=& \frac{\exp\left[\mathbf{k}_{m}^{T}\mathbf{q}_{n}\right]}{\sum_{m'=1}^{N}\exp\left[\mathbf{k}_{m'}^{T}\mathbf{q}_{n} \right]},
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mathbf{V}[\mathbf{X}] &=& \boldsymbol\beta_{v}\mathbf{1}^{T}+\boldsymbol\Omega_{\textit{v}}\mathbf{X}\nonumber \\
+ \mathbf{Q}[\mathbf{X}] &=& \boldsymbol\beta_{q}\mathbf{1}^{T}+\boldsymbol\Omega_{\textit{q}}\mathbf{X}\nonumber \\
+ \mathbf{K}[\mathbf{X}] &=& \boldsymbol\beta_{k}\mathbf{1}^{T}+\boldsymbol\Omega_{\textit{k}}\mathbf{X},
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mbox{{\bf Sa}}[\mathbf{X}] =\mathbf{V}[\mathbf{X}]\cdot\mbox{\bf Softmax}\Bigl[\mathbf{K}[\mathbf{X}]^{T}\mathbf{Q}[\mathbf{X}]\Bigr],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:transformer_sa_matrix}
+  \mbox{{\bf Sa}}[\mathbf{X}] =\mathbf{V}\cdot\mbox{\bf Softmax}\Bigl[\mathbf{K}^{T}\mathbf{Q}\Bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mbox{{\bf Sa}}[\mathbf{X}] =\mathbf{V}\cdot\mbox{\bf Softmax}\left[\frac{\mathbf{K}^{T}\mathbf{Q}}{\sqrt{D}_{q}}\right].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mathbf{V}_h &=& \boldsymbol\beta_{vh}\mathbf{1}^{T}+\boldsymbol\Omega_{\mathit{vh}}\mathbf{X}\nonumber \\
+ \mathbf{Q}_h &=& \boldsymbol\beta_{qh}\mathbf{1}^{T}+\boldsymbol\Omega_{\mathit{qh}}\mathbf{X}\nonumber \\
+ \mathbf{K}_h &=& \boldsymbol\beta_{kh}\mathbf{1}^{T}+\boldsymbol\Omega_{\mathit{kh}}\mathbf{X}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mbox{{\bf Sa}}_{h}[\mathbf{X}] =\mathbf{V}_h\cdot\mbox{\bf Softmax}\left[\frac{\mathbf{K}_h^{T}\mathbf{Q}_h}{\sqrt{D}_{q}}\right],
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mbox{{\bf MhSa}}[\mathbf{X}] = \boldsymbol\Omega_{c}\Bigl[\mbox{{\bf Sa}}_{1}[\mathbf{X}]^T,\mbox{{\bf Sa}}_{2}[\mathbf{X}]^T,\ldots,\mbox{{\bf Sa}}_{H}[\mathbf{X}]^T \Bigr]^T.
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mathbf{X} &\leftarrow& \mathbf{X} + \mbox{\bf{MhSa}}[\mathbf{X}] \nonumber \\
+  \mathbf{X} &\leftarrow& \mbox{\bf{LayerNorm}}[\mathbf{X}] \hspace{3cm}\nonumber\\
+  \mathbf{x}_{n} &\leftarrow& \mathbf{x}_{n}+\mbox{\bf{mlp}}[\mathbf{x}_{n}] \hspace{3.6cm}\forall\; n\in\{1,\ldots, N\}\nonumber\\
+  \mathbf{X} &\leftarrow& \mbox{\bf{LayerNorm}}[\mathbf{X}],
+ \end{eqnarray}
+
+\begin{eqnarray}
+  Pr(\mbox{\textcolor{red}{It takes great courage to let yourself appear weak}}) &=&\nonumber\\
+  &&\hspace{-8cm}Pr(\mbox{\textcolor{red}{It}})\times Pr(\mbox{\textcolor{red}{takes}}|\mbox{\textcolor{red}{It}})\times Pr(\mbox{\textcolor{red}{great}}|\mbox{\textcolor{red}{It takes}})\times Pr(\mbox{\textcolor{red}{courage}}|\mbox{\textcolor{red}{It takes great}})\times\nonumber \\
+  &&\hspace{-8cm}Pr(\mbox{\textcolor{red}{to}}|\mbox{\textcolor{red}{It takes great courage}})\times Pr(\mbox{\textcolor{red}{let}}|\mbox{\textcolor{red}{It takes great courage to}})\times\nonumber\\
+  &&\hspace{-8cm}Pr(\mbox{\textcolor{red}{yourself}}|\mbox{\textcolor{red}{It takes great courage to let}})\times\nonumber\\
+  &&\hspace{-8cm}Pr(\mbox{\textcolor{red}{appear}}|\mbox{\textcolor{red}{It takes great courage to let yourself}})\times\nonumber\\
+  &&\hspace{-8cm}Pr(\mbox{\textcolor{red}{weak}}|\mbox{\textcolor{red}{It takes great courage to let yourself appear}}).
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:transformer_autoregressive}
+  Pr(t_{1},t_{2},\ldots, t_{N}) = Pr(t_{1})\prod_{n=2}^{N}Pr(t_{n}|t_{1},\ldots, t_{n-1}).
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:transformer_position_quad}
+  \mbox{{\bf Sa}}[\mathbf{X}] =\mathbf{V}\cdot\mbox{\bf Softmax}\left[\frac{\mathbf{K}^{T}\mathbf{Q}}{\sqrt{D}_{q}}\right],
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mathbf{V} &=& \boldsymbol\beta_{v}\mathbf{1}^{T}+\boldsymbol\Omega_{\textit{v}}\mathbf{X}\nonumber \\
+ \mathbf{Q} &=& \boldsymbol\beta_{q}\mathbf{1}^{T}+\boldsymbol\Omega_{\textit{q}}(\mathbf{X}+\boldsymbol\Pi)\nonumber \\
+ \mathbf{K} &=& \boldsymbol\beta_{k}\mathbf{1}^{T}+\boldsymbol\Omega_{\textit{k}}(\mathbf{X}+\boldsymbol\Pi).
+ \end{eqnarray}
+
+
+
+\begin{eqnarray}
+     \mbox{\bf Sa}[\mathbf{X}\mathbf{P}] = \mbox{\bf Sa}[\mathbf{X}]\mathbf{P}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ y_{i} = \mbox{softmax}_{i}[\mathbf{z}] = \frac{\exp[z_{i}]}{\sum_{j=1}^{5}\exp[z_{j}]},
+ \end{eqnarray}
+
+\begin{eqnarray}
+  a[\mathbf{x}_{m},\mathbf{x}_{n}] = \mbox{softmax}_{m}\left[\mathbf{k}_{\bullet}^T\mathbf{q}_{n}\right]
+  = \frac{\exp\left[\mathbf{k}_m^T\mathbf{q}_{n}\right]}{\sum_{m'=1}^{N}\exp\left[\mathbf{k}_{m'}^{T}\mathbf{q}_{n} \right]}.
+ \end{eqnarray}
+
+\chapter{Graph neural networks}
+
+\begin{eqnarray}
+  \mathbf{X}' &=& \mathbf{X}\mathbf{P}\nonumber \\
+  \mathbf{A}' &=& \mathbf{P}^T\mathbf{A}\mathbf{P},
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:graph_graph_level}
+ Pr(y=1|\mathbf{X},\mathbf{A}) = \mbox{sig}\left[\beta_{K}+\boldsymbol\omega_{K}\mathbf{H}_{K}\mathbf{1}/N\right],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:graph_node_level}
+ Pr(y^{(n)}=1|\mathbf{X},\mathbf{A}) = \mbox{sig}\left[\beta_{K}+\boldsymbol\omega_{K}\mathbf{h}^{(n)}_{K}\right].
+ \end{eqnarray}
+
+\begin{eqnarray}
+  Pr(y^{(mn)}=1|\mathbf{X},\mathbf{A}) = \mbox{sig}\left[\mathbf{h}^{(m)T}\mathbf{h}^{(n)}\right].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mathbf{H}_1 &=& \mbox{\bf F}[\mathbf{X},\mathbf{A},\boldsymbol\phi_0]\nonumber \\
+ \mathbf{H}_2 &=& \mbox{\bf F}[\mathbf{H}_1,\mathbf{A},\boldsymbol\phi_1]\nonumber \\
+ \mathbf{H}_3 &=& \mbox{\bf F}[\mathbf{H}_2,\mathbf{A},\boldsymbol\phi_2]\nonumber \\
+ \vdots &=& \vdots \nonumber \\
+ \mathbf{H}_K &=& \mbox{\bf F}[\mathbf{H}_{K-1},\mathbf{A},\boldsymbol\phi_{K-1}],
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mathbf{H}_{k+1}\mathbf{P} =\mbox{\bf F}[\mathbf{H}_k\mathbf{P},\mathbf{P}^{T}\mathbf{A}\mathbf{P},\boldsymbol\phi_k].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:graph_output_invar}
+ y = \mbox{sig}\left[\beta_{K}+\boldsymbol\omega_{K}\mathbf{H}_{K}\mathbf{1}/N\right] = \mbox{sig}\left[\beta_{K}+\boldsymbol\omega_{K}\mathbf{H}_{K}\mathbf{P}\mathbf{1}/N\right],
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mbox{\bf agg}[n,k] = \sum_{m\in\mbox{ne}[n]}\mathbf{h}_k^{(m)},
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mathbf{h}^{(n)}_{k+1} = \mbox{\bf a}\left[\boldsymbol\beta_{k} + \boldsymbol\Omega_{k} \cdot \mathbf{h}^{(n)}_{k} +\boldsymbol\Omega_{k} \cdot \mbox{\bf agg}[n,k]\right].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:graph_concat_update}
+ \mathbf{H}_{k+1} &=& \mbox{\bf a}\left[\boldsymbol\beta_{k}\mathbf{1}^{T} + \boldsymbol\Omega_{k}\mathbf{H}_{k} +\boldsymbol\Omega_{k} \mathbf{H}_{k}\mathbf{A} \right]\nonumber \\
+ & =& \mbox{\bf a}\left[\boldsymbol\beta_{k}\mathbf{1}^{T} +\boldsymbol\Omega_{k} \mathbf{H}_{k}(\mathbf{A}+\mathbf{I}) \right],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:graph_simple_example}
+ \mathbf{H}_{1} &=& \mbox{\bf a}\left[\boldsymbol\beta_{0}\mathbf{1}^{T}+\boldsymbol\Omega_{0}\mathbf{X}(\mathbf{A}+\mathbf{I})\right]\nonumber \\
+ \mathbf{H}_{2} &=& \mbox{\bf a}\left[\boldsymbol\beta_{1}\mathbf{1}^{T} + \boldsymbol\Omega_{1}\mathbf{H}_{1}(\mathbf{A}+\mathbf{I}) \right]\nonumber \\
+ \vdots &=& \vdots \nonumber \\
+ \mathbf{H}_{K} &=& \mbox{\bf a}\left[\boldsymbol\beta_{K-1}\mathbf{1}^{T} + \boldsymbol\Omega_{K-1}\mathbf{H}_{k-1}(\mathbf{A}+\mathbf{I}) \right]\nonumber \\
+ \mbox{f}[\mathbf{X},\mathbf{A},\boldsymbol\Phi] &=& \mbox{sig}\left[\beta_{K}+\boldsymbol\omega_{K}\mathbf{H}_{K}\mathbf{1}/N\right],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:graph_node_matrix}
+ \mbox{\bf f}[\mathbf{X},\mathbf{A},\boldsymbol\Phi] = \mbox{\bf sig}
+ \left[\beta_{K}\mathbf{1}^{T}+\boldsymbol\omega_K\mathbf{H}_K\right],
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mathbf{H}_{k+1} = \mbox{\bf a}\Bigl[\boldsymbol\beta_{k}\mathbf{1}^{T} + \boldsymbol\Omega_{k} \mathbf{H}_{k}(\mathbf{A}+\mathbf{I}) \Bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mathbf{H}_{k+1} = \mbox{\bf a}\Bigl[\boldsymbol\beta_{k}\mathbf{1}^{T} + \boldsymbol\Omega_{k} \mathbf{H}_{k}(\mathbf{A}+ (1+\epsilon_{k})\mathbf{I}) \Bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mathbf{H}_{k+1} &=& \mbox{\bf a}\left[\boldsymbol\beta_{k}\mathbf{1}^{T} +  \boldsymbol\Omega_{k} \mathbf{H}_{k}\mathbf{A} + \boldsymbol\Psi_{k}\mathbf{H}_k \right]\nonumber \\
+ &=& \mbox{\bf a}\left[\boldsymbol\beta_{k}\mathbf{1}^{T} + \begin{bmatrix}\boldsymbol\Omega_{k}&\boldsymbol\Psi_{k}\end{bmatrix} \begin{bmatrix}\mathbf{H}_{k}\mathbf{A}\\ \mathbf{H}_{k}\end{bmatrix} \right]\nonumber \\
+ &=& \mbox{\bf a}\left[\boldsymbol\beta_{k}\mathbf{1}^{T} +\boldsymbol\Omega_{k}' \begin{bmatrix}\mathbf{H}_{k}\mathbf{A}\\\ \mathbf{H}_{k}\end{bmatrix} \right],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:graph_residual}
+ \mathbf{H}_{k+1} = \begin{bmatrix}\mbox{\bf a}\left[\boldsymbol\beta_{k}\mathbf{1}^{T} + \boldsymbol\Omega_{k} \mathbf{H}_{k}\mathbf{A} \right]\\\mathbf{H}_{k}\end{bmatrix}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:graph_mean_agg}
+ \mbox{\bf agg}[n] = \frac{1}{|\mbox{ne}[n]|}\sum_{m\in\mbox{ne}[n]}\mathbf{h}_{m},
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mathbf{H}_{k+1} = \mbox{\bf a}\Bigl[\boldsymbol\beta_{k}\mathbf{1}^{T} + \boldsymbol\Omega_{k} \mathbf{H}_{k}(\mathbf{A}\mathbf{D}^{-1}+\mathbf{I}) \Bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:graph_kipf_normalization}
+ \mbox{\bf agg}[n] = \sum_{m\in\mbox{ne}[n]}\frac{\mathbf{h}_{m}}{\sqrt{|\mbox{ne}[n]||\mbox{ne}[m]|}},
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mathbf{H}_{k+1} = \mbox{\bf a}\Bigl[\boldsymbol\beta_{k}\mathbf{1}^{T} + \boldsymbol\Omega_{k} \mathbf{H}_{k}(\mathbf{D}^{-1/2}\mathbf{A}\mathbf{D}^{-1/2}+\mathbf{I}) \Bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mbox{\bf agg}[n] =\mathop{\rm \bf max}_{m\in\mbox{ne}[n]}\bigl[\mathbf{h}_{m}\bigr],
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mathbf{H}'_{k} = \boldsymbol\beta_k\mathbf{1}^{T} + \boldsymbol\Omega_k\mathbf{H}_k.
+ \end{eqnarray}
+
+\begin{eqnarray}
+  s_{mn} = \mbox{a}\left[\boldsymbol\phi_k^{T}\begin{bmatrix}\mathbf{h}'_{m}\\\mathbf{h}'_{n}\end{bmatrix}\right].
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mathbf{H}_{k+1} = \mbox{\bf a}\Bigl[\mathbf{H}'_{k}\cdot\mbox{\bf Softmask}[\mathbf{S}, \mathbf{A}+\mathbf{I}] \Bigr],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:gnn}
+  \mathbf{h}_{n} \leftarrow \mbox{\bf f}\left[\mathbf{x}_{n},\mathbf{x}_{m\in\mbox{ne}[n]},\mathbf{e}_{e\in\mbox{nee}[n]},\mathbf{h}_{m\in\mbox{ne}[n]},\boldsymbol\phi\right],
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mathbf{h}_{k+1}^{(n)} = \mbox{\bf mlp}\left[\left(1+\epsilon_{k}\right) \mathbf{h}_{k}^{(n)} +\sum_{m\in\mbox{ne}[n]}\mathbf{h}_{k}^{(m)} \right]. 
+ \end{eqnarray}
+
+\begin{eqnarray*}
+ \mathbf{A}_{1} = \begin{bmatrix}
+ 0 & 1 & 1 & 0 & 0 & 0 & 0\\ 
+ 1 & 0 & 0 & 1 & 1 & 1 & 0\\
+ 1 & 0 & 0 & 0 & 0 & 1 & 1\\
+ 0 & 1 & 0 & 0 & 0 & 1 & 1\\
+ 0 & 1 & 0 & 0 & 0 & 0 & 1\\
+ 0 & 1 & 1 & 1 & 0 & 0 & 0\\
+ 0 & 0 & 1 & 1 & 1 & 0 & 0 
+ \end{bmatrix} \quad\quad \mbox{and} \quad\quad \mathbf{A}_{2} = \begin{bmatrix}
+ 0 & 0 & 1 & 1 & 0 & 0 & 1 \\
+ 0 & 0 & 1 & 1 & 1 & 0 & 0\\
+ 1 & 1 & 0 & 0 & 0 & 0 & 0\\
+ 1 & 1 & 0 & 0 & 1 & 1 & 1\\
+ 0 & 1 & 0 & 1 & 0 & 0 & 1\\
+ 0 & 0 & 0 & 1 & 0 & 0 & 1\\
+ 1 & 0 & 0 & 1 & 1 & 1 & 0 
+ \end{bmatrix}.
+ \end{eqnarray*}
+
+\begin{eqnarray}
+ \mbox{sig}\left[\beta_{K}+\boldsymbol\omega_{K}\mathbf{H}_{K}\mathbf{1}\right] = \mbox{sig}\left[\beta_{K}+\boldsymbol\omega_{K}\mathbf{H}_{K}\mathbf{P}\mathbf{1}\right],
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mathbf{H}_{k+1} &=& \mbox{GraphLayer}[\mathbf{H}_{k},\mathbf{A}] \nonumber \\
+  &=& \mbox{\bf a}\left[\boldsymbol\beta_{k}\mathbf{1}^{T} + \boldsymbol\Omega_{k}\begin{bmatrix}\mathbf{H}_{k}\\ \mathbf{H}_{k}\mathbf{A} \end{bmatrix}\right],
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mbox{GraphLayer}[\mathbf{H}_{k},\mathbf{A}]\mathbf{P} = \mbox{GraphLayer}[\mathbf{H}_{k}\mathbf{P},\mathbf{P}^{T}\mathbf{A}\mathbf{P}],
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mbox{\bf agg}[n] = \frac{1}{1+|\mbox{ne}[n]|}\left(\mathbf{h}_{n}+\sum_{m\in\mbox{ne}[n]}\mathbf{h}_{m}\right).
+ \end{eqnarray}
+
+ \chapter{Unsupervised learning}
+
+\begin{eqnarray}
+  L[\boldsymbol\phi] = -\sum_{i=1}^{I}\log\Bigl[Pr(\mathbf{x}_{i}|\boldsymbol\phi)\Bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ IS &=& \exp\left[\frac{1}{I}\sum_{i=1}^{I}D_{KL}\Bigl[Pr(y|\mathbf{x}^*_{i})||Pr(y) \Bigr]\right],
+ \end{eqnarray}
+
+\begin{eqnarray}
+ Pr(y) = \frac{1}{I}\sum_{i=1}^I Pr(y|\mathbf{x}^*_i).
+ \end{eqnarray}
+
+\chapter{Generative adversarial networks}
+
+\begin{eqnarray}
+  x_j^{*}= \mbox{g}[z_j,\theta] = z_j+\theta,
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \hat{\boldsymbol\phi} = \mathop{\rm argmin}_{\boldsymbol\phi} \left[\sum_{i}-(1-y_{i})\log\Bigl[1-\mbox{sig}[\mbox{f}[\mathbf{x}_i,\boldsymbol\phi]]\Bigr] - y_{i}\log\Bigl[\mbox{sig}[\mbox{f}[\mathbf{x}_i,\boldsymbol\phi]]\Bigr]\right],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:gan_cost_fun_sum0}
+ \hat{\boldsymbol\phi} = \mathop{\rm argmin}_{\boldsymbol\phi} \left[\sum_{j}-\log\Bigl[1-\mbox{sig}[\mbox{f}[\mathbf{x}^*_j,\boldsymbol\phi]]\Bigr] - \sum_{i}\log\Bigl[\mbox{sig}[\mbox{f}[\mathbf{x}_i,\boldsymbol\phi]]\Bigr]\right],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:gan_cost_fn_sum}
+ \hat{\boldsymbol\theta} = \mathop{\rm argmax}_{\boldsymbol\theta}\!\left[\min_{\boldsymbol\phi}\!\left[\sum_{j}-\log\Bigl[1\!-\!\mbox{sig}[\mbox{f}[\mbox{\bf g}[\mathbf{z}_{j},\boldsymbol\theta] ,\boldsymbol\phi]]\Bigr] \!- \!\sum_{i}\log\Bigl[\mbox{sig}[\mbox{f}[\mathbf{x}_i,\boldsymbol\phi]]\Bigr]\right]\right]\!\!.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:gan_cost_fun_sumtwo}
+ L[\boldsymbol\phi] &=& \sum_{j} -\log\Bigl[1-\mbox{sig}[\mbox{f}[\mbox{\bf g}[\mathbf{z}_{j},\boldsymbol\theta] ,\boldsymbol\phi]]\Bigr] -\sum_{i}\log\Bigl[\mbox{sig}[\mbox{f}[\mathbf{x}_i,\boldsymbol\phi]]\Bigr]\nonumber\\
+ L[\boldsymbol\theta] &=& \sum_{j} \log\Bigl[1-\mbox{sig}[\mbox{f}[\mbox{\bf g}[\mathbf{z}_{j},\boldsymbol\theta] ,\boldsymbol\phi]]\Bigr],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:gan_integral}
+  L[\boldsymbol\phi] &\!=\!& -\frac{1}{J}\sum_{j=1}^J\biggr(\log\Bigl[1-\mbox{sig}[\mbox{f}[\mathbf{x}^{*}_j,\boldsymbol\phi]]\Bigr]\biggr) -\frac{1}{I}\sum_{i=1}^I\biggl(\log\Bigl[\mbox{sig}[\mbox{f}[\mathbf{x}_i,\boldsymbol\phi]]\Bigr]\biggr) \\
+  &\!\approx\!&-\mathbb{E}_{\mathbf{x}^*}\biggl[\log\Bigl[1-\mbox{sig}[\mbox{f}[\mathbf{x}^* ,\boldsymbol\phi]]\Bigr]\biggr] -\mathbb{E}_{\mathbf{x}}\biggl[\log\Bigl[\mbox{sig}[\mbox{f}[\mathbf{x},\boldsymbol\phi]]\Bigr]\biggr]\nonumber\\
+  &\!=\!&-\int Pr(\mathbf{x}^{*})\log\Bigl[1-\mbox{sig}[\mbox{f}[\mathbf{x}^* ,\boldsymbol\phi]]\Bigr]d\mathbf{x}^* - \int Pr(\mathbf{x})\log\Bigl[\mbox{sig}[\mbox{f}[\mathbf{x},\boldsymbol\phi]]\Bigr]d\mathbf{x}\nonumber,
+ \end{eqnarray}
+
+\begin{eqnarray}
+ Pr(\mbox{real}|\tilde{\mathbf{x}}) = \mbox{sig}\bigl[\mbox{f}[\tilde{\mathbf{x}},\boldsymbol\phi]\bigr] = \frac{Pr(\tilde{\mathbf{x}}|\mbox{real}) }{Pr(\tilde{\mathbf{x}}|\mbox{generated})+Pr(\tilde{\mathbf{x}}|\mbox{real})} =\frac{Pr(\mathbf{x})}{Pr(\mathbf{x}^{*})+Pr(\mathbf{x})},
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:gan_integral_opt}
+  L[\boldsymbol\phi]\!\!&\!=\!&\!\!-\int \!Pr(\mathbf{x}^{*})\log\Bigl[1-\mbox{sig}[\mbox{f}[\mathbf{x}^* ,\boldsymbol\phi]]\Bigr]d\mathbf{x}^* - \int \!Pr(\mathbf{x})\log\Bigl[\mbox{sig}[\mbox{f}[\mathbf{x},\boldsymbol\phi]]\Bigr]d\mathbf{x}\\
+  \!\!&\!=\!&\!\!-\int \!Pr(\mathbf{x}^{*})\log\left[1-\frac{Pr(\mathbf{x})}{Pr(\mathbf{x}^{*})+Pr(\mathbf{x})}\right]d\mathbf{x}^* - \int\! Pr(\mathbf{x})\log\left[\frac{Pr(\mathbf{x})}{Pr(\mathbf{x}^{*})+Pr(\mathbf{x})}\right]d\mathbf{x}\nonumber \\
+ \!\!&\!=\!&\!\!-\int \!Pr(\mathbf{x}^{*})\log\left[\frac{Pr(\mathbf{x}^{*})}{Pr(\mathbf{x}^{*})+Pr(\mathbf{x})}\right]d\mathbf{x}^* - \int \!Pr(\mathbf{x})\log\left[\frac{Pr(\mathbf{x})}{Pr(\mathbf{x}^{*})+Pr(\mathbf{x})}\right]d\mathbf{x}.\nonumber
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:gan_js_dist}
+ D_{JS}\Bigl[Pr(\mathbf{x}^{*})\left|\left|\right.\right.Pr(\mathbf{x})\Bigr] &&\\ &&\hspace{-3cm}=\frac{1}{2}D_{KL}\left[Pr(\mathbf{x}^{*})\left|\left|\frac{Pr(\mathbf{x}^{*})+Pr(\mathbf{x})}{2}\right.\right.\right]+\frac{1}{2}D_{KL}\left[Pr(\mathbf{x})\left|\left|\frac{Pr(\mathbf{x}^{*})+Pr(\mathbf{x})}{2}\right.\right.\right]\nonumber \\
+ &&\hspace{-3cm}=\frac{1}{2}\int 
+ \begingroup\color{red}
+ \underbrace{\color{black} Pr(\mathbf{x}^{*})\log\left[\frac{2Pr(\mathbf{x}^{*})}{Pr(\mathbf{x}^{*})+Pr(\mathbf{x})}\right]d\mathbf{x}^*}_{\mbox{quality}} \endgroup
+ +\begingroup\color{red}
+ \underbrace{\color{black}\frac{1}{2}\int Pr(\mathbf{x})\log\left[\frac{2Pr(\mathbf{x})}{Pr(\mathbf{x}^{*})+Pr(\mathbf{x})}\right]d\mathbf{x}}_{\mbox{coverage}}\endgroup .\nonumber
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:gan_was_primal_discrete}
+ D_{w}\Bigl[Pr(x)||q(x)\Bigr] = \min_{\mathbf{P}} \left[\sum_{i,j} P_{ij}\cdot|i-j|\right],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:gan_primal_constraints}
+ \begin{tabular}{rrrclcl}
+ &&$\sum_{j}P_{ij}\!\!$ &$\!\!=\!\!$&~$\!\!\!Pr(x=i)$ &&\mbox{initial distribution of~$Pr(x)$}\\
+ &&$\sum_{i}P_{ij}\!\!$ &$\!\!=\!\!$&~$\!\!q(x=j)$ &&\mbox{initial distribution of~$q(x)$}\\
+ &&$P_{ij}\!\!$ &\!\!~$\geq\!\!$ &~$\!\!0$ &\hspace{1cm} &\mbox{non-negative masses}.
+ \end{tabular}
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:gan_was_dual_discrete}
+  D_{w}\Bigl[Pr(x)||q(x)\Bigr] = \max_{\mathbf{f}}\left[\sum_{i} Pr(x=i)f_{i} - \sum_{j}q(x=j)f_{j}\right],
+ \end{eqnarray}
+
+\begin{eqnarray}
+  |f_{i+1}-f_{i}| < 1.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ D_{w}\Bigl[Pr(\mathbf{x}),q(\mathbf{x})\Bigr] = \min_{\pi[\bullet,\bullet]}\left[\int\!\!\int \pi(\mathbf{x}_{1},\mathbf{x}_{2})\cdot||\mathbf{x}_{1}-\mathbf{x}_{2}||d\mathbf{x}_{1}d\mathbf{x}_{2}\right],
+ \end{eqnarray}
+
+\begin{eqnarray}
+ D_{w}\Bigl[Pr(\mathbf{x}),q(\mathbf{x})\Bigr] = \max_{\mbox{f}[\mathbf{x}]}\left[\int Pr(\mathbf{x})\mbox{f}[\mathbf{x}]d\mathbf{x} - \int q(\mathbf{x})\mbox{f}[\mathbf{x}]d\mathbf{x}\right],
+ \end{eqnarray}
+
+\begin{eqnarray}
+ L[\boldsymbol\phi] &=& \sum_{j} \mbox{f}[\mathbf{x}_{j}^{*},\boldsymbol\phi] -\sum_{i}\mbox{f}[\mathbf{x}_i,\boldsymbol\phi]\nonumber \\
+ &=&\sum_{j} \mbox{f}[\mbox{\bf g}[\mathbf{z}_{j},\boldsymbol\theta],\boldsymbol\phi] -\sum_{i}\mbox{f}[\mathbf{x}_i,\boldsymbol\phi],
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \left| \frac{\partial \mbox{f}[\mathbf{x},\boldsymbol\phi]}{\partial\mathbf{x}}\right| < 1.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mathbf{b} =\bigl[Pr(x\!=\!1),Pr(x\!=\!2),Pr(x\!=\!3),Pr(x\!=\!4),q(x\!=\!1),q(x\!=\!2),q(x\!=\!3),q(x\!=\!4)\bigr]^T.
+ \end{eqnarray}
+
+
+
+\begin{eqnarray}
+ Pr(z) = \begin{cases} 0 & \quad z <0 \\ 1 & \quad 0\leq z\leq 1 \\ 0 & \quad z> 1 \end{cases},\quad \mbox{and} \quad Pr(z) = \begin{cases} 0 & \quad z <a \\ 1 & \quad a\leq z \leq a+1 \\ 0 & \quad z> a \end{cases}.
+ \end{eqnarray}
+
+
+\begin{eqnarray}
+ D_{kl} = \log\left[\frac{\sigma_2}{\sigma_1}\right]+ \frac{\sigma_1^2 + (\mu_1 - \mu_2)^2}{2 \sigma_2^2} - \frac{1}{2},
+ \end{eqnarray}
+
+\begin{eqnarray}
+ D_{w} = (\mu_{1}-\mu_{2})^2 + \sigma_{1}+\sigma_{2}-2\sqrt{\sigma_{1}\sigma_{2}},
+ \end{eqnarray}
+
+\chapter{Normalizing flows}
+
+\begin{eqnarray}\label{eq:flows_likelihood1d}
+  Pr(x|\boldsymbol\phi) &=& \left| \frac{\partial \mbox{f}[z,\boldsymbol\phi]}{\partial z}\right|^{-1} \cdot Pr(z),
+ \end{eqnarray}
+
+
+\begin{eqnarray}
+  \hat{\boldsymbol\phi} &=& \mathop{\rm argmax}_{\boldsymbol\phi}\left[\prod_{i=1}^{I} Pr(x_{i}|\boldsymbol\phi)\right]\nonumber \\
+  &=& \mathop{\rm argmin}_{\boldsymbol\phi}\left[\sum_{i=1}^{I} -\log\Bigl[Pr(x_{i}|\boldsymbol\phi)\Bigr]\right]\nonumber \\
+  &=& \mathop{\rm argmin}_{\boldsymbol\phi}\left[\sum_{i=1}^{I} \log\Biggl[\biggl| \frac{\partial \mbox{f}[z_i,\boldsymbol\phi]}{\partial z_i}\biggr|\Biggr]-\log\bigl[Pr(z_i)\bigr] \right],
+ \end{eqnarray}
+
+\begin{eqnarray}
+  Pr(\mathbf{x}|\boldsymbol\phi) = \left| \frac{\partial \mbox{\bf f}[\mathbf{z},\boldsymbol\phi]}{\partial \mathbf{z}}\right|^{-1}\cdot Pr(\mathbf{z}),
+ \end{eqnarray}
+
+
+
+\begin{eqnarray}
+  \mathbf{x} = \mbox{\bf f}[\mathbf{z},\boldsymbol\phi] =\mbox{\bf f}_{K}\biggl[\mbox{\bf f}_{K-1}\Bigl[\ldots \mbox{\bf f}_{2}\bigl[\mbox{\bf f}_{1}[\mathbf{z},\boldsymbol\phi_{1}],\boldsymbol\phi_{2}\bigr],\ldots\boldsymbol\phi_{K-1}\Bigr],\boldsymbol\phi_{K}\biggr].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:flows_inverse_compositional}
+  \mathbf{z} = \mbox{\bf f}^{-1}[\mathbf{x},\boldsymbol\phi] =\mbox{\bf f}^{-1}_{1}\biggl[\mbox{\bf f}^{-1}_{2}\Bigl[\ldots \mbox{\bf f}^{-1}_{K-1}\bigl[\mbox{\bf f}^{-1}_{K}[\mathbf{x},\boldsymbol\phi_{K}],\boldsymbol\phi_{K-1}\bigr],\ldots\boldsymbol\phi_{2}\Bigr],\boldsymbol\phi_{1}\biggr].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:flows_network_jac}
+  \frac{\partial \mbox{\bf f}[\mathbf{z},\boldsymbol\phi]}{\partial \mathbf{z}} = 
+  \frac{\partial \mathbf{f}_{K}[\mathbf{f}_{K-1},\boldsymbol\phi_{K}]}{\partial \mathbf{f}_{K-1}}\cdot
+  \frac{\partial \mathbf{f}_{K-1}[\mathbf{f}_{K-2},\boldsymbol\phi_{K-1}]}{\partial \mathbf{f}_{K-2}}\ldots
+  \frac{\partial \mathbf{f}_{2}[\mathbf{f}_{1},\boldsymbol\phi_2]}{\partial \mathbf{f}_{1}}\cdot
+  \frac{\partial\mathbf{f}_{1}[\mathbf{z},\boldsymbol\phi_1]}{\partial \mathbf{z}},
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:flows_network_det}
+  \left|\frac{\partial \mbox{\bf f}[\mathbf{z},\boldsymbol\phi]}{\partial \mathbf{z}}\right|= 
+  \left|\frac{\partial \mathbf{f}_{K}[\mathbf{f}_{K-1},\boldsymbol\phi_K]}{\partial \mathbf{f}_{K-1}}\right|\cdot
+  \left|\frac{\partial \mathbf{f}_{K-1}[\mathbf{f}_{K-2},\boldsymbol\phi_{K-1}]}{\partial \mathbf{f}_{K-2}}\right|\ldots
+  \left|\frac{\partial \mathbf{f}_{2}[\mathbf{f}_{1},\boldsymbol\phi_2]}{\partial \mathbf{f}_{1}}\right|\cdot
+  \left|\frac{\partial \mathbf{f}_{1}[\mathbf{z},\boldsymbol\phi_1]}{\partial \mathbf{z}}\right|.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \hat{\boldsymbol\phi} &=& \mathop{\rm argmax}_{\boldsymbol\phi}\Biggl[\prod_{i=1}^{I}Pr(\mathbf{z}_i) \cdot \biggl| \frac{\partial \mbox{\bf f}[\mathbf{z}_i,\boldsymbol\phi]}{\partial \mathbf{z}_i}\biggr|^{-1} \Biggr]\nonumber \\
+ &=& \mathop{\rm argmin}_{\boldsymbol\phi}\Biggl[\sum_{i=1}^{I} \log\Biggl[\biggl| \frac{\partial \mbox{\bf f}[\mathbf{z}_i,\boldsymbol\phi]}{\partial \mathbf{z}_i}\biggr| \Biggr] -\log\bigl[Pr(\mathbf{z}_i)\bigr]\Biggr],
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \boldsymbol\Omega = \mathbf{P}\mathbf{L}(\mathbf{U}+\mathbf{D}),
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mbox{\bf f}[\mathbf{h}] = \Bigl[\mbox{f}[h_{1},\boldsymbol\phi], \mbox{f}[h_{2},\boldsymbol\phi], \ldots \mbox{f}[h_{D},\boldsymbol\phi]\Bigr]^{T}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \left|\frac{\partial \mbox{\bf f}[\mathbf{h}]}{\partial \mathbf{h}} \right| = \prod_{d=1}^{D}\left|\frac{\partial \mbox{f}[h_d]}{\partial h_d} \right|.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:flow_elementwise}
+ \mbox{f}[h,\boldsymbol\phi] = \left(\sum_{k=1}^{b-1}\phi_{k}\right)+ (hK-b+1)\phi_{b},
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mathbf{h}'_{1}&=& \mathbf{h}_{1}\nonumber \\
+ \mathbf{h}'_{2} &=& \mbox{\bf g}\Bigl[\mathbf{h}_{2},\boldsymbol\phi[\mathbf{h}_{1}]\Bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mathbf{h}_{1}&=& \mathbf{h}'_{1}\nonumber \\
+ \mathbf{h}_{2}&=& \mbox{\bf g}^{-1}\Bigl[\mathbf{h}'_{2},\boldsymbol\phi[\mathbf{h}_{1}]\Bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ h'_{d} = \mbox{g}\Bigl[h_{d},\boldsymbol\phi[\mathbf{h}_{1:d-1}]\Bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ h'_{1} &=& \mbox{g}\Bigl[h_{1},\boldsymbol\phi\Bigr]\nonumber \\
+ h'_{2} &=& \mbox{g}\Bigl[h_{2},\boldsymbol\phi[h_{1}]\Bigr]\nonumber \\
+ h'_{3} &=& \mbox{g}\Bigl[h_{3},\boldsymbol\phi[h_{1:2}]\Bigr]\nonumber \\
+ h'_{4} &=& \mbox{g}\Bigl[h_{4},\boldsymbol\phi[h_{1:3}]\Bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ h_{1} &=& \mbox{g}^{-1}\Bigl[h'_{1},\boldsymbol\phi\Bigr]\nonumber \\
+ h_{2} &=& \mbox{g}^{-1}\Bigl[h'_{2},\boldsymbol\phi[h_{1}]\Bigr]\nonumber \\
+ h_{3} &=& \mbox{g}^{-1}\Bigl[h'_{3},\boldsymbol\phi[h_{1:2}]\Bigr]\nonumber \\
+ h_{4} &=& \mbox{g}^{-1}\Bigl[h'_{4},\boldsymbol\phi[h_{1:3}]\Bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mathbf{h}'_{1} &=& \mathbf{h}_{1}+ \mbox{\bf f}_{1}[\mathbf{h}_{2},\boldsymbol\phi_{1}]\nonumber \\
+  \mathbf{h}'_{2} &=& \mathbf{h}_{2}+ \mbox{\bf f}_{2}[\mathbf{h}'_{1},\boldsymbol\phi_{2}],
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mathbf{h}_{2}&=& \mathbf{h}'_{2}-\mbox{\bf f}_{2}[\mathbf{h}'_{1},\boldsymbol\phi_{2}]\nonumber \\
+  \mathbf{h}_{1}&=& \mathbf{h}'_{1}-\mbox{\bf f}_{1}[\mathbf{h}_{2},\boldsymbol\phi_{1}].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:flow_contraction}
+ \mbox{dist}\Bigl[\mbox{f}[z^{\prime}],\mbox{f}[z]\Bigr] < \beta\cdot \mbox{dist}\Bigl[z^{\prime}, z\Bigr]\quad\quad\quad\quad \forall\; z,z^{\prime},
+ \end{eqnarray}
+
+\begin{eqnarray}
+  y = z+ \mbox{f}[z]
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:flow_irevnet1}
+ \log\Biggl[\biggl|\mathbf{I} + \frac{\partial \mbox{\bf f}[\mathbf{h},\boldsymbol\phi]}{\partial \mathbf{h}}\biggr|\Biggr] &=& \mbox{trace}\Biggl[\log\biggl[\mathbf{I} + \frac{\partial \mbox{\bf f}[\mathbf{h},\boldsymbol\phi]}{\partial \mathbf{h}}\biggr]\Biggr]\nonumber \\
+ &=& \sum_{k=1}^{\infty}\frac{(-1)^{k-1}}{k}\mbox{trace}\Biggl[\frac{\partial \mbox{\bf f}[\mathbf{h},\boldsymbol\phi]}{\partial \mathbf{h}}\Biggr]^{k},
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mbox{trace}[\mathbf{A}] &=& \mbox{trace}\left[\mathbf{A}\mathbb{E}\left[\boldsymbol\epsilon\boldsymbol\epsilon^{T}\right]\right]\nonumber \\
+  &=& \mbox{trace}\left[\mathbb{E}\left[\mathbf{A}\boldsymbol\epsilon\boldsymbol\epsilon^{T}\right]\right]\nonumber \\
+ &=& \mathbb{E}\left[\mbox{trace}\left[\mathbf{A}\boldsymbol\epsilon\boldsymbol\epsilon^{T}\right]\right]\nonumber \\
+ &=& \mathbb{E}\left[\mbox{trace}\left[\boldsymbol\epsilon^{T}\mathbf{A}\boldsymbol\epsilon\right]\right]\nonumber \\
+ &=& \mathbb{E}\left[\boldsymbol\epsilon^{T}\mathbf{A}\boldsymbol\epsilon\right],
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mbox{trace}[\mathbf{A}] &=& \mathbb{E}\left[\boldsymbol\epsilon^{T}\mathbf{A}\boldsymbol\epsilon\right]\nonumber \\
+ &\approx& \frac{1}{I}\sum_{i=1}^{I}\boldsymbol\epsilon_{i}^{T}\mathbf{A}\boldsymbol\epsilon_{i}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:flow_reverse_KL}
+ \hat{\boldsymbol\phi} = \mathop{\rm argmin}_{\boldsymbol\phi}\left[\mbox{KL}\left[\frac{1}{I}\sum_{i=1}^I \delta\bigl[\mathbf{x}-\mbox{f}[\mathbf{z}_{i},\boldsymbol\phi]\bigr]\biggl|\biggr|q(\mathbf{x})\right]\right].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \hat{\boldsymbol\phi} = \mathop{\rm argmin}_{\boldsymbol\phi}\left[\mbox{KL}\left[\frac{1}{I}\sum_{i=1}^{I}\delta[\mathbf{x}-\mathbf{x}_{i}]\biggl|\biggr|Pr(\mathbf{x}_i,\boldsymbol\phi)\right]\right].
+ \end{eqnarray}
+
+
+
+\begin{eqnarray}\label{eq:prob_flow_transform2}
+  Pr(z) = \frac{1}{\sqrt{2\pi}}\exp\left[\frac{-z^2}{2}\right],
+ \end{eqnarray}
+
+\begin{eqnarray}
+ x = \mbox{f}[z] = \frac{1}{1+\exp[-z]}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \boldsymbol\Omega_{1} = \begin{bmatrix}2 & 0 & 0 & 0 \\ 0 & -5 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 2\end{bmatrix}\hspace{2cm}\boldsymbol\Omega_{2} = \begin{bmatrix}1 & 0 & 0 & 0 \\ 2 & 4 & 0 & 0 \\ 1 & -1 & 2 & 0 \\ 4 & -2 & -2 & 1 \end{bmatrix}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+  Pr(\mathbf{x}) = \mbox{Pr}(\mathbf{z}) \cdot \left| \frac{\partial \mbox{\bf f}[\mathbf{z}]}{\partial \mathbf{z}}\right|^{-1}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mbox{LReLU}[z] = \begin{cases} 0.1z & \quad z <0 \\ z & \quad z\geq 0\end{cases}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mbox{\bf f}[\mathbf{z}] = \Bigl[\mbox{LReLU}[z_{1}], \mbox{LReLU}[z_{2}], \ldots, \mbox{LReLU}[z_{D}]\Bigr]^{T}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mathbf{h}' = \mbox{f}[h,\boldsymbol\phi] = \sqrt{\left[Kh-b+1\right]\phi_{b}} + \sum_{k=1}^{b-1}\sqrt{\phi_{k}},
+ \end{eqnarray}
+
+ \chapter{Variational autoencoders}
+
+\begin{eqnarray}
+  Pr(\mathbf{x}) = \int Pr(\mathbf{x}, \mathbf{z}) d\mathbf{z}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:vae_latent_abstract}
+  Pr(\mathbf{x}) = \int Pr(\mathbf{x} | \mathbf{z}) Pr(\mathbf{z}) d\mathbf{z}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+  Pr(z=n) &=& \lambda_{n}\nonumber \\
+  Pr(x |z = n) &=& \mbox{Norm}_{x}\bigl[\mu_{n},\sigma^2_{n}\bigr].\label{eq:vae_mog_like_prior}
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:vae_mog_marg}
+  Pr(x) &=& \sum_{n=1}^{N} Pr(x, z=n) \nonumber \\
+  &=& \sum_{n=1}^{N} Pr(x| z=n) \cdot Pr(z=n)\nonumber \\
+  &=& \sum_{n=1}^{N} \lambda_{n}\cdot \mbox{Norm}_{x}\bigl[\mu_{n},\sigma^2_{n}\bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}
+  Pr(\mathbf{z}) = \mbox{Norm}_{\mathbf{z}}[\mathbf{0},\mathbf{I}].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:vae_intro_likelihood}
+  Pr(\mathbf{x} |\mathbf{z},\boldsymbol\phi) = \mbox{Norm}_{\mathbf{x}}\Bigl[\mathbf{f}[\mathbf{z},\boldsymbol\phi],\sigma^{2}\mathbf{I}\Bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:vae_nonlin_like_int}
+  Pr(\mathbf{x}|\boldsymbol\phi) &=& \int Pr(\mathbf{x}, \mathbf{z}|\boldsymbol\phi) d\mathbf{z} \nonumber \\
+  &=& \int Pr(\mathbf{x}| \mathbf{z},\boldsymbol\phi) \cdot Pr(\mathbf{z})d\mathbf{z}\nonumber \\
+  &=& \int \mbox{Norm}_{\mathbf{x}}\Bigl[\mathbf{f}[\mathbf{z},\boldsymbol\phi],\sigma^{2}\mathbf{I}\Bigr]\cdot \mbox{Norm}_{\mathbf{z}}\left[\mathbf{0},\mathbf{I}\right]d\mathbf{z}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \hat{\boldsymbol\phi} &=& \mathop{\rm argmax}_{\boldsymbol\phi} \left[\sum_{i=1}^{I}\log\Bigl[Pr(\mathbf{x}_{i}|\boldsymbol\phi) \Bigr]\right],\label{eq:vae_log_like}
+ \end{eqnarray}
+
+\begin{eqnarray}
+  Pr(\mathbf{x}_i|\boldsymbol\phi) &=& \int \mbox{Norm}_{\mathbf{x}_i}[\mathbf{f}[\mathbf{z},\boldsymbol\phi],\sigma^{2}\mathbf{I}]\cdot \mbox{Norm}_{\mathbf{z}}[\mathbf{0},\mathbf{I}]d\mathbf{z}.
+ \end{eqnarray}
+
+
+
+\begin{eqnarray}
+  g[\mathbb{E}[y]] \geq \mathbb{E}\bigl[g[y]\bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:vae_Jensen}
+  \log\bigl[\mathbb{E}[y]\bigr]\geq\mathbb{E}\bigl[\log[y]\bigr], 
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:vae_JensenInt}
+  \log\left[\int Pr(y) y dy\right]\geq \int Pr(y)\log[y]dy.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:vae_JensenInt2}
+  \log\left[\int Pr(y) h[y] dy\right]\geq \int Pr(y)\log[h[y]]dy.
+ \end{eqnarray}
+
+
+
+\begin{eqnarray}
+ \log[Pr(\mathbf{x}|\boldsymbol\phi)] &=& \log\left[\int Pr(\mathbf{x},\mathbf{z}|\boldsymbol\phi)d\mathbf{z} \right]\nonumber\\
+ &=& \log\left[\int q(\mathbf{z}) \frac{ Pr(\mathbf{x},\mathbf{z}|\boldsymbol\phi)}{q(\mathbf{z})}d\mathbf{z} \right],
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \log\left[\int q(\mathbf{z}) \frac{ Pr(\mathbf{x},\mathbf{z}|\boldsymbol\phi)}{q(\mathbf{z})}d\mathbf{z} \right]
+ &\geq& \int q(\mathbf{z}) \log\left[\frac{ Pr(\mathbf{x},\mathbf{z}|\boldsymbol\phi)}{q(\mathbf{z})} \right]d\mathbf{z},\label{eq:vae_ELBOJensen}
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:vae_ELBO}
+ \mbox{ELBO}[\boldsymbol\theta, \boldsymbol\phi] = \int q(\mathbf{z}|\boldsymbol\theta) \log\left[\frac{ Pr(\mathbf{x},\mathbf{z}|\boldsymbol\phi)}{q(\mathbf{z}|\boldsymbol\theta)} \right]d\mathbf{z}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:vae_bound_tight}
+ \mbox{ELBO}[\boldsymbol\theta, \boldsymbol\phi] &=& \int q(\mathbf{z}|\boldsymbol\theta) \log\left[\frac{ Pr(\mathbf{x},\mathbf{z}|\boldsymbol\phi)}{q(\mathbf{z}|\boldsymbol\theta)} \right]d\mathbf{z}\nonumber \\
+ &=& \int q(\mathbf{z}|\boldsymbol\theta) \log\left[\frac{ Pr(\mathbf{z}|\mathbf{x},\boldsymbol\phi)Pr(\mathbf{x}|\boldsymbol\phi)}{q(\mathbf{z}|\boldsymbol\theta)} \right]d\mathbf{z}\nonumber \\
+ &=& \int q(\mathbf{z}|\boldsymbol\theta)
+ \log\bigl[Pr(\mathbf{x}|\boldsymbol\phi)\bigr]d\mathbf{z} +\int q(\mathbf{z}|\boldsymbol\theta) \log\left[\frac{ Pr(\mathbf{z}|\mathbf{x},\boldsymbol\phi)}{q(\mathbf{z}|\boldsymbol\theta)} \right]d\mathbf{z} \nonumber\nonumber \\
+ &=& \log\bigl[Pr(\mathbf{x} |\boldsymbol\phi)\bigr] +\int q(\mathbf{z}|\boldsymbol\theta) \log\left[\frac{ Pr(\mathbf{z}|\mathbf{x},\boldsymbol\phi)}{q(\mathbf{z}|\boldsymbol\theta)} \right]d\mathbf{z} \nonumber \\
+ &=& \log\bigl[Pr(\mathbf{x} |\boldsymbol\phi)\bigr] -\mbox{D}_{KL}\Bigl[ q(\mathbf{z}|\boldsymbol\theta) \Bigl|\Bigr|Pr(\mathbf{z}|\mathbf{x},\boldsymbol\phi)\Bigr].\label{eq:vae_ELBOEvidenceKL}
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:vae_elbo_reform2}
+ \mbox{ELBO}[\boldsymbol\theta, \boldsymbol\phi] &=& \int q(\mathbf{z}|\boldsymbol\theta) \log\left[\frac{ Pr(\mathbf{x},\mathbf{z}|\boldsymbol\phi)}{q(\mathbf{z}|\boldsymbol\theta)} \right]d\mathbf{z}\nonumber \\
+ &=& \int q(\mathbf{z}|\boldsymbol\theta) \log\left[\frac{ Pr(\mathbf{x}|\mathbf{z},\boldsymbol\phi)Pr(\mathbf{z})}{q(\mathbf{z}|\boldsymbol\theta)} \right]d\mathbf{z}\nonumber \\
+ &=& \int q(\mathbf{z}|\boldsymbol\theta) \log\left[ Pr(\mathbf{x}|\mathbf{z},\boldsymbol\phi) \right]d\mathbf{z}
+ + \int q(\mathbf{z}|\boldsymbol\theta) \log\left[\frac{Pr(\mathbf{z})}{q(\mathbf{z}|\boldsymbol\theta)}\right]d\mathbf{z}
+ \nonumber \\
+  &=& \int q(\mathbf{z}|\boldsymbol\theta) \log\bigl[ Pr(\mathbf{x}|\mathbf{z},\boldsymbol\phi) \bigr]d\mathbf{z}
+ - \mbox{D}_{KL}\Bigl[ q(\mathbf{z}|\boldsymbol\theta)\Bigl|\Bigr|Pr(\mathbf{z})\Bigr],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:vae_NonLinearLVMBayes}
+  Pr(\mathbf{z}|\mathbf{x},\boldsymbol\phi) = \frac{Pr(\mathbf{x}|\mathbf{z},\boldsymbol\phi)Pr(\mathbf{z})}{Pr(\mathbf{x}|\boldsymbol\phi)},
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:vae_posterior_pred}
+  q(\mathbf{z}|\mathbf{x},\boldsymbol\theta) = \mbox{Norm}_{\mathbf{z}}\Bigl[\mbox{\bf g}_{\boldsymbol\mu}[\mathbf{x},\boldsymbol\theta], \mbox{\bf g}_{\boldsymbol\Sigma}[\mathbf{x},\boldsymbol\theta]\Bigr],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:vae_VAECrit}
+ \mbox{ELBO}[\boldsymbol\theta, \boldsymbol\phi] 
+  = \int q(\mathbf{z}|\mathbf{x},\boldsymbol\theta) \log\bigl[ Pr(\mathbf{x}|\mathbf{z},\boldsymbol\phi) \bigr]d\mathbf{z}
+ - \mbox{D}_{KL}\Bigl[ q(\mathbf{z}|\mathbf{x},\boldsymbol\theta)\Bigl|\Bigr|Pr(\mathbf{z})\Bigr],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:VAE_approx_expectation}
+ \mathbb{E}_{\mathbf{z}}\bigl[\mbox{a}[\mathbf{z}]\bigr] = \int \mbox{a}[\mathbf{z}] q(\mathbf{z}|\mathbf{x},\boldsymbol\theta) d\mathbf{z} \approx \frac{1}{N}\sum_{n=1}^{N}\mbox{a}[\mathbf{z}^{*}_n],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:vae_ELBO_Sample}
+ \mbox{ELBO}[\boldsymbol\theta, \boldsymbol\phi] &\approx& \log\bigl[ Pr(\mathbf{x}|\mathbf{z}^{*},\boldsymbol\phi) \bigr]- \mbox{D}_{KL}\Bigl[ q(\mathbf{z}|\mathbf{x},\boldsymbol\theta)\Bigl|\Bigr|Pr(\mathbf{z})\Bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mbox{D}_{KL}\Bigl[ q(\mathbf{z}|\mathbf{x},\boldsymbol\theta)\Bigl|\Bigr|Pr(\mathbf{z})\Bigr] = \frac{1}{2}\biggl(\mbox{Tr}[\boldsymbol\Sigma] + \boldsymbol\mu^T\boldsymbol\mu - D_{\mathbf{z}} - \log\Bigl[\mbox{det}[\boldsymbol\Sigma]\Bigr]\biggr).
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mathbf{z}^{*} = \boldsymbol\mu + \boldsymbol\Sigma^{1/2}\boldsymbol\epsilon^{*},
+ \end{eqnarray}
+
+\begin{eqnarray}
+ Pr(\mathbf{x}) &=& \int Pr(\mathbf{x}|\mathbf{z}) Pr(\mathbf{z})d\mathbf{z}\nonumber\\
+ &=& \mathbb{E}_{\mathbf{z}} \Bigl[Pr(\mathbf{x}|\mathbf{z}) \Bigr] \nonumber \\
+ &=& \mathbb{E}_{\mathbf{z}}\Bigl[\mbox{Norm}_{\mathbf{x}}[\mathbf{f}[\mathbf{z},\boldsymbol\phi],\sigma^{2}\mathbf{I}]\Bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}
+     Pr(\mathbf{x}) \approx \frac{1}{N} \sum_{n=1}^{N}Pr(\mathbf{x}|\mathbf{z}_{n}).
+ \end{eqnarray}
+
+\begin{eqnarray}
+     Pr(\mathbf{x}) &=& \int Pr(\mathbf{x}|\mathbf{z}) Pr(\mathbf{z}) d\mathbf{z}\nonumber \\
+     &=& \int \frac{Pr(\mathbf{x}|\mathbf{z})Pr(\mathbf{z})}{q(\mathbf{z})} q(\mathbf{z})d\mathbf{z}\nonumber \\
+     &=& \mathbb{E}_{q(\mathbf{z})}\biggl[\frac{Pr(\mathbf{x}|\mathbf{z})Pr(\mathbf{z})}{q(\mathbf{z})}\biggr]\nonumber \\
+     &\approx& \frac{1}{N}\sum_{n=1}^{N}\frac{Pr(\mathbf{x}|\mathbf{z}_n)Pr(\mathbf{z}_n)}{q(\mathbf{z}_n)},
+ \end{eqnarray}
+
+\begin{eqnarray}
+  L_{\mbox{new}} = -\mbox{ELBO}[\boldsymbol\theta, \boldsymbol\phi] + \lambda_{1} \mathbb{E}_{Pr(\mathbf{x})}\Bigl[\mbox{r}_{1}\bigl[q(\mathbf{z}|\mathbf{x},\boldsymbol\theta) \bigr]\Bigr] + \lambda_{2} \mbox{r}_{2}\bigl[q(\mathbf{z}|\boldsymbol\theta)\bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:vae_beta}
+ \mbox{ELBO}[\boldsymbol\theta, \boldsymbol\phi] &\approx& \log\bigl[ Pr(\mathbf{x}|\mathbf{z}^{*},\boldsymbol\phi) \bigr]- \beta\cdot \mbox{D}_{KL}\Bigl[ q(\mathbf{z}|\mathbf{x},\boldsymbol\theta)\Bigl|\Bigr|Pr(\mathbf{z})\Bigr], 
+ \end{eqnarray}
+
+\begin{eqnarray}
+  g\bigl[\mathbb{E}[y]\bigr] \leq \mathbb{E}\bigl[g[y]\bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mbox{D}_{KL}\Bigl[q(\mathbf{z}|\mathbf{x})\Bigl|\Bigr|Pr(\mathbf{z}|\mathbf{x},\boldsymbol\phi)\Bigr] = \int q(\mathbf{z}|\mathbf{x}) \log\left[\frac{q(\mathbf{z}|\mathbf{x})}{Pr(\mathbf{z}|\mathbf{x},\boldsymbol\phi)}\right]d\mathbf{z}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \frac{\partial}{\partial \boldsymbol\phi} \mathbb{E}_{Pr(x|\boldsymbol\phi)}\bigl[\mbox{f}[x]\bigr],
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \frac{\partial}{\partial \boldsymbol\phi} \mathbb{E}_{Pr(x|\boldsymbol\phi)}\bigl[\mbox{f}[x]\bigr] &=& \mathbb{E}_{Pr(x|\boldsymbol\phi)}\left[\mbox{f}[x]\frac{\partial}{\partial \boldsymbol\phi} \log\bigl[ Pr(x|\boldsymbol\phi)\bigr]\right]\nonumber \\
+ &\approx & \frac{1}{I}\sum_{i=1}^{I}\mbox{f}[x_i]\frac{\partial}{\partial \boldsymbol\phi} \log\bigl[ Pr(x_i|\boldsymbol\phi)\bigr].
+ \end{eqnarray}
+
+\chapter{Diffusion models}
+
+\begin{eqnarray}\label{eq:diffusion_process}
+  \mathbf{z}_{1} &=& \sqrt{1-\beta_{1}}\cdot \mathbf{x} + \sqrt{\beta_{1}}\cdot \boldsymbol\epsilon_{1} \\
+  \mathbf{z}_{t} &=& \sqrt{1-\beta_{t}}\cdot \mathbf{z}_{t-1} + \sqrt{\beta_{t}}\cdot \boldsymbol\epsilon_{t} \quad\quad\quad \forall\hspace{1mm} t \in2,\ldots, T,\nonumber
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:diffusion_process_prob}
+ q(\mathbf{z}_{1}|\mathbf{x}) &=& \mbox{Norm}_{\mathbf{z}_{1}}\left[\sqrt{1-\beta_{1}}\mathbf{x},\beta_{1}\mathbf{I}\right]\\
+ q(\mathbf{z}_{t}|\mathbf{z}_{t-1}) &=& \mbox{Norm}_{\mathbf{z}_{t}}\left[\sqrt{1-\beta_{t}}\mathbf{z}_{t-1},\beta_{t}\mathbf{I}\right] \quad\quad\quad \forall \hspace{1mm} t \in\{2, \ldots, T\}.\nonumber 
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:diffusion_joint_forward}
+ q(\mathbf{z}_{1\ldots T}|\mathbf{x}) =q(\mathbf{z}_{1}|\mathbf{x}) \prod_{t=2}^{T}q(\mathbf{z}_{t}|\mathbf{z}_{t-1}).
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mathbf{z}_{1} &=& \sqrt{1-\beta_{1}}\cdot\mathbf{x} + \sqrt{\beta_{1}}\cdot\boldsymbol\epsilon_{1}\nonumber \\
+ \mathbf{z}_{2} &=& \sqrt{1-\beta_{2}}\cdot\mathbf{z}_{1} + \sqrt{\beta_{2}}\cdot\boldsymbol\epsilon_{2}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:diffusion_sample_step2}
+  \mathbf{z}_{2} &=& \sqrt{1-\beta_{2}}\left( \sqrt{1-\beta_{1}}\cdot\mathbf{x} + \sqrt{\beta_{1}}\cdot\boldsymbol\epsilon_{1}\right) + \sqrt{\beta_{2}}\cdot\boldsymbol\epsilon_{2}\\
+  &=& \sqrt{1-\beta_{2}}\left( \sqrt{1-\beta_{1}}\cdot\mathbf{x} + \sqrt{1-(1-\beta_{1})}\cdot\boldsymbol\epsilon_{1}\right) + \sqrt{\beta_{2}}\cdot\boldsymbol\epsilon_{2}\nonumber \\
+  &=& \sqrt{(1-\beta_{2})(1-\beta_{1})}\cdot \mathbf{x} + \sqrt{1-\beta_{2}-(1-\beta_{2})(1-\beta_{1})}\cdot\boldsymbol\epsilon_{1}+\sqrt{\beta_{2}}\cdot\boldsymbol\epsilon_{2}.\nonumber
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mathbf{z}_{2} &=& \sqrt{(1-\beta_{2})(1-\beta_{1})} \cdot \mathbf{x} + \sqrt{1-(1-\beta_{2})(1-\beta_{1})}\cdot\boldsymbol\epsilon,
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mathbf{z}_{t} = \sqrt{\alpha_t}\cdot \mathbf{x} + \sqrt{1-\alpha_t}\cdot\boldsymbol\epsilon,
+ \end{eqnarray}
+
+\begin{eqnarray}
+ q(\mathbf{z}_{t}|\mathbf{x}) =\mbox{Norm}_{\mathbf{z}_{t}}\Bigl[\sqrt{\alpha_t}\cdot\mathbf{x},(1-\alpha_{t})\mathbf{I}\Bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ q(\mathbf{z}_{t}) &=& \int \!\!\int q(\mathbf{z}_{1\ldots t},\mathbf{x})d\mathbf{z}_{1\ldots t-1}d\mathbf{x}\nonumber \\
+ &=&\int \!\!\int q(\mathbf{z}_{1\ldots t}|\mathbf{x})Pr(\mathbf{x})d\mathbf{z}_{1\ldots t-1}d\mathbf{x},
+ \end{eqnarray}
+
+\begin{eqnarray}
+ q(\mathbf{z}_{t}) =\int q(\mathbf{z}_{t}|\mathbf{x})Pr(\mathbf{x})d\mathbf{x}.
+ \end{eqnarray}
+
+
+
+\begin{eqnarray}
+ q(\mathbf{z}_{t-1}|\mathbf{z}_{t}) = \frac{q(\mathbf{z}_{t}|\mathbf{z}_{t-1})q(\mathbf{z}_{t-1}) }{q(\mathbf{z}_{t})}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:diffusion_bayes}
+ q(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{x}) & = & \frac{q(\mathbf{z}_{t}|\mathbf{z}_{t-1},\mathbf{x})q(\mathbf{z}_{t-1}|\mathbf{x})}{q(\mathbf{z}_{t}|\mathbf{x})} \\
+ &\propto& q(\mathbf{z}_{t}|\mathbf{z}_{t-1})q(\mathbf{z}_{t-1}|\mathbf{x})\nonumber \\
+ &=& \mbox{Norm}_{\mathbf{z}_{t}}\left[\sqrt{1-\beta_{t}}\cdot\mathbf{z}_{t-1},\beta_{t}\mathbf{I}\right]\mbox{Norm}_{\mathbf{z}_{t-1}}\Bigl[\sqrt{\alpha_{t-1}}\cdot\mathbf{x},(1-\alpha_{t-1})\mathbf{I}\Bigr]\nonumber \\
+ &\propto& \mbox{Norm}_{\mathbf{z}_{t-1}}\left[\frac{1}{\sqrt{1-\beta_{t}}}\mathbf{z}_{t},\frac{\beta_{t}}{1-\beta_{t}}\mathbf{I}\right]\mbox{Norm}_{\mathbf{z}_{t-1}}\Bigl[\sqrt{\alpha_{t-1}}\cdot\mathbf{x},(1-\alpha_{t-1})\mathbf{I}\Bigr] \nonumber 
+ \end{eqnarray}
+
+
+\begin{eqnarray}\label{eq:diffusion_gaussian_identity1}
+ \mbox{Norm}_{\mathbf{v}}\left[\mathbf{A}\mathbf{w},\mathbf{B}\right] \propto \mbox{Norm}_{\mathbf{w}}\Bigl[\bigl(\mathbf{A}^T\mathbf{B}^{-1}\mathbf{A}\bigr)^{-1}\mathbf{A}^T\mathbf{B}^{-1}\mathbf{v},\bigl(\mathbf{A}^T\mathbf{B}^{-1}\mathbf{A}\bigr)^{-1}\Bigr],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:diffusion_gaussian_identity2}
+ \mbox{Norm}_{\mathbf{w}}[\mathbf{a},\mathbf{A}]\cdot\mbox{Norm}_{\mathbf{w}}[\mathbf{b},\mathbf{B}] &
+ \propto &\\ 
+ &&\hspace{-2cm} \mbox{Norm}_{\mathbf{w}}\Bigl[\bigl(\mathbf{A}^{-1}+\mathbf{B}^{-1}\bigr)^{-1}(\mathbf{A}^{-1}\mathbf{a}+\mathbf{B}^{-1}\mathbf{b}),\bigl(\mathbf{A}^{-1}+\mathbf{B}^{-1}\bigr)^{-1} \Bigr],\nonumber 
+ \end{eqnarray}
+
+
+\begin{eqnarray}\label{eq:diffusion_conditional_reverse}
+ q(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{x}) = \mbox{Norm}_{\mathbf{z}_{t-1}}\left[\frac{(1-\alpha_{t-1})}{1-\alpha_{t}}\sqrt{1-\beta_{t}}\mathbf{z}_{t}+\frac{\sqrt{\alpha_{t-1}}\beta_{t}}{1-\alpha_{t}}\mathbf{x},\frac{\beta_{t}(1-\alpha_{t-1})}{1-\alpha_{t}}\mathbf{I} \right].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:diffusion_decoder_prob}
+ Pr(\mathbf{z}_{T})&=& \mbox{Norm}_{\mathbf{z}_{T}}[\mathbf{0},\mathbf{I}]\nonumber \\
+ Pr(\mathbf{z}_{t-1}|\mathbf{z}_{t},\boldsymbol\phi_{t}) &=& \mbox{Norm}_{\mathbf{z}_{t-1}}\Bigl[\mbox{\bf f}_{t}[\mathbf{z}_{t},\boldsymbol\phi_{t}],\sigma_{t}^{2}\mathbf{I}\Bigr]\nonumber\\
+ Pr(\mathbf{x}|\mathbf{z}_{1},\boldsymbol\phi_{1}) & =&\mbox{Norm}_{\mathbf{x}}\Bigl[\mbox{\bf f}_{1}[\mathbf{z}_{1},\boldsymbol\phi_{1}],\sigma^{2}_{1}\mathbf{I}\Bigr],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:diffusion_joint_reverse}
+ Pr(\mathbf{x},\mathbf{z}_{1\ldots T}|\boldsymbol\phi_{1\ldots T}) = Pr(\mathbf{x}|\mathbf{z}_{1},\boldsymbol\phi_1)\prod_{t=2}^{T}Pr(\mathbf{z}_{t-1}|\mathbf{z}_{t},\boldsymbol\phi_t)\cdot Pr(\mathbf{z}_{T}).
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:diffusion_marginalize}
+ Pr(\mathbf{x}|\boldsymbol\phi_{1\ldots T}) = \int Pr(\mathbf{x},\mathbf{z}_{1\ldots T}|\boldsymbol\phi_{1\ldots T}) d\mathbf{z}_{1\ldots T}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \hat{\boldsymbol\phi}_{1\ldots T} = \mathop{\rm argmax}_{\boldsymbol\phi_{1\ldots T}}
+ \left[\sum_{i=1}^{I}\log\Bigl[Pr(\mathbf{x}_i|\boldsymbol\phi_{1\ldots T})\Bigr]\right].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \log\left[Pr(\mathbf{x}|\boldsymbol\phi_{1\ldots T})\right] &=& \log\left[\int Pr(\mathbf{x},\mathbf{z}_{1\ldots T}|\boldsymbol\phi_{1\ldots T}) d\mathbf{z}_{1\ldots T}\right]\nonumber\\
+ &=& \log\left[\int q(\mathbf{z}_{1\ldots T}|\mathbf{x})
+ \frac{Pr(\mathbf{x},\mathbf{z}_{1\ldots T}|\boldsymbol\phi_{1\ldots T}) }{q(\mathbf{z}_{1\ldots T}|\mathbf{x})}d\mathbf{z}_{1\ldots T}\right]\nonumber \\
+ &\geq& \int q(\mathbf{z}_{1\ldots T}|\mathbf{x})\log\left[
+ \frac{Pr(\mathbf{x},\mathbf{z}_{1\ldots T}|\boldsymbol\phi_{1\ldots T}) }{q(\mathbf{z}_{1\ldots T}|\mathbf{x})}\right]d\mathbf{z}_{1\ldots T}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:diffusion_loss_1}
+ \mbox{ELBO}\bigl[\boldsymbol\phi_{1\ldots T}\bigr] = \int q(\mathbf{z}_{1\ldots T}|\mathbf{x})\log\left[
+ \frac{Pr(\mathbf{x},\mathbf{z}_{1\ldots T}|\boldsymbol\phi_{1\ldots T}) }{q(\mathbf{z}_{1\dots T}|\mathbf{x})}\right]d\mathbf{z}_{1\ldots T}.
+ \end{eqnarray}
+
+
+
+\begin{eqnarray}\label{eq:diffusion_simplify_1}
+ \!\log\left[
+ \frac{Pr(\mathbf{x},\mathbf{z}_{1\ldots T}|\boldsymbol\phi_{1\ldots T}) }{q(\mathbf{z}_{1\ldots T}|\mathbf{x})}\right]\!\!&\!\!=\!\!&\!\! \log\left[
+ \frac{ Pr(\mathbf{x}|\mathbf{z}_{1},\boldsymbol\phi_1)\prod_{t=2}^{T}Pr(\mathbf{z}_{t-1}|\mathbf{z}_{t},\boldsymbol\phi_t)\cdot Pr(\mathbf{z}_{T})}{q(\mathbf{z}_{1}|\mathbf{x})\prod_{t=2}^{T}q(\mathbf{z}_{t}|\mathbf{z}_{t-1})}\right] \\
+ \!\!&\!\!=\!\!&\!\! \log\left[\!\frac{ Pr(\mathbf{x}|\mathbf{z}_{1},\boldsymbol\phi_1)}{q(\mathbf{z}_{1}|\mathbf{x})}\!\right]\!+\!\log\left[\!\frac{\prod_{t=2}^{T}Pr(\mathbf{z}_{t-1}|\mathbf{z}_{t},\boldsymbol\phi_t)}{\prod_{t=2}^{T}q(\mathbf{z}_{t}|\mathbf{z}_{t-1})}\!\right]\!+\!\log\Bigl[Pr(\mathbf{z}_{T})\Bigr]. \nonumber
+ \end{eqnarray}
+
+\begin{eqnarray}
+ q(\mathbf{z}_{t}|\mathbf{z}_{t-1}) = q(\mathbf{z}_{t}|\mathbf{z}_{t-1},\mathbf{x}) = \frac{q(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{x})q(\mathbf{z}_{t}|\mathbf{x})}{q(\mathbf{z}_{t-1}|\mathbf{x})},
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:diffusion_simplify_2}
+ \log\left[
+ \frac{Pr(\mathbf{x},\mathbf{z}_{1\ldots T}|\boldsymbol\phi_{1\ldots T}) }{q(\mathbf{z}_{1\ldots T}|\mathbf{x})}\right] &&\nonumber \\
+ &&\hspace{-3cm}= \log\left[\frac{ Pr(\mathbf{x}|\mathbf{z}_{1},\boldsymbol\phi_1)}{q(\mathbf{z}_{1}|\mathbf{x})}\right]+\log\left[\frac{\prod_{t=2}^{T}Pr(\mathbf{z}_{t-1}|\mathbf{z}_{t},\boldsymbol\phi_t)\cdot q(\mathbf{z}_{t-1}|\mathbf{x})}{\prod_{t=2}^{T}q(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{x})\cdot q(\mathbf{z}_{t}|\mathbf{x})}\right]+\log\Bigl[Pr(\mathbf{z}_{T})\Bigr]\nonumber \\
+ &&\hspace{-3cm}=\log\left[Pr(\mathbf{x}|\mathbf{z}_{1},\boldsymbol\phi_1)\right]+\log\left[\frac{\prod_{t=2}^{T}Pr(\mathbf{z}_{t-1}|\mathbf{z}_{t},\boldsymbol\phi_t)}{\prod_{t=2}^{T}q(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{x})}\right]+\log\left[\frac{Pr(\mathbf{z}_{T})}{q(\mathbf{z}_{T}|\mathbf{x})} \right]\nonumber\\
+ &&\hspace{-3cm}\approx\log\left[Pr(\mathbf{x}|\mathbf{z}_{1},\boldsymbol\phi_1)\right]+\sum_{t=2}^{T}\log\left[\frac{Pr(\mathbf{z}_{t-1}|\mathbf{z}_{t},\boldsymbol\phi_t)}{q(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{x})}\right],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:diffusion_loss_2}
+ \mbox{ELBO}\bigl[\boldsymbol\phi_{1\ldots T}\bigr]&&\\
+ &&\hspace{-1.8cm} =\int q(\mathbf{z}_{1\ldots T}|\mathbf{x})\log\left[
+ \frac{Pr(\mathbf{x},\mathbf{z}_{1\ldots T}|\boldsymbol\phi_{1\ldots T}) }{q(\mathbf{z}_{1\ldots T}|\mathbf{x})}\right]d\mathbf{z}_{1\ldots T}\nonumber\\
+ &&\hspace{-1.8cm} \approx\int q(\mathbf{z}_{1\ldots T}|\mathbf{x})
+ \left(\log\left[Pr(\mathbf{x}|\mathbf{z}_{1},\boldsymbol\phi_1)\right]+\sum_{t=2}^{T}\log\left[\frac{Pr(\mathbf{z}_{t-1}|\mathbf{z}_{t},\boldsymbol\phi_t)}{q(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{x})}\right]\right)d\mathbf{z}_{1\ldots T}\nonumber\\
+ &&\hspace{-1.8cm} =\mathbb{E}_{q(\mathbf{z}_{1}|\mathbf{x})}\Bigl[\log\left[Pr(\mathbf{x}|\mathbf{z}_{1},\boldsymbol\phi_1)\right]\Bigr]\! -\! \sum_{t=2}^T \mathbb{E}_{q(\mathbf{z}_{t}|\mathbf{x})}\biggl[\mbox{D}_{KL}\Bigl[q(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{x})\bigl|\bigr|Pr(\mathbf{z}_{t-1}|\mathbf{z}_{t},\boldsymbol\phi_t)\Bigr]\biggr],\nonumber
+ \end{eqnarray}
+
+\begin{eqnarray}
+  Pr(\mathbf{x}|\mathbf{z}_{1},\boldsymbol\phi_{1}) =\mbox{Norm}_{\mathbf{x}}\Bigl[\mbox{\bf f}_{1}[\mathbf{z}_{1},\boldsymbol\phi_{1}],\sigma_{1}^{2}\mathbf{I}\Bigr],
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:diffusion_KL_normal_terms}
+  Pr(\mathbf{z}_{t-1}|\mathbf{z}_{t},\boldsymbol\phi_{t}) &=& \mbox{Norm}_{\mathbf{z}_{t-1}}\Bigl[\mbox{\bf f}_{t}[\mathbf{z}_{t},\boldsymbol\phi_{t}],\sigma_{t}^{2}\mathbf{I}\Bigr]\\
+ q(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{x}) &=& \mbox{Norm}_{\mathbf{z}_{t-1}}\left[\frac{(1-\alpha_{t-1})}{1-\alpha_{t}}\sqrt{1-\beta_{t}}\mathbf{z}_{t}+\frac{\sqrt{\alpha_{t-1}}\beta_{t}}{1-\alpha_{t}}\mathbf{x},\frac{\beta_{t}(1-\alpha_{t-1})}{1-\alpha_{t}}\mathbf{I} \right].\nonumber
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:diffusion_kl_1}
+ D_{KL}\Bigl[q(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{x})\bigl|\bigr|Pr(\mathbf{z}_{t-1}|\mathbf{z}_{t},\boldsymbol\phi_t)\Bigr] &=&\\
+ &&\hspace{-3cm}\frac{1}{2\sigma_{t}^{2}}\left\lVert \frac{(1-\alpha_{t-1})}{1-\alpha_{t}}\sqrt{1-\beta_{t}}\mathbf{z}_{t}+\frac{\sqrt{\alpha_{t-1}}\beta_{t}}{1-\alpha_{t}}\mathbf{x}-\mbox{\bf f}_{t}[\mathbf{z}_{t},\boldsymbol\phi_{t}] \right\rVert^2+C.\nonumber
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:diffusion_loss_function_1}
+ L[\boldsymbol\phi_{1\ldots T}] &=& \sum_{i=1}^{I}\biggl(
+ \begingroup\color{red}
+ \overbrace{\color{black}\rule[0cm]{0mm}{0.6cm}-\log\Bigl[\mbox{Norm}_{\mathbf{x}_i}\left[\mbox{\bf f}_{1}[\mathbf{z}_{i1},\boldsymbol\phi_{1}],\sigma_{1}^{2}\mathbf{I}\right]}^{\mbox{reconstruction term}}
+ \endgroup
+ \Bigr]\\
+ &&\vspace{-1.5cm}
+  + \sum_{t=2}^{T}\frac{1}{2\sigma_{t}^{2}}\biggl\lVert
+  \begingroup\color{red}
+  \underbrace{\color{black}\mystrut{3.0ex}\frac{1-\alpha_{t-1}}{1-\alpha_{t}}\sqrt{1-\beta_{t}}\mathbf{z}_{it}+\frac{\sqrt{\alpha_{t-1}}\beta_{t}}{1-\alpha_{t}}\mathbf{x}_i}_{\mbox{target, mean of~$q(\mathbf{z}_{t-1}|\mathbf{z}_{t},\mathbf{x})$}}
+  \endgroup
+  -
+  \begingroup\color{red}
+  \underbrace{\color{black}\mystrut{3.0ex}\mbox{\bf f}_{t}[\mathbf{z}_{it},\boldsymbol\phi_{t}]}_{\mbox{predicted~$\mathbf{z}_{t-1}$}} 
+  \endgroup
+  \biggr\rVert^2\biggr),\nonumber
+ \end{eqnarray}
+
+
+
+\begin{eqnarray}\label{eq:diffusion_diff_kernel2}
+  \mathbf{z}_{t} = \sqrt{\alpha_{t}}\cdot \mathbf{x} + \sqrt{1-\alpha_{t}}\cdot\boldsymbol\epsilon.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:diffusion_x_reparam}
+  \mathbf{x} = \frac{1}{\sqrt{\alpha_{t}}}\cdot \mathbf{z}_t - \frac{\sqrt{1-\alpha_{t}}}{\sqrt{\alpha_{t}}}\cdot\boldsymbol\epsilon.
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \frac{(1-\alpha_{t-1})}{1-\alpha_{t}}\sqrt{1-\beta_{t}}\mathbf{z}_{t}+\frac{\sqrt{\alpha_{t-1}}\beta_{t}}{1-\alpha_{t}}\mathbf{x} \\
+  &&\hspace{-3cm}
+  =\frac{(1-\alpha_{t-1})}{1-\alpha_{t}}\sqrt{1-\beta_{t}}\mathbf{z}_{t}+\frac{\sqrt{\alpha_{t-1}}\beta_{t}}{1-\alpha_{t}}\left(\frac{1}{\sqrt{\alpha_{t}}} \mathbf{z}_t - \frac{\sqrt{1-\alpha_{t}}}{\sqrt{\alpha_{t}}}\boldsymbol\epsilon\right)\nonumber\\
+ &&\hspace{-3cm}= \frac{(1-\alpha_{t-1})}{1-\alpha_{t}}\sqrt{1-\beta_{t}}\mathbf{z}_{t}+\frac{\beta_{t}}{1-\alpha_{t}}\left(\frac{1}{\sqrt{1-\beta_{t}}} \mathbf{z}_t - \frac{\sqrt{1-\alpha_{t}}}{\sqrt{1-\beta_{t}}}\boldsymbol\epsilon\right),\nonumber
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \frac{(1-\alpha_{t-1})}{1-\alpha_{t}}\sqrt{1-\beta_{t}}\mathbf{z}_{t}+\frac{\sqrt{\alpha_{t-1}}\beta_{t}}{1-\alpha_{t}}\mathbf{x}\\
+  &&\hspace{-3cm}=\left(\frac{(1-\alpha_{t-1})\sqrt{1-\beta_{t}}}{1-\alpha_{t}}+\frac{\beta_{t}}{(1-\alpha_{t})\sqrt{1-\beta_{t}}}\right) \mathbf{z}_t - \frac{\beta_{t}}{\sqrt{1-\alpha_{t}}\sqrt{1-\beta_{t}}}\boldsymbol\epsilon\nonumber \\
+  &&\hspace{-3cm}=\left(\frac{(1-\alpha_{t-1})(1-\beta_{t})}{(1-\alpha_{t})\sqrt{1-\beta_{t}}}+\frac{\beta_{t}}{(1-\alpha_{t})\sqrt{1-\beta_{t}}}\right) \mathbf{z}_t - \frac{\beta_{t}}{\sqrt{1-\alpha_{t}}\sqrt{1-\beta_{t}}}\boldsymbol\epsilon\nonumber \\
+ &&\hspace{-3cm}=\frac{(1-\alpha_{t-1})(1-\beta_{t})+\beta_{t}}{(1-\alpha_{t})\sqrt{1-\beta_{t}}} \mathbf{z}_t - \frac{\beta_{t}}{\sqrt{1-\alpha_{t}}\sqrt{1-\beta_{t}}}\boldsymbol\epsilon\nonumber \\
+ &&\hspace{-3cm}=\frac{1-\alpha_{t}}{(1-\alpha_{t})\sqrt{1-\beta_{t}}} \mathbf{z}_t - \frac{\beta_{t}}{\sqrt{1-\alpha_{t}}\sqrt{1-\beta_{t}}}\boldsymbol\epsilon\nonumber \\
+ &&\hspace{-3cm}=\frac{1}{\sqrt{1-\beta_{t}}} \mathbf{z}_t - \frac{\beta_{t}}{\sqrt{1-\alpha_{t}}\sqrt{1-\beta_{t}}}\boldsymbol\epsilon,\nonumber 
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:diffusion_loss_function_2}
+ L[\boldsymbol\phi_{1\ldots T}] &=& \sum_{i=1}^{I}\biggl(-\log\Bigl[\mbox{Norm}_{\mathbf{x}_i}\left[\mbox{\bf f}_{1}[\mathbf{z}_{i1},\boldsymbol\phi_{1}],\sigma_{1}^{2}\mathbf{I}\right]\Bigr]\\
+ &&\vspace{-2.0cm}
+  + \sum_{t=2}^{T}\frac{1}{2\sigma_{t}^{2}}\left\lVert 
+  \left(\frac{1}{\sqrt{1-\beta_{t}}} \mathbf{z}_{it} - \frac{\beta_{t}}{\sqrt{1-\alpha_{t}}\sqrt{1-\beta_{t}}}\boldsymbol\epsilon_{it}\right)-\mbox{\bf f}_{t}[\mathbf{z}_{it},\boldsymbol\phi_{t}] \right\rVert^2\biggr).\nonumber
+ \end{eqnarray}
+
+
+\begin{eqnarray}\label{eq:diffusion_f_reparam}
+  \mbox{\bf f}_{t}[\mathbf{z}_{t},\boldsymbol\phi_{t}] = \frac{1}{\sqrt{1-\beta_{t}}} \mathbf{z}_t - \frac{\beta_{t}}{\sqrt{1-\alpha_{t}}\sqrt{1-\beta_{t}}}\mbox{\bf g}_t[\mathbf{z}_{t},\boldsymbol\phi_t].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:diffusion_loss_function_3}
+ L[\boldsymbol\phi_{1\ldots T}] =\\
+ &&\hspace{-1.5cm}\sum_{i=1}^{I}-\log\Bigl[\mbox{Norm}_{\mathbf{x}_i}\left[\mbox{\bf f}_{1}[\mathbf{z}_{i1},\boldsymbol\phi_{1}],\sigma_{1}^{2}\mathbf{I}\right]\Bigr] + \sum_{t=2}^{T}\frac{\beta_t^2}{(1-\alpha_{t})(1-\beta_{t})2\sigma_{t}^{2}}\Big\lVert\mbox{\bf g}_{t}[\mathbf{z}_{it},\boldsymbol\phi_{t}]-\boldsymbol\epsilon_{it}\Big\rVert^2.\nonumber 
+ \end{eqnarray}
+
+\begin{eqnarray}
+ L[\boldsymbol\phi_{1\ldots T}] = \sum_{i=1}^{I}\frac{1}{2\sigma_1^2}\Big\lVert\mathbf{x}_i-\mbox{\bf f}_{1}[\mathbf{z}_{i1},\boldsymbol\phi_{1}]\Bigr\rVert^2 + \sum_{t=2}^{T}\frac{\beta_t^2}{(1-\alpha_{t})(1-\beta_{t})2\sigma_{t}^{2}}\Big\lVert\mbox{\bf g}_{t}[\mathbf{z}_{it},\boldsymbol\phi_{t}]-\boldsymbol\epsilon_{it}\Big\rVert^2+C_i.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:diffusion_ls_term}
+  \frac{1}{2\sigma_1^2}\Big\lVert\mathbf{x}_i-\mbox{\bf f}_{1}[\mathbf{z}_{i1},\boldsymbol\phi_{1}]\Bigr\rVert^2 = \frac{1}{2\sigma_1^2}\biggl\lVert \frac{\beta_{1}}{\sqrt{1-\alpha_{1}}\sqrt{1-\beta_{1}}}\mbox{\bf g}_1[\mathbf{z}_{i1},\boldsymbol\phi_1]- \frac{\beta_{1}}{\sqrt{1-\alpha_{1}}\sqrt{1-\beta_{1}}}\boldsymbol\epsilon_{i1}\bigg\rVert^2.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ L[\boldsymbol\phi_{1\ldots T}] \!\!&\!\!=\!\!&\!\! \sum_{i=1}^{I}\sum_{t=1}^{T}\frac{\beta_t^2}{(1-\alpha_{t})(1-\beta_{t})2\sigma_{t}^{2}}\Big\lVert\mbox{\bf g}_{t}[\mathbf{z}_{it},\boldsymbol\phi_{t}]-\boldsymbol\epsilon_{it}\Big\rVert^2,
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:diffusion_loss_function_3b}
+ L[\boldsymbol\phi_{1\ldots T}] &=& \sum_{i=1}^{I}\sum_{t=1}^{T}\Big\lVert\mbox{\bf g}_{t}[\mathbf{z}_{it},\boldsymbol\phi_{t}]-\boldsymbol\epsilon_{it}\Big\rVert^2\\
+ &=& \sum_{i=1}^{I}\sum_{t=1}^{T}\bigg\lVert\mbox{\bf g}_{t}\Bigl[\sqrt{\alpha_t}\cdot\mathbf{x}_i+\sqrt{1-\alpha_t}\cdot\boldsymbol\epsilon_{it},\boldsymbol\phi_{t}\Bigr]-\boldsymbol\epsilon_{it}\bigg\rVert^2\nonumber,
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mathbf{z}_{t-1} = \hat{\mathbf{z}}_{t-1} + \sigma_{t}^2\frac{\partial \log\bigl[\Pr(c|\mathbf{z}_{t})\bigr]}{\partial \mathbf{z}_{t}} + \sigma_{t}\boldsymbol\epsilon.
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \mathbf{x}_{t} = \sqrt{1-\beta_{t}}\cdot\mathbf{x}_{t-1} + \sqrt{\beta_{t}}\cdot\boldsymbol\epsilon_{t},
+ \end{eqnarray}
+
+
+
+\begin{eqnarray}
+ z = a\cdot \epsilon_{1}+b\cdot\epsilon_{2},
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mathbb{E}[z] &=& 0\nonumber \\
+ \mbox{Var}[z] &=& a^2+b^2,
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mathbf{z}_{3} &=&\sqrt{(1-\beta_{3})(1-\beta_{2})(1-\beta_{1}})\cdot\mathbf{x} + \sqrt{1-(1-\beta_{3})(1-\beta_{2})(1-\beta_{1})}\cdot\boldsymbol\epsilon',
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mbox{Norm}_{\mathbf{v}}\left[\mathbf{A}\mathbf{w},\mathbf{B}\right] \propto \mbox{Norm}_{\mathbf{w}}\Bigl[(\mathbf{A}^T\mathbf{B}^{-1}\mathbf{A})^{-1}\mathbf{A}^T\mathbf{B}^{-1}\mathbf{v},(\mathbf{A}^T\mathbf{B}^{-1}\mathbf{A})^{-1}\Bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mbox{Norm}_{\mathbf{x}}[\mathbf{a},\mathbf{A}]\mbox{Norm}_{\mathbf{x}}[\mathbf{b},\mathbf{B}] &\!\!
+ \propto\!\! &
+  \mbox{Norm}_{\mathbf{x}}\Bigl[(\mathbf{A}^{-1}+\mathbf{B}^{-1})^{-1}(\mathbf{A}^{-1}\mathbf{a}+\mathbf{B}^{-1}\mathbf{b}),(\mathbf{A}^{-1}+\mathbf{B}^{-1})^{-1} \Bigr].\nonumber\\
+ \end{eqnarray}
+
+\begin{eqnarray}
+ D_{KL}\Bigl[\mbox{Norm}_{\mathbf{w}}[\mathbf{a},\mathbf{A}]\bigl|\bigr|\mbox{Norm}_{\mathbf{w}}[\mathbf{b},\mathbf{B}]\Bigr]\!\! &\!=\!&\!\!
+ \frac{1}{2}\left(\mbox{tr}\left[\mathbf{B}^{-1}\mathbf{A}\right]-d+(\mathbf{a}-\mathbf{b})^{T}\mathbf{B}^{-1}(\mathbf{a}-\mathbf{b})+\log\left[\frac{
+ |\mathbf{B}|}{|\mathbf{A}|}\right]\right).\nonumber\\
+ \end{eqnarray}
+
+\begin{eqnarray}
+  \sqrt{\frac{\alpha_{t}}{\alpha_{t-1}}}=\sqrt{1-\beta_{t}}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \frac{(1-\alpha_{t-1})(1-\beta_{t})+\beta_{t}}{(1-\alpha_{t})\sqrt{1-\beta_{t}}} =\frac{1}{\sqrt{1-\beta_{t}}}.
+ \end{eqnarray}
+
+\chapter{Reinforcement learning}
+
+\begin{eqnarray}
+ G_{t} = \sum_{k=0}^{\infty}\gamma^{k}r_{t+k+1}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ v[s_t|\pi] = \mathbb{E}\Bigl[G_{t}|s_{t},\pi\Bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ q[s_t,a_t|\pi] = \mathbb{E}\Bigl[G_{t}|s_{t},a_{t},\pi\Bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ v^{*}[s_{t}] = \max_{\pi}\biggl[\mathbb{E}\Bigl[G_{t}|s_{t},\pi\Bigr]\biggr].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ q^*[s_t,a_t] = \max_{\pi}\left[\mathbb{E}\Bigl[G_{t}|s_{t},a_{t},\pi \Bigr]\right].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:reinforce_optimal_policy}
+ \pi[a_{t}|s_{t}] \leftarrow \mathop{\rm argmax}_{a_{t}}\Bigl[q^*[s_t,a_t]\Bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:reinforce_state_ito_action}
+ v[s_{t}] = \sum_{a_t} \pi[a_t|s_t]q[s_t,a_t].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:reinforce_action_ito_state}
+ q[s_{t},a_t] = r[s_t,a_t] + \gamma \cdot \sum_{s_{t+1}} Pr(s_{t+1}|s_{t},a_{t})v[s_{t+1}].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:reinforce_bellman_value}
+ v[s_{t}] = \sum_{a_t} \pi[a_t|s_t]
+ \left(r[s_t,a_t] + \gamma \cdot \sum_{s_{t+1}} Pr(s_{t+1}|s_{t},a_{t})v[s_{t+1}]
+ \right).
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:reinforce_bellman_action}
+ q[s_{t},a_t] = r[s_t,a_t] + \gamma \cdot \sum_{s_{t+1}} Pr(s_{t+1}|s_{t},a_{t})\left(\sum_{a_{t+1}} \pi[a_{t+1}|s_{t+1}]q[s_{t+1},a_{t+1}]\right).
+ \end{eqnarray}
+
+
+\begin{eqnarray}\label{eq:reinforce_dp1}
+ v[s_t]\leftarrow \sum_{a_t} \pi[a_t|s_t]\left(r[s_t,a_t]+\gamma \cdot\sum_{s_{t+1}}Pr(s_{t+1}|s_{t},a_t) v[s_{t+1}]\right),
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:reinforce_dp2}
+ \pi[a_t|s_t] \leftarrow \mathop{\rm argmax}_{a_t}\biggl[r[s_t,a_t]+\gamma \cdot \sum_{s_{t+1}} Pr(s_{t+1}|s_t,a_t)v[s_{t+1}]\biggr].
+ \end{eqnarray}
+
+
+\begin{eqnarray}\label{eq:reinforce:MC_policy_update}
+ \pi[a|s] \leftarrow \mathop{\rm argmax}_{a}\Bigl[q[s,a]\Bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:reinforce_sarsa}
+ q[s_t,a_t] \leftarrow q[s_t,a_t] + \alpha \Bigl(r[s_t,a_t]+\gamma \cdot q[s_{t+1},a_{t+1}] - q[s_t,a_t]\Bigr),
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:reinforce_qlearning}
+ q[s_t,a_t] \leftarrow q[s_t,a_t] + \alpha \Bigl(r[s_t,a_t]+\gamma \cdot \max_{a}\bigl[q[s_{t+1},a]\bigr] - q[s_t,a_t]\Bigr),
+ \end{eqnarray}
+
+\begin{eqnarray}
+ L[\boldsymbol\phi] = \biggl(r[\mathbf{s}_t,a_t]+\gamma \cdot \max_{a}\Bigl[q[\mathbf{s}_{t+1},a,\boldsymbol\phi]\Bigr] - q[\mathbf{s}_t,a_t,\boldsymbol\phi]\biggr)^2,
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \boldsymbol\phi \leftarrow \boldsymbol\phi + \alpha \biggl(r[\mathbf{s}_t,a_t]+\gamma \cdot \max_{a}\Bigl[q[\mathbf{s}_{t+1},a,\boldsymbol\phi]\Bigr] - q[\mathbf{s}_t,a_t,\boldsymbol\phi]\biggr)\frac{\partial q[\mathbf{s}_{t},a_{t},\boldsymbol\phi]}{\partial \boldsymbol\phi}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \boldsymbol\phi \leftarrow \boldsymbol\phi + \alpha \biggl(r[\mathbf{s}_t,a_t]+\gamma \cdot \max_{a}\Bigl[q[\mathbf{s}_{t+1},a,\boldsymbol\phi^{-}]\Bigr] - q[\mathbf{s}_t,a_t,\boldsymbol\phi]\biggr)\frac{\partial q[\mathbf{s}_{t},a_{t},\boldsymbol\phi]}{\partial \boldsymbol\phi}.
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:reinforce_qlearning2}
+ q[s_t,a_t] \leftarrow q[s_t,a_t] + \alpha \Bigl(r[s_t,a_t]+\gamma \cdot \max_{a}\bigl[q[s_{t+1},a]\bigr] - q[s_t,a_t]\Bigr)
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:reinforce_qlearning3}
+ q_1[s_t,a_t] &\leftarrow& q_1[s_t,a_t] + \alpha \Bigl(r[s_t,a_t]+\gamma \cdot q_2\left[s_{t+1},\mathop{\rm argmax}_{a}\Bigl[q_1[s_{t+1},a]\Bigr]\right] - q_1[s_t,a_t]\Bigr)\nonumber\\
+ q_2[s_t,a_t] &\leftarrow& q_2[s_t,a_t] + \alpha \Bigl(r[s_t,a_t]+\gamma \cdot q_1\left[s_{t+1},\mathop{\rm argmax}_{a}\Bigl[q_2[s_{t+1},a]\Bigr]\right] - q_2[s_t,a_t]\Bigr).\nonumber \\
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \boldsymbol\phi_1\!\!\!&\!\!\leftarrow\!\!\!&\!\!\boldsymbol\phi_1\!\!+\!\alpha \biggl(\!r[\mathbf{s}_t,a_t]\!+\!\gamma \!\cdot\! q\biggl[\mathbf{s}_{t+1},\mathop{\rm argmax}_{a}\Bigl[q[\mathbf{s}_{t+1},a,\boldsymbol\phi_1]\Bigr],\boldsymbol\phi_2\biggr] \!\!-\! q[\mathbf{s}_t,a_t,\boldsymbol\phi_1]\!\biggr)\frac{\partial q[\mathbf{s}_{t},a_{t},\boldsymbol\phi_1]}{\partial \boldsymbol\phi_1}\nonumber \\
+ \boldsymbol\phi_2\!\!\!&\!\!\leftarrow\!\!\!&\!\!\boldsymbol\phi_2\!\!+\!\alpha \biggl(\!r[\mathbf{s}_t,a_t]\!+\!\gamma \!\cdot\! q\biggl[\mathbf{s}_{t+1},\mathop{\rm argmax}_{a}\Bigl[q[\mathbf{s}_{t+1},a,\boldsymbol\phi_2]\Bigr],\boldsymbol\phi_1\!\biggr] \!\!-\! q[\mathbf{s}_t,a_t,\boldsymbol\phi_2]\!\biggr)\frac{\partial q[\mathbf{s}_{t},a_{t},\boldsymbol\phi_2]}{\partial \boldsymbol\phi_2}.\nonumber\\
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:reinforce_path_prob}
+ Pr(\boldsymbol\tau|\boldsymbol\theta) &=& Pr(\mathbf{s}_{1})\prod_{t=1}^{T} \pi[a_t|\mathbf{s}_{t},\boldsymbol\theta] Pr(\mathbf{s}_{t+1}|\mathbf{s}_{t},a_{t}).
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:reinforce_policy_loss}
+ \boldsymbol\theta = \mathop{\rm argmax}_{\boldsymbol\theta}\biggl[\mathbb{E}_{\boldsymbol\tau}\Bigl[r[\boldsymbol\tau] \Bigr]\biggr]
+  = \mathop{\rm argmax}_{\boldsymbol\theta}\biggl[\int Pr(\boldsymbol\tau|\boldsymbol\theta) r[\boldsymbol\tau] d\boldsymbol\tau\biggr], 
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \boldsymbol\theta &\leftarrow& \boldsymbol\theta + \alpha\cdot \frac{\partial}{\partial \boldsymbol\theta}\int Pr(\boldsymbol\tau|\boldsymbol\theta) r[\boldsymbol\tau] d\boldsymbol\tau \nonumber \\
+  &=& \boldsymbol\theta + \alpha \cdot\int \frac{\partial Pr(\boldsymbol\tau|\boldsymbol\theta)}{\partial \boldsymbol\theta} r[\boldsymbol\tau] d\boldsymbol\tau. 
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:reinforce_pg_explain}
+ \boldsymbol\theta &\leftarrow& \boldsymbol\theta + \alpha \cdot\int \frac{\partial Pr(\boldsymbol\tau|\boldsymbol\theta)}{\partial \boldsymbol\theta} r[\boldsymbol\tau] d\boldsymbol\tau \nonumber \\
+ &=& \boldsymbol\theta + \alpha \cdot\int Pr(\boldsymbol\tau|\boldsymbol\theta) \frac{1}{Pr(\boldsymbol\tau|\boldsymbol\theta)} \frac{\partial Pr(\boldsymbol\tau|\boldsymbol\theta)}{\partial \boldsymbol\theta} r[\boldsymbol\tau] d\boldsymbol\tau\nonumber \\
+ &\approx & \boldsymbol\theta + \alpha \cdot\frac{1}{I}\sum_{i=1}^{I} \frac{1}{Pr(\boldsymbol\tau_i|\boldsymbol\theta)} \frac{\partial Pr(\boldsymbol\tau_i|\boldsymbol\theta)}{\partial \boldsymbol\theta} r[\boldsymbol\tau_i].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \frac{\partial \log[\mbox{f}[z]]}{\partial z} = \frac{1}{f[z]} \frac{\partial \mbox{f}[z]}{\partial z},
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:reinforce_update_2}
+ \boldsymbol\theta \leftarrow \boldsymbol\theta + \alpha \cdot\frac{1}{I}\sum_{i=1}^{I} \frac{\partial \log\bigl[Pr(\boldsymbol\tau_i|\boldsymbol\theta)\bigr]}{\partial \boldsymbol\theta} r[\boldsymbol\tau_i].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \log[Pr(\boldsymbol\tau|\boldsymbol\theta)] &=& \log\Bigl[Pr(\mathbf{s}_{1})\prod_{t=1}^{T} \pi[a_{t}|\mathbf{s}_{t},\boldsymbol\theta] Pr(\mathbf{s}_{t+1}|\mathbf{s}_{t},a_{t})\Bigr] \\
+ &=& \log\bigl[Pr(\mathbf{s}_{1})\bigr]+\sum_{t=1}^{T} \log\bigl[\pi[a_{t}|\mathbf{s}_{t},\boldsymbol\theta]\bigr] +\sum_{t=1}^{T} \log\bigl[ Pr(\mathbf{s}_{t+1}|\mathbf{s}_{t},a_{t})\bigr]\nonumber,
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \boldsymbol\theta \!&\!\leftarrow\!&\! \boldsymbol\theta + \alpha \cdot\frac{1}{I}\sum_{i=1}^{I} \sum_{t=1}^{T} \frac{\partial\log\bigl[\pi[a_{it}|\mathbf{s}_{it},\boldsymbol\theta]\bigr]}{\partial \boldsymbol\theta} r[\boldsymbol\tau_i],\nonumber \\
+ \end{eqnarray}
+
+\begin{eqnarray}
+ r[\boldsymbol\tau_i] = \sum_{t=1}^{T} r_{i,t+1} = \sum_{k=1}^{t}r_{i,k+1} + \sum_{k=t}^{T}r_{i,k+1},
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \boldsymbol\theta \!&\!\leftarrow\!&\! \boldsymbol\theta + \alpha \cdot\frac{1}{I}\sum_{i=1}^{I} \sum_{t=1}^{T} \frac{\partial\log\bigl[\pi[a_{it}|\mathbf{s}_{it},\boldsymbol\theta]\bigr]}{\partial \boldsymbol\theta} \sum_{k=t}^{T} r_{i,k+1}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ r[\boldsymbol\tau_{it}] = \sum_{k=t+1}^{T} \gamma^{k-t-1}r_{i,k+1},
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \boldsymbol\theta \leftarrow \boldsymbol\theta + \alpha \cdot \gamma^{t}\frac{\partial\log\bigl[\pi_{a_{it}}[\mathbf{s}_{it},\boldsymbol\theta]\bigr]}{\partial \boldsymbol\theta} r[\boldsymbol\tau_{it}]\hspace{2cm}\forall\hspace{1mm} i,t,
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:reinforce_baseline_update}
+ \boldsymbol\theta \leftarrow \boldsymbol\theta + \alpha \cdot\frac{1}{I}\sum_{i=1}^{I} \sum_{t=1}^{T} \frac{\partial\log\bigl[\pi_{a_{it}}[\mathbf{s}_{it},\boldsymbol\theta]\bigr]}{\partial \boldsymbol\theta} \left( r[\boldsymbol\tau_{it}]- b\right).
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mathbb{E}_{\boldsymbol\tau} \left[\sum_{t=1}^{T} \frac{\partial\log\bigl[\pi_{a_{it}}[\mathbf{s}_{it},\boldsymbol\theta]\bigr]}{\partial \boldsymbol\theta}\cdot b\right] = 0,
+ \end{eqnarray}
+
+\begin{eqnarray}
+ b = \sum_{i}\frac{\sum_{t=1}^{T} \left({\partial\log\bigl[\pi_{a_{it}}[\mathbf{s}_{it},\boldsymbol\theta]\bigr]}/{\partial \boldsymbol\theta}\right)^2 r[\boldsymbol\tau_{it}]}{\sum_{t=1}^{T} \left({\partial\log\bigl[\pi_{a_{it}}[\mathbf{s}_{it},\boldsymbol\theta]\bigr]}/{\partial \boldsymbol\theta}\right)^2}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ b = \frac{1}{I}\sum_{i} r[\boldsymbol\tau_{i}].
+ \end{eqnarray}
+
+\begin{eqnarray}\label{eq:reinforce_baseline_update2}
+ \boldsymbol\theta \leftarrow \boldsymbol\theta + \alpha \cdot\frac{1}{I}\sum_{i=1}^{I} \sum_{t=1}^{T} \frac{\partial\log\bigl[\pi_{a_{it}}[\mathbf{s}_{it},\boldsymbol\theta]\bigr]}{\partial \boldsymbol\theta} \left( r[\boldsymbol\tau_{it}]- b[\mathbf{s}_{it}]\right).
+ \end{eqnarray}
+
+\begin{eqnarray}
+ L[\boldsymbol\phi] = \sum_{i=1}^{I}\sum_{t=1}^{T}\left(v[\mathbf{s}_{it},\boldsymbol\phi] - \sum_{j=t}^{T} r_{i,j+1}\right)^2.
+ \end{eqnarray}
+
+
+
+\begin{eqnarray}
+ r[\boldsymbol\tau_{it}] \approx r_{i,t+1} + \gamma \cdot v[\mathbf{s}_{i,t+1},\boldsymbol\phi].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \boldsymbol\theta \leftarrow \boldsymbol\theta + \alpha \cdot\frac{1}{I}\sum_{i=1}^{I} \sum_{t=1}^{T} \frac{\partial\log\bigl[Pr(a_{it}|\mathbf{s}_{it},\boldsymbol\theta)]\bigr]}{\partial \boldsymbol\theta} \Bigl( r_{i,t+1} + \gamma\cdot v[\mathbf{s}_{i,t+1},\boldsymbol\phi] - v[\mathbf{s}_{i,t},\boldsymbol\phi]\Bigr).
+ \end{eqnarray}
+
+\begin{eqnarray}
+ L[\boldsymbol\phi] = \sum_{i=1}^{I}\sum_{t=1}^{T}\left(r_{i,t+1} + \gamma \cdot v[\mathbf{s}_{i,t+1},\boldsymbol\phi]- v[\mathbf{s}_{i,t},\boldsymbol\phi] \right)^2.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \pi'[a_t|s_t] \leftarrow \mathop{\rm argmax}_{a_t}\biggl[r[s_t,a_t]+\gamma \cdot \sum_{s_{t+1}} Pr(s_{t+1}|s_t,a_t)v[s_{t+1}|\pi]\biggr].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ v[s_t|\pi] &\leq& q\Bigl[s_t,\pi'[a_{t}|s_{t}]\Bigl|\pi\Bigr]\nonumber\\
+ &=& \mathbb{E}_{\pi'}\Bigl[r_{t+1} + \gamma\cdot v[s_{t+1}|\pi]\Bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \pi[a|s] = \frac{\exp\bigl[q[s,a]/\tau\bigr]}{\sum_{a'}\exp\bigl[q[s,a']/\tau\bigr]}.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mbox{f}\bigl[q[s,a]\bigr] =r[s,a]+\gamma \cdot \max_{a}\bigl[q[s',a]\bigr].
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \biggl|\biggr|\mbox{f}\bigl[q_1[s,a]\bigr]-\mbox{f}\bigl[q_2[s,a]\bigr]\biggl|\biggr|_{\infty} < 
+  \biggl|\biggr|q_1[s,a]- q_2[s,a]\biggl|\biggr|_\infty\quad\quad\quad\quad \forall\; q_1,q_2.
+ \end{eqnarray}
+
+
+\begin{eqnarray}
+ \mathbb{E}_{\boldsymbol\tau}\left[\frac{\partial}{\partial \boldsymbol\theta} \log\bigl[Pr(\boldsymbol\tau|\boldsymbol\theta)\bigr] b \right]= 0,
+ \end{eqnarray}
+
+
+
+\begin{eqnarray}
+  a' = a - c(b-\mu_b).
+ \end{eqnarray}
+
+\begin{eqnarray}
+ \mathbb{E}_{\boldsymbol\tau}\Bigl[g[\boldsymbol\theta](r[\boldsymbol\tau_t]-b)\Bigr],
+ \end{eqnarray}
+
+\begin{eqnarray}
+  g[\theta] = \sum_{t=1}^{T} \frac{\partial\log\bigl[Pr(a_{t}|\mathbf{s}_{t},\boldsymbol\theta)]\bigr]}{\partial \boldsymbol\theta}, 
+ \end{eqnarray}
+
+\begin{eqnarray}
+ r[\boldsymbol\tau_t] = \sum_{k=t}^{T}r_k.
+ \end{eqnarray}
+
+\begin{eqnarray}
+ b = \frac{\mathbb{E}[g[\boldsymbol\tau]^2]r[\boldsymbol\tau]}{\mathbb{E}[g[\boldsymbol\tau]^2]}.
+ \end{eqnarray}
+
+
+\chapter{Why does deep learning work?}
+
+
+\chapter{Ethics}
+
+
+\end{document}
