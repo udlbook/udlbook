@@ -6,7 +6,7 @@ import {
     NavLinks,
     NavLogo,
     NavMenu,
-} from "@/components/Navbar/NavbarElements";
+} from "@/components/Navbar/elements";
 import { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
@@ -32,73 +32,71 @@ export default function Navbar({ toggle }) {
     };
 
     return (
-        <>
-            <IconContext.Provider value={{ color: "#fff" }}>
-                <Nav scrollNav={scrollNav}>
-                    <NavbarContainer>
-                        <NavLogo to="/udlbook/" onClick={scrollToHome}>
-                            <h1> Understanding Deep Learning </h1>
-                        </NavLogo>
-                        <MobileIcon onClick={toggle}>
-                            <FaBars />
-                        </MobileIcon>
-                        <NavMenu>
-                            <NavItem>
-                                <NavLinks
-                                    to="Notebooks"
-                                    smooth={true}
-                                    duration={500}
-                                    spy={true}
-                                    exact="true"
-                                    offset={-80}
-                                    activeClass="active"
-                                >
-                                    Notebooks
-                                </NavLinks>
-                            </NavItem>
-                            <NavItem>
-                                <NavLinks
-                                    to="Instructors"
-                                    smooth={true}
-                                    duration={500}
-                                    spy={true}
-                                    exact="true"
-                                    offset={-80}
-                                    activeClass="active"
-                                >
-                                    Instructors
-                                </NavLinks>
-                            </NavItem>
-                            <NavItem>
-                                <NavLinks
-                                    to="Media"
-                                    smooth={true}
-                                    duration={500}
-                                    spy={true}
-                                    exact="true"
-                                    offset={-80}
-                                    activeClass="active"
-                                >
-                                    Media
-                                </NavLinks>
-                            </NavItem>
-                            <NavItem>
-                                <NavLinks
-                                    to="More"
-                                    smooth={true}
-                                    duration={500}
-                                    spy={true}
-                                    exact="true"
-                                    offset={-80}
-                                    activeClass="active"
-                                >
-                                    More
-                                </NavLinks>
-                            </NavItem>
-                        </NavMenu>
-                    </NavbarContainer>
-                </Nav>
-            </IconContext.Provider>
-        </>
+        <IconContext.Provider value={{ color: "#fff" }}>
+            <Nav scrollNav={scrollNav}>
+                <NavbarContainer>
+                    <NavLogo to="/udlbook/" onClick={scrollToHome}>
+                        <h1> Understanding Deep Learning </h1>
+                    </NavLogo>
+                    <MobileIcon onClick={toggle}>
+                        <FaBars />
+                    </MobileIcon>
+                    <NavMenu>
+                        <NavItem>
+                            <NavLinks
+                                to="Notebooks"
+                                smooth={true}
+                                duration={500}
+                                spy={true}
+                                exact="true"
+                                offset={-80}
+                                activeClass="active"
+                            >
+                                Notebooks
+                            </NavLinks>
+                        </NavItem>
+                        <NavItem>
+                            <NavLinks
+                                to="Instructors"
+                                smooth={true}
+                                duration={500}
+                                spy={true}
+                                exact="true"
+                                offset={-80}
+                                activeClass="active"
+                            >
+                                Instructors
+                            </NavLinks>
+                        </NavItem>
+                        <NavItem>
+                            <NavLinks
+                                to="Media"
+                                smooth={true}
+                                duration={500}
+                                spy={true}
+                                exact="true"
+                                offset={-80}
+                                activeClass="active"
+                            >
+                                Media
+                            </NavLinks>
+                        </NavItem>
+                        <NavItem>
+                            <NavLinks
+                                to="More"
+                                smooth={true}
+                                duration={500}
+                                spy={true}
+                                exact="true"
+                                offset={-80}
+                                activeClass="active"
+                            >
+                                More
+                            </NavLinks>
+                        </NavItem>
+                    </NavMenu>
+                </NavbarContainer>
+            </Nav>
+        </IconContext.Provider>
     );
 }
