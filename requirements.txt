@@ -1,0 +1,5 @@
+jupyter
+torch
+numpy
+matplotlib
+mnist1d

@@ -12,6 +12,7 @@
 /dist
 
 # ENV
+.venv/
 .env.local
 .env.development.local
 .env.test.local
