@@ -33,45 +33,75 @@ const citation = `
     `;
 
 const news = [
-{
-    date: "01/23/25",
-    content: (
-        <HeroNewsItemContent>
-            Added{" "}
-            <UDLLink href="https://github.com/udlbook/udlbook/raw/main/understanding-deep-learning-final.bib">
-                bibfile 
-            </UDLLink>{" "} for book and
-            <UDLLink href="https://github.com/udlbook/udlbook/raw/main/UDL_Equations.tex">
-               LaTeX 
-            </UDLLink>{" "}
-            for all equations 
-        </HeroNewsItemContent>
-    ),
-},
-{
-    date: "12/17/24",
-    content: (
-        <HeroNewsItemContent>
-            
-            <UDLLink href="https://www.youtube.com/playlist?list=PLRdABJkXXytCz19PsZ1PCQBKoZGV069k3">
-                Video lectures
-            </UDLLink>{" "}
-            for chapters 1-12 from Tamer Elsayed of Qatar University.
-        </HeroNewsItemContent>
-    ),
-},
-{
-    date: "12/05/24",
-    content: (
-        <HeroNewsItemContent>
-            New{" "}
-            <UDLLink href="https://rbcborealis.com/research-blogs/neural-network-gaussian-processes/">
-                blog
-            </UDLLink>{" "}
-            on Neural network Gaussian processes
-        </HeroNewsItemContent>
-    ),
-},
+    {
+        // date: "03/6/25",
+        // content: (
+        //     <HeroNewsItemContent>
+        //         New {" "}
+        //         <UDLLink href="https://dl4ds.github.io/sp2025/lectures/">
+        //             slides and video lectures
+        //         </UDLLink>{" "}
+        //         that closely follow the book from Thomas Gardos of Boston University.
+        //     </HeroNewsItemContent>
+        // ),
+    },
+    {
+        date: "02/19/25",
+        content: (
+            <HeroNewsItemContent>
+                Three new blogs {" "}
+                <UDLLink href="https://rbcborealis.com/research-blogs/odes-and-sdes-for-machine-learning/">
+                    [1]
+                </UDLLink>
+                <UDLLink href="https://rbcborealis.com/research-blogs/introduction-ordinary-differential-equations/">
+                    [2]
+                </UDLLink>
+                <UDLLink href="https://rbcborealis.com/research-blogs/closed-form-solutions-for-odes/">
+                    [3]
+                </UDLLink>{" "}
+                on ODEs and SDEs in machine learning.
+            </HeroNewsItemContent>
+        ),
+    },
+    {
+        date: "01/23/25",
+        content: (
+            <HeroNewsItemContent>
+                Added{" "}
+                <UDLLink href="https://github.com/udlbook/udlbook/raw/main/understanding-deep-learning-final.bib">
+                    bibfile 
+                </UDLLink>{" "} for book and
+                <UDLLink href="https://github.com/udlbook/udlbook/raw/main/UDL_Equations.tex">
+                LaTeX 
+                </UDLLink>{" "}
+                for all equations 
+            </HeroNewsItemContent>
+        ),
+    },
+    {
+        date: "12/17/24",
+        content: (
+            <HeroNewsItemContent>
+                
+                <UDLLink href="https://www.youtube.com/playlist?list=PLRdABJkXXytCz19PsZ1PCQBKoZGV069k3">
+                    Video lectures
+                </UDLLink>{" "}
+                for chapters 1-12 from Tamer Elsayed of Qatar University.
+            </HeroNewsItemContent>
+        ),
+    },
+    {
+        date: "12/05/24",
+        content: (
+            <HeroNewsItemContent>
+                New{" "}
+                <UDLLink href="https://rbcborealis.com/research-blogs/neural-network-gaussian-processes/">
+                    blog
+                </UDLLink>{" "}
+                on Neural network Gaussian processes
+            </HeroNewsItemContent>
+        ),
+    },
 
     {
         date: "11/14/24",
@@ -272,8 +302,8 @@ export default function HeroSection() {
                         <HeroImgWrap>
                             <Img src={img} alt="Book Cover" />
                         </HeroImgWrap>
-                        <HeroLink href="https://github.com/udlbook/udlbook/releases/download/v5.00/UnderstandingDeepLearning_11_21_24_C.pdf">
-                            Download full PDF (21 November 2024)
+                        <HeroLink href="https://github.com/udlbook/udlbook/releases/download/v5.0.1/UnderstandingDeepLearning_03_26_25_C.pdf">
+                            Download full PDF (26 March 2025)
                         </HeroLink>
                         <br /> 
                         <HeroDownloadsImg

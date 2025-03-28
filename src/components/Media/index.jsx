@@ -150,10 +150,21 @@ export default function MediaSection() {
                                     ))}
                                 </ul>
                             </MediaContent>
-                            <TopLine>Video lectures</TopLine>                     
-                            <MediaLink href="https://www.youtube.com/playlist?list=PLRdABJkXXytCz19PsZ1PCQBKoZGV069k3">
-                                Video lectures 
-                            </MediaLink>{" "} for chapter 1-12 from Tamer Elsayed
+                            <TopLine>Video lectures</TopLine>  
+                            <ul>    
+                                <li>            
+                                    <MediaLink href="https://www.youtube.com/playlist?list=PLRdABJkXXytCz19PsZ1PCQBKoZGV069k3">
+                                        Video lectures 
+                                    </MediaLink>{" "} for chapters 1-12 from Tamer Elsayed
+                                </li>  
+                                {/* <li>
+                                    <MediaLink href="https://dl4ds.github.io/sp2025/lectures/">
+                                        Video lectures and slides
+                                    </MediaLink>{" "} that closely follow the book from Thomas Gardos of Boston University.
+                                </li> */}
+                            </ul> 
+
+          
                         </Column2>
                     </MediaRow2>
                 </MediaWrapper>

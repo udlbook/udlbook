@@ -709,6 +709,50 @@ const responsibleAI = [
     },
 ];
 
+const ODESDE = [
+    {
+        text: "ODEs and SDEs in machine learning",
+        link: "https://rbcborealis.com/research-blogs/odes-and-sdes-for-machine-learning/",
+        details: [
+            "ODEs",
+            "SDEs",
+            "ODEs and gradient descent",
+            "SDEs in stochastic gradient descent",
+            "ODEs in residual networks",
+            "ODEs and SDES in diffusion models",
+            "Physics-informed machine learning",
+        ],
+    },
+    {
+        text: "Introduction to ODEs",
+        link: "https://rbcborealis.com/research-blogs/introduction-ordinary-differential-equations/",
+        details: [
+            "What are ODEs?",
+            "Terminology and properties",
+            "Solutions",
+            "Boundary conditions",
+            "Existence of solutions",
+        ],
+    },
+    {
+        text: "Closed-form solutions for ODEs",
+        link: "https://rbcborealis.com/research-blogs/closed-form-solutions-for-odes/",
+        details: [
+            "Validating proposed solutions",
+            "Class 1: Right-hand side is a function of t only",
+            "Class 2: Linear homogeneous",
+            "Class 3: right-hand side is function of x alone",
+            "Class 4: Right-hand side is a separable function of x and t",
+            "Class 5: Exact ODEs",
+            "Class 6: linear inhomogeneous ODEs",
+            "Class 7: Euler homogeneous",
+            "Vector ODEs",
+            "The matrix exponential"
+        ],
+    },
+]
+
+
 export default function MoreSection() {
     return (
         <>
@@ -845,6 +889,23 @@ export default function MoreSection() {
                             <TopLine>Reinforcement learning</TopLine>
                             <MoreOuterList>
                                 {reinforcementLearning.map((item, index) => (
+                                    <li key={index}>
+                                        <MoreLink href={item.link} target="_blank" rel="noreferrer">
+                                            {item.text}
+                                        </MoreLink>
+                                        <MoreInnerP>
+                                            <MoreInnerList>
+                                                {item.details.map((detail, index) => (
+                                                    <li key={index}>{detail}</li>
+                                                ))}
+                                            </MoreInnerList>
+                                        </MoreInnerP>
+                                    </li>
+                                ))}
+                            </MoreOuterList>
+                            <TopLine>ODEs and SDEs in machine learning</TopLine>
+                            <MoreOuterList>
+                                {ODESDE.map((item, index) => (
                                     <li key={index}>
                                         <MoreLink href={item.link} target="_blank" rel="noreferrer">
                                             {item.text}
