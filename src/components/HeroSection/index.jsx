@@ -302,8 +302,8 @@ export default function HeroSection() {
                         <HeroImgWrap>
                             <Img src={img} alt="Book Cover" />
                         </HeroImgWrap>
-                        <HeroLink href="https://github.com/udlbook/udlbook/releases/download/v5.0.1/UnderstandingDeepLearning_03_26_25_C.pdf">
-                            Download full PDF (26 March 2025)
+                        <HeroLink href="https://github.com/udlbook/udlbook/releases/download/v5.0.2/UnderstandingDeepLearning_05_29_25_C.pdf">
+                            Download full PDF (29 May 2025)
                         </HeroLink>
                         <br /> 
                         <HeroDownloadsImg

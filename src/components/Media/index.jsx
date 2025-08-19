@@ -69,23 +69,7 @@ export default function MediaSection() {
                             </VideoFrame>
                         </Column1>
                         <Column2>
-                            Deeper insights podcast
-                            <VideoFrame>
-                                <iframe
-                                    width="100%"
-                                    height="100%"
-                                    src="https://www.youtube.com/embed/nQf4o9TDSHI?si=uMk66zLD7uhuSnQ1&amp;controls=0"
-                                    title="YouTube video player"
-                                    frameBorder="2"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowfullscreen
-                                ></iframe>
-                            </VideoFrame>
-                        </Column2>
-                    </MediaRow>
-                    <MediaRow2>
-                        <Column1>
-                            <TopLine>Reviews</TopLine>
+                        <TopLine>Reviews</TopLine>
                             <MediaContent>
                                 {/* TODO: add dynamic rendering for reviews */}
                                 <ul>
@@ -135,8 +119,6 @@ export default function MediaSection() {
                                     </li>
                                 </ul>
                             </MediaContent>
-                        </Column1>
-                        <Column2>
                             <TopLine>Interviews</TopLine>
                             <MediaContent>
                                 <ul>
@@ -157,16 +139,10 @@ export default function MediaSection() {
                                         Video lectures 
                                     </MediaLink>{" "} for chapters 1-12 from Tamer Elsayed
                                 </li>  
-                                {/* <li>
-                                    <MediaLink href="https://dl4ds.github.io/sp2025/lectures/">
-                                        Video lectures and slides
-                                    </MediaLink>{" "} that closely follow the book from Thomas Gardos of Boston University.
-                                </li> */}
-                            </ul> 
-
-          
+                            </ul>
+ 
                         </Column2>
-                    </MediaRow2>
+                    </MediaRow>
                 </MediaWrapper>
             </MediaContainer>
         </>
