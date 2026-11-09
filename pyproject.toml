@@ -1,0 +1,23 @@
+[project]
+name = "udlbook"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Miraj Samarakkody", email = "miraj.samarakkody@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "jupyter>=1.1.1",
+    "matplotlib>=3.11.2",
+    "mnist1d>=0.0.2.post1",
+    "numpy>=2.5.4",
+    "torch>=2.14.1",
+]
+
+[project.scripts]
+udlbook = "udlbook:main"
+
+[build-system]
+requires = ["uv_build>=0.13.0,<0.14.0"]
+build-backend = "uv_build"
